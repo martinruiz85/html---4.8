@@ -1,0 +1,50 @@
+--INICIA
+--@Item:DiaFeriadoID
+IF COL_LENGTH('tDiaFeriado','DiaFeriadoID') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [DiaFeriadoID] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: DiaFeriadoID'
+END
+--@Item:DiaFeriado
+IF COL_LENGTH('tDiaFeriado','DiaFeriado') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [DiaFeriado] [date] NULL
+ PRINT 'LA COLUMNA INSERTADA: DiaFeriado'
+END
+--@Item:DescDiaFeriado
+IF COL_LENGTH('tDiaFeriado','DescDiaFeriado') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [DescDiaFeriado] [varchar](250) NULL
+ PRINT 'LA COLUMNA INSERTADA: DescDiaFeriado'
+END
+--@Item:SETID
+IF COL_LENGTH('tDiaFeriado','SETID') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [SETID] [varchar](5) NULL
+ PRINT 'LA COLUMNA INSERTADA: SETID'
+END
+--@Item:LOCATION_ID
+IF COL_LENGTH('tDiaFeriado','LOCATION_ID') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [LOCATION_ID] [varchar](10) NULL
+ PRINT 'LA COLUMNA INSERTADA: LOCATION_ID'
+END
+--@Item:FechaUltAct
+IF COL_LENGTH('tDiaFeriado','FechaUltAct') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [FechaUltAct] [datetime] NULL
+ PRINT 'LA COLUMNA INSERTADA: FechaUltAct'
+END
+--@Item:RespUltAct
+IF COL_LENGTH('tDiaFeriado','RespUltAct') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [RespUltAct] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: RespUltAct'
+END
+--@Item:Activo
+IF COL_LENGTH('tDiaFeriado','Activo') IS NULL
+BEGIN
+ ALTER TABLE [tDiaFeriado] ADD [Activo] [bit] NULL
+ PRINT 'LA COLUMNA INSERTADA: Activo'
+END
+--EXITO

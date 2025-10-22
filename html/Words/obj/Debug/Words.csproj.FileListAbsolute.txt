@@ -1,0 +1,40 @@
+C:\Users\Consultorin\Desktop\html\Words\bin\Debug\Words.exe
+C:\Users\Consultorin\Desktop\html\Words\bin\Debug\Words.pdb
+C:\Users\Consultorin\Desktop\html\Words\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\Words\obj\Debug\Words.Properties.Resources.resources
+C:\Users\Consultorin\Desktop\html\Words\obj\Debug\Words.csproj.GenerateResource.Cache
+C:\Users\Consultorin\Desktop\html\Words\obj\Debug\Words.exe
+C:\Users\Consultorin\Desktop\html\Words\obj\Debug\Words.pdb
+C:\Users\Consultorin\Desktop\html\Words\obj\Debug\Words.Form1.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\bin\Debug\Words.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\bin\Debug\Words.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\obj\Debug\Words.Form1.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\obj\Debug\Words.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\obj\Debug\Words.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\obj\Debug\Words.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Words\obj\Debug\Words.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\bin\Debug\Words.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\bin\Debug\Words.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\obj\Debug\Words.Form1.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\obj\Debug\Words.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\obj\Debug\Words.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\obj\Debug\Words.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Words\obj\Debug\Words.pdb
+C:\Proyectos\2015\html\Words\bin\Debug\Words.exe
+C:\Proyectos\2015\html\Words\bin\Debug\Words.pdb
+C:\Proyectos\2015\html\Words\obj\Debug\Words.Form1.resources
+C:\Proyectos\2015\html\Words\obj\Debug\Words.Properties.Resources.resources
+C:\Proyectos\2015\html\Words\obj\Debug\Words.csproj.GenerateResource.Cache
+C:\Proyectos\2015\html\Words\obj\Debug\Words.exe
+C:\Proyectos\2015\html\Words\obj\Debug\Words.pdb
+C:\Proyectos\2015\html\Words\obj\Debug\Words.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\Words\bin\Debug\Words.exe
+C:\Users\usu\source\repos\html - 4.8\html\Words\bin\Debug\Words.pdb
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.Form1.resources
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.Properties.Resources.resources
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.csproj.GenerateResource.cache
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.exe
+C:\Users\usu\source\repos\html - 4.8\html\Words\obj\Debug\Words.pdb

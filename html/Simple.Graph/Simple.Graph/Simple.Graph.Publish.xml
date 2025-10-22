@@ -1,0 +1,11 @@
+<publishData>
+  <publishTarget publishUrl="C:\Releases\Simple.Graph\">
+    <file relUrl="bin/Simple.Graph.dll" publishTime="09/17/2019 12:36:46" />
+    <file relUrl="Handlers/GeneratorLineTickHandler.ashx" publishTime="08/01/2019 17:48:21" />
+    <file relUrl="Default.aspx" publishTime="08/01/2019 17:56:27" />
+    <file relUrl="Handlers/GeneratorTickHandler.ashx" publishTime="08/01/2019 17:48:11" />
+    <file relUrl="bin/Simple.Graph.pdb" publishTime="09/17/2019 12:36:46" />
+    <file relUrl="Handlers/GeneratorHandler.ashx" publishTime="07/16/2019 14:47:47" />
+    <file relUrl="Web.config" publishTime="07/16/2019 14:48:24" />
+  </publishTarget>
+</publishData>

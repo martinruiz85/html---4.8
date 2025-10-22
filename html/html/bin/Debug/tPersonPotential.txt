@@ -1,0 +1,128 @@
+--INICIA
+--@Item:PPotentialID
+IF COL_LENGTH('tPersonPotential','PPotentialID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [PPotentialID] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: PPotentialID'
+END
+--@Item:PID
+IF COL_LENGTH('tPersonPotential','PID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [PID] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: PID'
+END
+--@Item:PotentialID
+IF COL_LENGTH('tPersonPotential','PotentialID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [PotentialID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: PotentialID'
+END
+--@Item:CandReadyID
+IF COL_LENGTH('tPersonPotential','CandReadyID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [CandReadyID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: CandReadyID'
+END
+--@Item:ReadinessDate
+IF COL_LENGTH('tPersonPotential','ReadinessDate') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [ReadinessDate] [datetime] NULL
+ PRINT 'LA COLUMNA INSERTADA: ReadinessDate'
+END
+--@Item:HRPlanPerID
+IF COL_LENGTH('tPersonPotential','HRPlanPerID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [HRPlanPerID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: HRPlanPerID'
+END
+--@Item:AssessmentDate
+IF COL_LENGTH('tPersonPotential','AssessmentDate') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [AssessmentDate] [datetime] NULL
+ PRINT 'LA COLUMNA INSERTADA: AssessmentDate'
+END
+--@Item:PotAssessSrcID
+IF COL_LENGTH('tPersonPotential','PotAssessSrcID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [PotAssessSrcID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: PotAssessSrcID'
+END
+--@Item:AssessedBy
+IF COL_LENGTH('tPersonPotential','AssessedBy') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [AssessedBy] [nvarchar](100) NULL
+ PRINT 'LA COLUMNA INSERTADA: AssessedBy'
+END
+--@Item:Assessment
+IF COL_LENGTH('tPersonPotential','Assessment') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [Assessment] [ntext] NULL
+ PRINT 'LA COLUMNA INSERTADA: Assessment'
+END
+--@Item:EmpComment
+IF COL_LENGTH('tPersonPotential','EmpComment') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [EmpComment] [ntext] NULL
+ PRINT 'LA COLUMNA INSERTADA: EmpComment'
+END
+--@Item:Comment
+IF COL_LENGTH('tPersonPotential','Comment') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [Comment] [ntext] NULL
+ PRINT 'LA COLUMNA INSERTADA: Comment'
+END
+--@Item:TConfID
+IF COL_LENGTH('tPersonPotential','TConfID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [TConfID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: TConfID'
+END
+--@Item:EmpAppraisalID
+IF COL_LENGTH('tPersonPotential','EmpAppraisalID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [EmpAppraisalID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: EmpAppraisalID'
+END
+--@Item:XigEmpPotencialID
+IF COL_LENGTH('tPersonPotential','XigEmpPotencialID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [XigEmpPotencialID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: XigEmpPotencialID'
+END
+--@Item:XigEmpDesempenoID
+IF COL_LENGTH('tPersonPotential','XigEmpDesempenoID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [XigEmpDesempenoID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: XigEmpDesempenoID'
+END
+--@Item:XigResultEmpDesempeno
+IF COL_LENGTH('tPersonPotential','XigResultEmpDesempeno') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [XigResultEmpDesempeno] [decimal](18,2) NULL
+ PRINT 'LA COLUMNA INSERTADA: XigResultEmpDesempeno'
+END
+--@Item:XigResultEmpPotencial
+IF COL_LENGTH('tPersonPotential','XigResultEmpPotencial') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [XigResultEmpPotencial] [decimal](18,2) NULL
+ PRINT 'LA COLUMNA INSERTADA: XigResultEmpPotencial'
+END
+--@Item:XigResultEmpCuadrante
+IF COL_LENGTH('tPersonPotential','XigResultEmpCuadrante') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [XigResultEmpCuadrante] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: XigResultEmpCuadrante'
+END
+--@Item:FeedBackPgmID
+IF COL_LENGTH('tPersonPotential','FeedBackPgmID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [FeedBackPgmID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: FeedBackPgmID'
+END
+--@Item:EmpFeedbackID
+IF COL_LENGTH('tPersonPotential','EmpFeedbackID') IS NULL
+BEGIN
+ ALTER TABLE [tPersonPotential] ADD [EmpFeedbackID] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: EmpFeedbackID'
+END
+--EXITO

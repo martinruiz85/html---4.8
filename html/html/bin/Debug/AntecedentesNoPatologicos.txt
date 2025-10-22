@@ -1,0 +1,176 @@
+--INICIA
+--@Item:Id
+IF COL_LENGTH('AntecedentesNoPatologicos','Id') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [Id] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Id'
+END
+--@Item:FormatoDatosId
+IF COL_LENGTH('AntecedentesNoPatologicos','FormatoDatosId') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [FormatoDatosId] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: FormatoDatosId'
+END
+--@Item:HaFumado
+IF COL_LENGTH('AntecedentesNoPatologicos','HaFumado') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [HaFumado] [bit] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: HaFumado'
+END
+--@Item:FumadorEdadInicio
+IF COL_LENGTH('AntecedentesNoPatologicos','FumadorEdadInicio') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [FumadorEdadInicio] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: FumadorEdadInicio'
+END
+--@Item:CigarridosPorDia
+IF COL_LENGTH('AntecedentesNoPatologicos','CigarridosPorDia') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [CigarridosPorDia] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: CigarridosPorDia'
+END
+--@Item:DejoFumar
+IF COL_LENGTH('AntecedentesNoPatologicos','DejoFumar') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [DejoFumar] [bit] NULL
+ PRINT 'LA COLUMNA INSERTADA: DejoFumar'
+END
+--@Item:EdadDejoFumar
+IF COL_LENGTH('AntecedentesNoPatologicos','EdadDejoFumar') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [EdadDejoFumar] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: EdadDejoFumar'
+END
+--@Item:AñosQueFumo
+IF COL_LENGTH('AntecedentesNoPatologicos','AñosQueFumo') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [AñosQueFumo] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: AñosQueFumo'
+END
+--@Item:TomaBebidasAlcoholicas
+IF COL_LENGTH('AntecedentesNoPatologicos','TomaBebidasAlcoholicas') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [TomaBebidasAlcoholicas] [bit] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: TomaBebidasAlcoholicas'
+END
+--@Item:BebedorEdadInicio
+IF COL_LENGTH('AntecedentesNoPatologicos','BebedorEdadInicio') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [BebedorEdadInicio] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: BebedorEdadInicio'
+END
+--@Item:BebidaAcostumbra
+IF COL_LENGTH('AntecedentesNoPatologicos','BebidaAcostumbra') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [BebidaAcostumbra] [varchar](255) NULL
+ PRINT 'LA COLUMNA INSERTADA: BebidaAcostumbra'
+END
+--@Item:BebidasPorSemana
+IF COL_LENGTH('AntecedentesNoPatologicos','BebidasPorSemana') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [BebidasPorSemana] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: BebidasPorSemana'
+END
+--@Item:DejoTomar
+IF COL_LENGTH('AntecedentesNoPatologicos','DejoTomar') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [DejoTomar] [bit] NULL
+ PRINT 'LA COLUMNA INSERTADA: DejoTomar'
+END
+--@Item:CausaDejoTomar
+IF COL_LENGTH('AntecedentesNoPatologicos','CausaDejoTomar') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [CausaDejoTomar] [varchar](255) NULL
+ PRINT 'LA COLUMNA INSERTADA: CausaDejoTomar'
+END
+--@Item:EdadDejoTomar
+IF COL_LENGTH('AntecedentesNoPatologicos','EdadDejoTomar') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [EdadDejoTomar] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: EdadDejoTomar'
+END
+--@Item:Deporte
+IF COL_LENGTH('AntecedentesNoPatologicos','Deporte') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [Deporte] [bit] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Deporte'
+END
+--@Item:CualDeporte
+IF COL_LENGTH('AntecedentesNoPatologicos','CualDeporte') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [CualDeporte] [varchar](255) NULL
+ PRINT 'LA COLUMNA INSERTADA: CualDeporte'
+END
+--@Item:VecesPorSemana
+IF COL_LENGTH('AntecedentesNoPatologicos','VecesPorSemana') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [VecesPorSemana] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: VecesPorSemana'
+END
+--@Item:HorasPorSemana
+IF COL_LENGTH('AntecedentesNoPatologicos','HorasPorSemana') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [HorasPorSemana] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: HorasPorSemana'
+END
+--@Item:DiasTrabajaSemana
+IF COL_LENGTH('AntecedentesNoPatologicos','DiasTrabajaSemana') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [DiasTrabajaSemana] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: DiasTrabajaSemana'
+END
+--@Item:HorasPorDia
+IF COL_LENGTH('AntecedentesNoPatologicos','HorasPorDia') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [HorasPorDia] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: HorasPorDia'
+END
+--@Item:Viaja
+IF COL_LENGTH('AntecedentesNoPatologicos','Viaja') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [Viaja] [bit] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Viaja'
+END
+--@Item:FueraDelPais
+IF COL_LENGTH('AntecedentesNoPatologicos','FueraDelPais') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [FueraDelPais] [bit] NULL
+ PRINT 'LA COLUMNA INSERTADA: FueraDelPais'
+END
+--@Item:DiasFueraPorMes
+IF COL_LENGTH('AntecedentesNoPatologicos','DiasFueraPorMes') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [DiasFueraPorMes] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: DiasFueraPorMes'
+END
+--@Item:HorasSueñoContinuas
+IF COL_LENGTH('AntecedentesNoPatologicos','HorasSueñoContinuas') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [HorasSueñoContinuas] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: HorasSueñoContinuas'
+END
+--@Item:HaSubidoPeso
+IF COL_LENGTH('AntecedentesNoPatologicos','HaSubidoPeso') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [HaSubidoPeso] [bit] NULL
+ PRINT 'LA COLUMNA INSERTADA: HaSubidoPeso'
+END
+--@Item:HaBajadoPeso
+IF COL_LENGTH('AntecedentesNoPatologicos','HaBajadoPeso') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [HaBajadoPeso] [bit] NULL
+ PRINT 'LA COLUMNA INSERTADA: HaBajadoPeso'
+END
+--@Item:Kilos
+IF COL_LENGTH('AntecedentesNoPatologicos','Kilos') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [Kilos] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: Kilos'
+END
+--@Item:Causas
+IF COL_LENGTH('AntecedentesNoPatologicos','Causas') IS NULL
+BEGIN
+ ALTER TABLE [AntecedentesNoPatologicos] ADD [Causas] [varchar](50) NULL
+ PRINT 'LA COLUMNA INSERTADA: Causas'
+END
+--EXITO

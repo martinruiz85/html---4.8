@@ -1,0 +1,209 @@
+/****** Object:  Table [dbo].[Sucursal]    Script Date: 26/09/2025 10:03:18 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sucursal]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Sucursal](
+	[Id] [int] NOT NULL,
+	[Id_Cliente] [int] NOT NULL,
+	[Nombre] [nvarchar](60) NOT NULL,
+	[BasedeDatos] [nvarchar](255) NOT NULL,
+	[Servidor] [nvarchar](100) NOT NULL,
+	[Usuario] [nvarchar](40) NOT NULL,
+	[Password] [nvarchar](40) NULL,
+	[Status] [bit] NOT NULL,
+	[Alias] [varchar](50) NULL,
+	[VerReporte] [bit] NULL,
+	[PorcentajeVenta] [float] NULL,
+	[UltimoEnvio] [datetime] NULL,
+	[UltimoEnvioExitoso] [datetime] NULL,
+	[UltimaVentaRegistrada] [datetime] NULL,
+	[EnvioNET] [bit] NULL,
+	[ZonaHorariaDistinta] [bit] NOT NULL,
+	[PermitirCargaDeVentas] [bit] NOT NULL,
+	[VersionInventarios] [tinyint] NOT NULL,
+	[VersionNetSilver] [bit] NOT NULL,
+	[PwdLocalDB] [varchar](10) NULL,
+	[VersionActualNetsilver] [varchar](50) NULL,
+	[PwdWebService] [varchar](45) NULL,
+	[RFC] [varchar](50) NULL,
+	[Email] [varchar](500) NULL,
+	[RazonSocial] [varchar](200) NULL,
+	[RFCFacturacion] [varchar](100) NULL,
+	[Mensualidad] [money] NULL,
+	[ClaveSucursal] [varchar](50) NULL,
+	[TipoSucursalId] [int] NULL,
+	[EstatusId] [int] NULL,
+	[Longitud] [varchar](30) NULL,
+	[Latitud] [varchar](30) NULL,
+	[FechaCreacion] [datetime] NULL,
+	[LastUser] [varchar](100) NULL,
+	[CodigoPostal] [varchar](10) NULL,
+	[CodigoRegimenFiscal] [varchar](10) NULL,
+	[ClipComercioId] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_Sucursal] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UC_BasedeDatos] UNIQUE NONCLUSTERED 
+(
+	[BasedeDatos] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Index [IX_Busca1]    Script Date: 26/09/2025 10:03:18 a. m. ******/
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Sucursal]') AND name = N'IX_Busca1')
+CREATE NONCLUSTERED INDEX [IX_Busca1] ON [dbo].[Sucursal]
+(
+	[TipoSucursalId] ASC,
+	[EstatusId] ASC
+)
+INCLUDE([BasedeDatos]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_NombreId]    Script Date: 26/09/2025 10:03:18 a. m. ******/
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Sucursal]') AND name = N'IX_NombreId')
+CREATE NONCLUSTERED INDEX [IX_NombreId] ON [dbo].[Sucursal]
+(
+	[Nombre] ASC,
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+
+GO
+/****** Object:  Index [IX_Sucursal_BaseDeDatos]    Script Date: 26/09/2025 10:03:18 a. m. ******/
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Sucursal]') AND name = N'IX_Sucursal_BaseDeDatos')
+CREATE NONCLUSTERED INDEX [IX_Sucursal_BaseDeDatos] ON [dbo].[Sucursal]
+(
+	[BasedeDatos] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Sucursal_VerReporte]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Sucursal] ADD  CONSTRAINT [DF_Sucursal_VerReporte]  DEFAULT ((0)) FOR [VerReporte]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__sucursal__EnvioN__4C364F0E]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Sucursal] ADD  CONSTRAINT [DF__sucursal__EnvioN__4C364F0E]  DEFAULT ((0)) FOR [EnvioNET]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Sucursal_ZonaHorariaDistinta]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Sucursal] ADD  CONSTRAINT [DF_Sucursal_ZonaHorariaDistinta]  DEFAULT ((0)) FOR [ZonaHorariaDistinta]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Sucursal_PermitirCargaDeVentas]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Sucursal] ADD  CONSTRAINT [DF_Sucursal_PermitirCargaDeVentas]  DEFAULT ((0)) FOR [PermitirCargaDeVentas]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF__sucursal__Versio__6D9742D9]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Sucursal] ADD  CONSTRAINT [DF__sucursal__Versio__6D9742D9]  DEFAULT ((0)) FOR [VersionInventarios]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Sucursal_VersionNetSilver]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Sucursal] ADD  CONSTRAINT [DF_Sucursal_VersionNetSilver]  DEFAULT ((0)) FOR [VersionNetSilver]
+END
+
+GO
+/****** Object:  Trigger [dbo].[LogSucursal_Update]    Script Date: 26/09/2025 10:03:18 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[LogSucursal_Update]'))
+EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER LogSucursal_Update
+ON Sucursal
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+	-- REGISTRO DE NUEVOS INGRESOS	
+    INSERT INTO HistoricoEstatusSucursal(SucursalId,EstatusId,NuevoEstatusId,FechaRegistro)
+    SELECT i.Id,
+	       null,
+		   i.EstatusId,
+		   GETDATE()
+      FROM inserted i
+      LEFT JOIN deleted d ON i.ID = d.ID
+     WHERE d.ID IS NULL;
+
+    -- VERIFICAR QUE SOLO SE HAYA MODIFICADO LA COLUMNA ''ESTATUS''
+    IF (UPDATE(EstatusId)) 
+    BEGIN
+        IF EXISTS (SELECT 1 
+                         FROM inserted i
+						INNER JOIN deleted d ON i.Id = d.Id
+                        WHERE (i.EstatusId != d.EstatusId)) BEGIN
+
+            INSERT INTO HistoricoEstatusSucursal(SucursalId,EstatusId,NuevoEstatusId,FechaRegistro)
+            SELECT i.Id,
+				   d.EstatusId,
+			       i.EstatusId,
+				   GETDATE()
+              FROM inserted i
+			 INNER JOIN deleted d ON i.Id = d.Id
+             WHERE (i.EstatusId != d.EstatusId)
+        END
+    END
+END;
+
+' 
+GO
+ALTER TABLE [dbo].[Sucursal] ENABLE TRIGGER [LogSucursal_Update]
+GO
+/****** Object:  Trigger [dbo].[TG_LogCambioDeEstatus]    Script Date: 26/09/2025 10:03:18 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[TG_LogCambioDeEstatus]'))
+EXEC dbo.sp_executesql @statement = N'  
+create  TRIGGER [dbo].[TG_LogCambioDeEstatus]
+ON [dbo].[Sucursal]
+AFTER INSERT, UPDATE AS
+BEGIN
+SET NOCOUNT ON
+DECLARE @IdSucursal bigint,@RecordDate datetime,@EstatusId int ,@User varchar(200),@Usuario varchar(40)
+
+SET @IdSucursal = (SELECT inserted.Id from inserted)
+SET @RecordDate = GETDATE()
+SET @EstatusId = (SELECT inserted.EstatusId from inserted)
+SET @Usuario = (SELECT inserted.LastUser from inserted)
+SET @User = SUSER_SNAME()
+
+if UPDATE(EstatusId)
+begin
+ if UPDATE(LastUser)
+ begin 
+ insert into LogCambioDeEstatus
+ select @IdSucursal,@RecordDate, @EstatusId, @Usuario
+ end
+ else
+ begin
+ insert into LogCambioDeEstatus
+ select @IdSucursal,@RecordDate, @EstatusId, @User	
+ end
+end
+
+END 
+
+' 
+GO
+ALTER TABLE [dbo].[Sucursal] ENABLE TRIGGER [TG_LogCambioDeEstatus]
+GO

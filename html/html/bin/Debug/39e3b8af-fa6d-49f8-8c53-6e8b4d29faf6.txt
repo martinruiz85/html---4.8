@@ -1,0 +1,5 @@
+user table|dbo.Sucursal|:[x][x]
+trigger|dbo.Sucursal|dbo.LogSucursal_Update|:[x][x]
+trigger|dbo.Sucursal|dbo.TG_LogCambioDeEstatus|:[x][-]
+trigger|dbo.Sucursal|LogSucursal_Update|i|u|-||:[x][x]
+trigger|dbo.Sucursal|TG_LogCambioDeEstatus|i|u|-||:[x][-]

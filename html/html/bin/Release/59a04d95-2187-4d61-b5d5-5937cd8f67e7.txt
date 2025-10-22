@@ -1,0 +1,4 @@
+prms.Add(new SqlParameter("@vintCurUserID", @vintCurUserID));
+prms.Add(new SqlParameter("@vintCurSysLID", @vintCurSysLID));
+prms.Add(new SqlParameter("@vintXigXLPPerID", @vintXigXLPPerID));
+prms.Add(new SqlParameter("@vintPID", @vintPID));

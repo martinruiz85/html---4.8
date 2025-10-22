@@ -1,0 +1,1 @@
+'GrupoTamanoLog','HoraPlatillo','HoraPlatilloLog','HorarioDePlatillo','HorarioDePlatilloLog','ModificadorAdicionalPorTipoOrden','ModificadorAdicionalPorTipoOrdenLog','ModificadorRequerido','ModificadorRequeridoLog',

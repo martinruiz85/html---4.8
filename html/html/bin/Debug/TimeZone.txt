@@ -1,0 +1,20 @@
+/****** Object:  Table [dbo].[TimeZone]    Script Date: 11/04/2025 08:45:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TimeZone]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[TimeZone](
+	[Id] [int] NULL,
+	[Description] [varchar](200) NULL,
+	[IsActive] [bit] NOT NULL
+) ON [PRIMARY]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_TimeZone_IsActive]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[TimeZone] ADD  CONSTRAINT [DF_TimeZone_IsActive]  DEFAULT ((1)) FOR [IsActive]
+END
+
+GO

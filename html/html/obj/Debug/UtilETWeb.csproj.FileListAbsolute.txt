@@ -1,0 +1,588 @@
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmMain.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.Cache
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.exe
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.pdb
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.pdb
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.pdb
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.exe
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.pdb
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmMain.resources
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\Martin Ruiz\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.Cache
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGetText.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\office.dll
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\office.xml
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Users\consultorin\Desktop\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.pdb
+C:\Users\consultorin\Desktop\html\html\bin\Debug\UtilETWeb.exe
+C:\Users\consultorin\Desktop\html\html\bin\Debug\UtilETWeb.pdb
+C:\Users\consultorin\Desktop\html\html\bin\Debug\HtmlAgilityPack.dll
+C:\Users\consultorin\Desktop\html\html\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\consultorin\Desktop\html\html\bin\Debug\office.dll
+C:\Users\consultorin\Desktop\html\html\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\consultorin\Desktop\html\html\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\consultorin\Desktop\html\html\bin\Debug\office.xml
+C:\Users\consultorin\Desktop\html\html\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\html.frmMain.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\html.frmGetText.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Users\consultorin\Desktop\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.Cache
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.exe.config
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.exe
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.pdb
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.exe
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\UtilETWeb.pdb
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.dll
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\office.dll
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\Documentos\Visual Studio 2008\Projects\html\html\bin\Debug\office.xml
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\ResolveAssemblyReference.cache
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGetInfoLabels.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmMain.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGetText.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\Trestan.TCTextBox.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+D:\Documentos\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.Cache
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Users\Consultorin\Desktop\html\html\bin\Debug\Resources\fontawesome-webfont.ttf
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Users\Consultorin\Desktop\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\Resources\fontawesome-webfont.ttf
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\UtilETWeb.frmDiccionary.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\Resources\fontawesome-webfont.ttf
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\UtilETWeb.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\UtilETWeb.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\HtmlAgilityPack.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\System.Windows.Forms.DataVisualization.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\office.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\stdole.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\office.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.csprojResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmMain.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmGetText.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDiccionary.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.pdb
+C:\Proyectos\2015\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.exe
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.pdb
+C:\Proyectos\2015\html\html\bin\Debug\Resources\fontawesome-webfont.ttf
+C:\Proyectos\2015\html\html\bin\Debug\UtilETWeb.exe
+C:\Proyectos\2015\html\html\bin\Debug\UtilETWeb.pdb
+C:\Proyectos\2015\html\html\bin\Debug\HtmlAgilityPack.dll
+C:\Proyectos\2015\html\html\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Proyectos\2015\html\html\bin\Debug\System.Windows.Forms.DataVisualization.dll
+C:\Proyectos\2015\html\html\bin\Debug\office.dll
+C:\Proyectos\2015\html\html\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Proyectos\2015\html\html\bin\Debug\stdole.dll
+C:\Proyectos\2015\html\html\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Proyectos\2015\html\html\bin\Debug\office.xml
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Proyectos\2015\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Proyectos\2015\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Proyectos\2015\html\html\obj\Debug\html.frmMain.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Proyectos\2015\html\html\obj\Debug\html.frmGetText.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Proyectos\2015\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmDiccionary.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Proyectos\2015\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.csprojAssemblyReference.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmMain.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\html.frmGetText.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDiccionary.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\html\obj\Debug\UtilETWeb.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateTableCode.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.csproj.CopyComplete
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmSeparateInserts.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.frmGenerateSpPaging.resources
+C:\Proyectos\2015\html\html\obj\Debug\UtilETWeb.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateSpPaging.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateTableCode.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\html.frmMain.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmSeparateInserts.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\html.frmGetText.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmDiccionary.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.cache
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\usu\source\repos\html\html\html\obj\Debug\UtilETWeb.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmCompareTwoListOfString.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateSpPaging.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateTableCode.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\html.frmGetInfoLabels.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\html.frmMain.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmSeparateInserts.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.Properties.Resources.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmDepends.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmDependsCustom.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateInserts.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateScriptObject.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmScriptTreeByGuid.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsCustom.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateSearchFiles.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\html.frmGetText.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateProcedures.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmRadialTree.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmRenameNumberPrefix.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmExecuteBach.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateScriptsETWeb.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmRegex.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.ResizeImage.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmExtrarRegex.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateMenu.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.ImageToIcon.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\Trestan.TCTextBox.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmDiccionary.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGetReportDataSorce.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmConcurrencia2.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\Base64ToFile.frmBase64toFile.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmCalendarP2P.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmConcurrencia.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmDownloadImage.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmDuplicate.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmEffect.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmFont.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGenerateInsertsMultiple.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGrafica.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmGraficaXig.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmHtmlEncode.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmImageScale.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmResize.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmTimeLine.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.csproj.GenerateResource.cache
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Resources\fontawesome-webfont.ttf
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\UtilETWeb.exe.config
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\UtilETWeb.exe
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\UtilETWeb.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Azure.Core.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Azure.Identity.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\HtmlAgilityPack.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Data.SqlClient.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Data.Tools.Sql.BatchParser.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Identity.Client.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Dmf.Common.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Dmf.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.Collector.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.CollectorEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.HadrData.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.HadrModel.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.RegisteredServers.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.SqlScriptPublish.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEvent.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventDbScoped.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.PolicyEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Smo.Notebook.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlWmiManagement.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.WmiEnum.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Newtonsoft.Json.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Buffers.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.ClientModel.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.IO.FileSystem.AccessControl.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Memory.Data.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Memory.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.AccessControl.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.Cryptography.ProtectedData.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.Permissions.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Text.Json.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.ValueTuple.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\office.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\stdole.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Azure.Core.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Azure.Identity.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Data.SqlClient.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Data.SqlClient.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Data.Tools.Sql.BatchParser.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Data.Tools.Sql.BatchParser.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Identity.Client.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Abstractions.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.ConnectionInfo.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.ConnectionInfo.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Dmf.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Dmf.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Dmf.Common.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Dmf.Common.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.Collector.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.Collector.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.CollectorEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.CollectorEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.HadrData.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.HadrData.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.HadrModel.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.HadrModel.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.RegisteredServers.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.RegisteredServers.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.SqlScriptPublish.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.SqlScriptPublish.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEvent.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEvent.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventDbScoped.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventDbScoped.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventDbScopedEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventDbScopedEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Management.XEventEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.PolicyEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.PolicyEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.RegSvrEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.RegSvrEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Smo.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Smo.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Smo.Notebook.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.Smo.Notebook.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SmoExtended.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SmoExtended.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlClrProvider.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlWmiManagement.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.SqlWmiManagement.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.WmiEnum.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Microsoft.SqlServer.WmiEnum.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\Newtonsoft.Json.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Buffers.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.ClientModel.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.IO.FileSystem.AccessControl.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Memory.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Memory.Data.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.AccessControl.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.Cryptography.ProtectedData.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.Permissions.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Text.Json.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\System.ValueTuple.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\office.xml
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.csproj.Up2Date
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.exe
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.pdb
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.frmMergeFiles.resources
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\Interop.SHDocVw.dll
+C:\Users\usu\source\repos\html - 4.8\html\html\obj\Debug\UtilETWeb.csproj.ResolveComReference.cache

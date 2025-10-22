@@ -1,0 +1,21 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = PosXigCopyNewPerfExitoPlan
+-- ObjectTypeName           = 
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 21 Jul 2022 11:21:41:493
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+
+-- NO OBJECT FOUND
+

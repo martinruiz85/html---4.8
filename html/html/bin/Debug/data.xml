@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <Row>1</Row>
+    <Object>CatalogoTableType</Object>
+    <PRO>x</PRO>
+    <DEV>x</DEV>
+  </Table>
+  <Table>
+    <Row>2</Row>
+    <Object>SucursalTableType</Object>
+    <PRO>x</PRO>
+    <DEV>x</DEV>
+  </Table>
+  <Table>
+    <Row>3</Row>
+    <Object>TablasCentralizadasTableType</Object>
+    <PRO>x</PRO>
+    <DEV>x</DEV>
+  </Table>
+</NewDataSet>

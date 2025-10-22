@@ -1,0 +1,71 @@
+CREATE FUNCTION [dbo].[Split] (
+      @InputString                  VARCHAR(8000),
+      @Delimiter                    VARCHAR(50),
+      @IndexOf						int		=	null
+)
+
+RETURNS @FinalItems TABLE (
+	  "Index"						int,	
+      Item                          VARCHAR(8000)
+)
+
+AS
+BEGIN
+      IF @Delimiter = ' '
+      BEGIN
+            SET @Delimiter = ','
+            SET @InputString = REPLACE(@InputString, ' ', @Delimiter)
+      END
+
+      IF (@Delimiter IS NULL OR @Delimiter = '')
+            SET @Delimiter = ','                            
+
+      DECLARE @Item             VARCHAR(8000)
+      DECLARE @ItemList			VARCHAR(8000)
+      DECLARE @DelimIndex		INT            
+      DECLARE @Index			INT 
+      DECLARE @Items			TABLE	(	
+								"Index"	INT,
+								Item	VARCHAR(8000))		
+
+      
+      SET @Index = 0
+      SET @ItemList = @InputString
+      SET @DelimIndex = CHARINDEX(@Delimiter, @ItemList, 0)
+      WHILE (@DelimIndex != 0)
+      BEGIN
+            SET @Item = SUBSTRING(@ItemList, 0, @DelimIndex)
+            INSERT INTO @Items("Index",Item) VALUES (@Index, @Item)
+
+            -- Set @ItemList = @ItemList minus one less item
+            SET @ItemList = SUBSTRING(@ItemList, @DelimIndex+1, LEN(@ItemList)-@DelimIndex)
+            SET @DelimIndex = CHARINDEX(@Delimiter, @ItemList, 0)
+            SET @Index = @Index + 1
+      END -- End WHILE
+
+      IF @Item IS NOT NULL -- At least one delimiter was encountered in @InputString
+      BEGIN
+            SET @Item = @ItemList
+            INSERT INTO @Items("Index", Item) VALUES (@Index, @Item)
+      END
+
+      -- No delimiters were encountered in @InputString, so just return @InputString
+      ELSE INSERT INTO @Items("Index",Item) VALUES (@Index, @InputString)
+      
+      INSERT INTO @FinalItems
+      SELECT * FROM @Items T1 where T1.[Index] = ISNULL(@IndexOf,t1.[Index])
+            
+      RETURN;
+
+END -- End Function
+GO
+
+---- Set Permissions
+--GRANT SELECT ON Split TO UserRole1
+--GRANT SELECT ON Split TO interdbo
+--GO
+---- Examples
+--SELECT * FROM dbo.Split('oeinvMex_NT1_20140603030857_0064176665_ZEF2.zip','_',null);
+--SELECT * FROM dbo.Split('oeinvMex_NT1_20140603030857_0064176665_ZEF2.zip','_',0);
+--SELECT * FROM dbo.Split('oeinvMex_NT1_20140603030857_0064176665_ZEF2.zip','_',1);
+

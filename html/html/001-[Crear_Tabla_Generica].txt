@@ -1,0 +1,273 @@
+GO
+CREATE TABLE t{0}(
+	{0}ID INT identity constraint rpk_{0} primary key,
+	SortOrder	int constraint rdf_{0}_SortOrder default(10),
+	Hide	bit constraint rdf_{0}_Hide default(0)
+)
+GO
+CREATE TABLE t{0}Text(
+	{0}TID int identity constraint rpk_{0}T primary key,
+	{0}ID int constraint rfk_{0}T_{0}ID foreign key REFERENCES t{0}({0}ID),
+	SysLID int constraint rfk_{0}T_SysLID foreign key REFERENCES tzSysLanguage(SysLID),
+	Code	 varchar(120),
+	CodeDesc	varchar(200),
+	IsDefault	bit constraint rdf_{0}T_IsDefault default(0)
+)
+GO
+CREATE VIEW dbo.v{0}Def
+AS
+/*@@*_____________________________________________________________________
+
+  (c) 2001-2004 ExecuTRACK Software AG
+
+  Object:  vDegreeDef
+  Author:  MRH
+  Created: {1:dd-MMM-yyyy}
+
+  Purpose:
+    This view returns a {0} list with default text values.
+    It is used primarily by v{0} to deliver the default
+    text when the text for a specific language is not available.
+
+  Revision History:
+    Author dd-mmm-yyyy Purpose
+
+_____________________________________________________________________*@@*/
+
+  SELECT
+    {0}.{0}ID,
+    {0}T.SysLID,
+    {0}T.Code,
+    {0}T.CodeDesc,
+    {0}T.IsDefault,
+    {0}.SortOrder,
+    {0}.Hide
+
+  FROM
+    t{0} {0}
+
+    INNER JOIN t{0}Text {0}T
+      ON ({0}.{0}ID = {0}T.{0}ID)
+
+  WHERE
+    {0}T.IsDefault = 1
+GO
+
+CREATE VIEW dbo.v{0}
+AS
+/*@@*_____________________________________________________________________
+
+  (c) 2001-2004 ExecuTRACK Software AG
+
+  Object:  vDegree
+  Author:  MRH
+  Created: {1:dd-MMM-yyyy}
+
+  Purpose:
+    This view returns a {0} list with text for each
+    available system language. If the text is not available for a given
+    language, then the default text is returned.
+
+  Note:
+    To retrieve a Degree list in a given language, use
+    the Code and CodeDesc fields. These fields return the default text
+    if no text is available in a given language. For example:
+
+      SELECT
+        {0}.{0}ID,
+        {0}.SysLID,
+        {0}.Code,
+        {0}.CodeDesc,
+        {0}.SortOrder,
+        {0}.Hide
+      FROM
+        v{0} {0}
+      WHERE
+        {0}.SysLID = 1033
+
+    To retrieve a list of translations for a given code, use the TextCode
+    and TextCodeDesc fields. These fields return NULL, not the default
+    text, if no text is available in any language. For example:
+
+      SELECT
+        {0}.{0}ID,
+        {0}.SysLID,
+        {0}.{0}TID,
+        {0}.TextCode,
+        {0}.TextCodeDesc,
+        {0}.IsDefault
+      FROM
+        v{0} {0}
+      WHERE
+        {0}.{0}ID = 1
+
+
+  Revision History:
+    Author dd-mmm-yyyy Purpose
+    JES1   04-Dec-2003 Now converts NULL IsDefault to 0 and casts to BIT,
+                       required for FormRadioControl on ASP pages.
+
+_____________________________________________________________________*@@*/
+
+  SELECT
+    {0}D.{0}ID,
+    SysL.SysLID,
+
+    -- If the text for a given language is not available, then retrieve
+    -- the default text.
+    Code        = ISNULL( {0}T.Code, {0}D.Code ),
+    CodeDesc    = ISNULL( {0}T.CodeDesc, {0}D.CodeDesc ),
+
+    {0}D.SortOrder,
+    {0}D.Hide,
+
+    -- Retrieve translation text, or NULL if no translation is available.
+    {0}T.{0}TID,
+    TextCode     = {0}T.Code,
+    TextCodeDesc = {0}T.CodeDesc,
+    IsDefault = CAST(ISNULL({0}T.IsDefault,0) AS BIT)
+
+  FROM
+    v{0}Def {0}D
+
+    -- Include each active system language.
+    CROSS JOIN vzSysLanguage SysL
+
+    -- Retrieve the text for each language.
+    LEFT JOIN t{0}Text {0}T
+      ON ({0}D.{0}ID = {0}T.{0}ID)
+     AND (SysL.SysLID = {0}T.SysLID)
+
+GO
+/*
+	EXEC [psel{0}_Get] -1,3082	
+*/
+CREATE PROC [dbo].[psel{0}_Get]
+  @vintCurUserID        INT,
+  @vintCurSysLID        INT,
+  @vblnShowAll          BIT          = 0
+AS
+/*@@*_____________________________________________________________________
+
+  (c) 2001-2004 ExecuTRACK Software AG
+
+  Object:  pselXigVetEstAcaStatus_Get
+  Author:  MRH
+  Created: {1:dd-MMM-yyyy}
+
+  Purpose:
+    This SP retrieves a list of Unit records for a specific unit type.
+    and in the supplied language. It is used by the FormUnitControl.
+    If no language is supplied, the list is retrieved in the language
+    of the user that is supplied. If no user was supplied, it is
+    retrieved in the system's default language.
+
+  Parameters:
+    @vintCurUserID:     Current user context if available. NULL if unknown.
+    @vintCurSysLID:     Language for translated text. NULL if unknown.
+    @vblnShowAll:       (Optional) 1 to show all available (non-hidden)
+                        units in drop-down list, or 0 to show only
+                        those applicable to the user based on txUserUnit.
+    
+  Recordsets:
+    1:  List of Unit records for a FormUnitControl
+
+  Returns:
+    0         - Success
+    <>0       - Error occurred
+_____________________________________________________________________*@@*/
+
+/*______________________ CONSTANT DECLARATIONS _________________________*/
+
+  DECLARE
+    @cstrThisProc              NVARCHAR(128),
+    @cintErrGeneral            INT
+
+  SET @cstrThisProc            = N'psel{0}_Get'
+  SET @cintErrGeneral          = 50000  -- General error. Used when an
+                                        -- error has occurred and no other
+                                        -- specific error condition is
+                                        -- assigned.
+
+/*______________________ VARIABLE DECLARATIONS _________________________*/
+
+  DECLARE
+    @intErrNo       INT,
+    @strErrMsg      NVARCHAR(400),
+    @intReturn      INT
+
+/*_______________________________ INIT _________________________________*/
+
+  -- Setting NOCOUNT ON prevents additional recordsets with the
+  -- "number of records affected" from being returned, which is not
+  -- handled the same by all providers, such as for OLEDB vs. ODBC.
+  SET NOCOUNT ON
+
+/*________________________ VALIDATE PARAMETERS _________________________*/
+
+
+/*_______________________________ MAIN _________________________________*/
+
+
+  -- If no language was supplied for retrieving translated text, then
+  -- retrieve the current user's language, if available, else the system
+  -- default language.
+  IF (@vintCurSysLID IS NULL) BEGIN
+
+    EXEC @intReturn = pzUserLanguage_Get
+      @vintCurUserID = @vintCurUserID,
+      @rintCurSysLID = @vintCurSysLID OUTPUT
+
+    -- Check whether any errors occurred.
+    IF (@intReturn <> 0) GOTO lblError
+
+  END
+
+
+  -- Retrieve list of Unit records for a specific unit type in appropriate
+  -- language.
+  SELECT
+    {0}.{0}ID,
+    {0}.Code,
+    {0}.CodeDesc,
+    Hide = CAST( CASE
+                   WHEN @vblnShowAll = 1 THEN 0
+                   ELSE {0}.Hide
+                 END AS BIT )
+
+  FROM
+    v{0} {0}
+
+  WHERE ({0}.SysLID = @vintCurSysLID)
+
+  ORDER BY
+    {0}.SortOrder,
+    {0}.Code
+
+
+  -- Return value 0 indicates success
+  SET @intReturn = 0
+
+lblExit:
+
+  RETURN @intReturn
+
+/*___________________________ ERROR HANDLER ____________________________*/
+lblError:
+  -- An error has occurred.  On entering this section @intErrNo should
+  -- already hold the error number
+
+  -- By default, if there are any open transactions then roll them back
+  IF (@@TRANCOUNT > 0) BEGIN
+    ROLLBACK TRAN
+
+  END
+
+  -- If return value has not been explicitly set, then use the error
+  -- number as return value to signify failure
+  IF ((@intReturn IS NULL) OR (@intReturn = 0)) BEGIN
+    SET @intReturn = @intErrNo
+
+  END
+
+ GOTO lblExit

@@ -1,0 +1,813 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = XigVetPersonHigherEducation.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 17 Nov 2022 15:36:51:497
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data XigVetPersonHigherEducation.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetPersonHigherEducation.asp'
+
+EXEC @intRecTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin Data - Employee core info', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin Data - Employee core info', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'MSS Data - Employee core info', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'MSS Data - Employee core info', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'ESS Data - Employee core info', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'ESS Data - Employee core info', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Coach Data - Person core information', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Coach Data - Person core information', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Controller - Employee', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Controller - Employee', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Estudios - Employee', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Estudios - Employee', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Estudios - Employee', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Estudios - Employee', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Controller - Employee', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux Controller - Employee', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - MSS Información Curricular Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información Curricular Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - ESS Información Curricular Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Coach Data - Person core information', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Coach Data - Person core information', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'ESS Data - Employee core info', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'ESS Data - Employee core info', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'MSS Data - Employee core info', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'MSS Data - Employee core info', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin Data - Employee core info', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin Data - Employee core info', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetPersonHigherEducation.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+--*****************************************************************************************
+--*** Resource Text Data XigVetPersonHigherEducation.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetPersonHigherEducation.asp', @vblnReturnNewID = 0
+
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Leyenda', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Los estudios deben actualizarse en la opción de Mi Perfil > Información Básica > Estudios'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Leyenda', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Los estudios deben actualizarse en la opción de Mi Perfil > Información Básica > Estudios'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Calif', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Calificación'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Calif', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Calificación'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'International', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Experiencia internacional'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Major', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Licenciatura'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'StartDate', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Start date'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'StartDate', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Fecha de inicio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Institute', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Institution'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Institute', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Institución'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'International', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'International experience'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Major', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Major'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'EndDate', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'End date'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'EndDate', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Fecha de término'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'CtryID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Country'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'CtryID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'País'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Comment', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Notes'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Comment', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Notas'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigUniversitiesID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Institución'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigBecado', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Becado Xignux'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigEstudiando', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Estudiando Actualmente'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigTrunca', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Estudios Truncos'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Completed', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Completed'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Completed', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Titulado'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'CountryCodeDesc', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'País'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'UniversidadCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Institución'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Grade', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Grade'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Grade', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Nivel de Estudio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DegreeCode', @vintSysLID = 1033, @vstrResourceDesc = N'ListDegreeCode', @vstrResourceText = N'Degree'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DegreeCode', @vintSysLID = 3082, @vstrResourceDesc = N'ListDegreeCode', @vstrResourceText = N'Nivel de Estudio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DegreeID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Degree'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DegreeID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Nivel de Estudio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'SubjectCode', @vintSysLID = 3082, @vstrResourceDesc = N'ListSubjectCode', @vstrResourceText = N'Estudio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'SubjectCode', @vintSysLID = 1033, @vstrResourceDesc = N'ListSubjectCode', @vstrResourceText = N'Subject'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'SubjectID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Subject'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'SubjectID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Estudio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Estudios'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Higher Education'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'note', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Nota. Favor de hacer llegar una constancia de este estudio al responsable de RH.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'note', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Nota. Favor de hacer llegar una constancia de este estudio al responsable de RH.'
+
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 1, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPageControl_Load @vintObjID = @intObjID, @vstrName = N'Comment', @vblnIsLegalCheckEnabled = 0, @vblnIsSpellCheckEnabled = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPageControl_Load @vintObjID = @intObjID, @vstrName = N'Major', @vblnIsLegalCheckEnabled = 0, @vblnIsSpellCheckEnabled = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+
+DECLARE @intObjID INT
+
+IF EXISTS(SELECT * FROM tFileCategory WHERE FileCatID = -11)
+BEGIN
+  EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+  EXEC pzObjectFileCategory_Load @vintObjID = @intObjID, @vintFileCatID = -11
+END --IF
+GO
+
+
+DECLARE @intObjID INT
+
+IF EXISTS(SELECT * FROM tFileCategory WHERE FileCatID = -10)
+BEGIN
+  EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+  EXEC pzObjectFileCategory_Load @vintObjID = @intObjID, @vintFileCatID = -10
+END --IF
+GO
+
+
+DECLARE @intObjID INT
+
+IF EXISTS(SELECT * FROM tFileCategory WHERE FileCatID = -4)
+BEGIN
+  EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetPersonHigherEducation.asp', NULL, NULL, NULL, NULL, NULL, 0 
+  EXEC pzObjectFileCategory_Load @vintObjID = @intObjID, @vintFileCatID = -4
+END --IF
+GO
+
+

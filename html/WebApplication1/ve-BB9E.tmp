@@ -1,0 +1,176 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebFormJavaScriptChart.aspx.cs"
+    Inherits="WebApplication1.WebFormJavaScriptChart" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <script type="text/ecmascript" language="javascript">
+
+        var Node = function(prms) {
+
+            var text;
+            var nodes = [];
+
+            text = prms.text;
+
+            return {
+                "Text": function() {
+                    return text;
+                },
+                "Nodes": function() {
+                    return nodes;
+                }
+            }
+
+        };
+
+
+        window.onload = function() {
+
+            //json tree
+            //            var tree = {
+            //                "text": "node parent",
+            //                "nodes": [
+            //                    { "text": "node 11" },
+            //                    { "text": "node 12" },
+            //                    { "text": "node 13",
+            //                        "nodes": [{ "text": "node 131"}]}]
+            //                    };
+
+            var tree = {
+                "text": "node parent",
+                "nodes": [
+                    { "text": "node 11" },
+                    { "text": "node 12" },
+                    { "text": "node 13",
+                        "nodes": [{ "text": "node 131"}]}]
+            };
+
+            //arrange tree
+            posorden(tree);
+
+            // draw tree
+            draw(tree);
+
+        };
+
+
+        var x = 0;
+        var y = 0;
+        var level = 0;
+        var NodeWidth = 175;
+        var NodeHorizontalSpacing = 40;
+        var NodeHeight = 20;
+        var NodeVerticalSpacing = 10;
+
+        function posorden(tree) {
+
+            if ((tree.nodes || []).length > 0)
+                level += 1;
+
+            for (var e in (tree.nodes || [])) {
+                posorden(tree.nodes[e]);
+            }
+
+            //document.writeln(tree.text);
+
+            if ((tree.nodes || []).length > 0)
+                level -= 1;
+
+            var newx = x + level * (NodeWidth + NodeHorizontalSpacing);
+
+            if ((tree.nodes || []).length > 0) {
+                var newy = tree.nodes[0].y + ((tree.nodes[tree.nodes.length - 1].y - tree.nodes[0].y) / 2.00);
+                tree.x = newx;
+                tree.y = newy;
+            }
+            else {
+                tree.x = newx;
+                tree.y = y;
+            }
+
+            y += NodeHeight + NodeVerticalSpacing;
+
+        }
+
+        function draw(tree) {
+
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+
+            ctx.imageSmoothingQuality = "high";
+
+            //ctx.translate(1, 1);
+            //ctx.translate(0.5, 0.5);
+            //ctx.imageSmoothingEnabled = true;
+
+            ctx.beginPath();
+            ctx.fillStyle = '#000000';
+            ctx.strokeStyle = "#000000";
+            ctx.lineWidth = "1px";
+            ctx.rect(tree.x, tree.y, NodeWidth, NodeHeight);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.font = "12px Trebuchet MS";
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            var w = ctx.measureText(tree.text).width;
+
+            //ctx.fillText(tree.text, tree.x, tree.y + NodeHeight, NodeWidth);
+            //ctx.fillText(tree.text, tree.x+(NodeHeight/2), tree.y + (NodeHeight/2), NodeWidth);
+            ctx.fillText(tree.text, tree.x + (NodeWidth / 2), tree.y + (NodeHeight / 2));
+
+            ctx.stroke();
+
+            for (var e in (tree.nodes || [])) {
+
+                //ctx.moveTo(tree.x + NodeWidth, tree.y + NodeHeight / 2);
+                //ctx.lineTo(tree.nodes[e].x, tree.nodes[e].y + NodeHeight / 2);
+                //ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = '#D3D3D3';
+                ctx.strokeStyle = "#D3D3D3";
+                ctx.lineWidth = "1px";
+                ctx.moveTo(tree.x + NodeWidth, tree.y + NodeHeight / 2);
+                ctx.lineTo(tree.x + NodeWidth + NodeHorizontalSpacing / 2, tree.y + NodeHeight / 2);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = '#D3D3D3';
+                ctx.strokeStyle = "#D3D3D3";
+                ctx.lineWidth = "1px";
+                ctx.moveTo(tree.x + NodeWidth + NodeHorizontalSpacing / 2, tree.y + NodeHeight / 2);
+                ctx.lineTo(tree.nodes[e].x - NodeHorizontalSpacing / 2, tree.nodes[e].y + NodeHeight / 2);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = '#D3D3D3';
+                ctx.strokeStyle = "#D3D3D3";
+                ctx.lineWidth = "1px";
+                ctx.moveTo(tree.nodes[e].x, tree.nodes[e].y + NodeHeight / 2);
+                ctx.lineTo(tree.nodes[e].x - NodeHorizontalSpacing / 2, tree.nodes[e].y + NodeHeight / 2);
+                ctx.stroke();
+
+
+                draw(tree.nodes[e]);
+            }
+        }
+            
+    </script>
+
+</head>
+<body>
+    <canvas id="myCanvas" width="650" height="200" style="border: 1px solid #000;">
+    </canvas>
+    <form id="form1" runat="server">
+    <div>
+    </div>
+    </form>
+</body>
+</html>

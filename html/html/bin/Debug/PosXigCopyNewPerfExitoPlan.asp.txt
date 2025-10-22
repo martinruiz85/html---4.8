@@ -1,0 +1,221 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = PosXigCopyNewPerfExitoPlan.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 21 Jul 2022 11:21:55:550
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data PosXigCopyNewPerfExitoPlan.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'PosXigCopyNewPerfExitoPlan.asp'
+
+EXEC @intRecTypeID = sp_zObject_ID 'RecordType', 'tPosition', @vblnReturnNewID = 0
+
+
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin - Org structure', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin - Org structure', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'PosXigCopyNewPerfExitoPlan.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Copia de Perfil del Éxito', @vstrFieldName = NULL, @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Validar Opciones Liberadas', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Validar Opciones Liberadas', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'PosXigCopyNewPerfExitoPlan.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Copia de Perfil del Éxito', @vstrFieldName = NULL, @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Captura Perfil de Éxito Copia de Otro', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Captura Perfil de Éxito Copia de Otro', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'PosXigCopyNewPerfExitoPlan.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Copia de Perfil del Éxito', @vstrFieldName = NULL, @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+--*****************************************************************************************
+--*** Resource Text Data PosXigCopyNewPerfExitoPlan.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+EXEC @intObjID = sp_zObject_ID 'Object', 'PosXigCopyNewPerfExitoPlan.asp', @vblnReturnNewID = 0
+
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Title', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Descripción'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'RecTypeStatCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Estatus'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'TargetPosition', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Puesto Destino'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'HRPlanPerCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Año'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Copia de Perfil del Éxito del Puesto'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'SourcePosition', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Puesto fuente'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Profesional', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Profesional'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'SourcePosCode', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Puesto Fuente'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'PostGrade', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Posgrado'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Products', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Productos'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Mision', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Misión'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Mision', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Misión'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Language', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Idioma'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'LanguageSkill', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Dominio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ExperienceArea', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Areas de experiencia'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Header', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Validación de información Actual'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DirectResponsability', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Responsabilidades directas'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ComplementaryResponsability', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Responsabilidades Complementarias'
+
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'PosXigCopyNewPerfExitoPlan.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 0, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 0
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'PosXigCopyNewPerfExitoPlan.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+
+-- ******************************************************
+-- *** Controller Tree
+-- ******************************************************
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: Explorador de RR.HH. > Explorador de RR.HH. > Información Básica del Puesto > Perfil de Exito del Puesto > Copiar Nuevo Perfil Exito Del Puesto (SysLID: 3082)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Copiar Nuevo Perfil Exito Del Puesto'
+SET @ridCtTreeGUID = N'A359B2D0-D12A-4515-9461-7043B76FDA95'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'PosXigCopyNewPerfExitoPlan.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'01F00085-B6BC-40F6-96EA-FBF708121690', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 3082, @intObjID, @strTreeNodeName, NULL, NULL, NULL, NULL, NULL, 200, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: HR Explorer > HR Explorer > Position Core Information > Nuevo Perfil de Exito del Puesto > Copiar Nuevo Perfil Exito Del Puesto (SysLID: 1033)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Copiar Nuevo Perfil Exito Del Puesto'
+SET @ridCtTreeGUID = N'A359B2D0-D12A-4515-9461-7043B76FDA95'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'PosXigCopyNewPerfExitoPlan.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'01F00085-B6BC-40F6-96EA-FBF708121690', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 1033, @intObjID, @strTreeNodeName, NULL, NULL, NULL, NULL, NULL, 200, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+

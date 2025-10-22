@@ -1,0 +1,148 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = XigReportes360NetCore.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 29 Nov 2023 11:05:27:980
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data XigReportes360NetCore.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigReportes360NetCore.asp'
+
+ 
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin Data - Employee feedback assessments (workflow)', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Admin Data - Employee feedback assessments (workflow)', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigReportes360NetCore.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = NULL, @vstrFieldName = NULL, @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Validar Opciones Liberadas', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Validar Opciones Liberadas', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigReportes360NetCore.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = NULL, @vstrFieldName = NULL, @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigReportes360NetCore.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 0, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 0
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigReportes360NetCore.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+
+-- ******************************************************
+-- *** Controller Tree
+-- ******************************************************
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: Explorador de RR.HH. > Explorador de RR.HH. > Evaluación 360º > Informes > Estatus de Evaluaciones 360 (SysLID: 3082)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Estatus de Evaluaciones 360'
+SET @ridCtTreeGUID = N'C3B0374D-03BC-4220-B20B-734F2DBBF85F'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigReportes360NetCore.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'75C373EC-768D-4CF3-9B45-32D03725C7CA', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 3082, @intObjID, @strTreeNodeName, NULL, NULL, NULL, NULL, NULL, 90, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: HR Explorer > HR Explorer > 360 Degree Feedback > Reports > Estatus de Evaluaciones 360 (SysLID: 1033)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Estatus de Evaluaciones 360'
+SET @ridCtTreeGUID = N'C3B0374D-03BC-4220-B20B-734F2DBBF85F'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigReportes360NetCore.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'75C373EC-768D-4CF3-9B45-32D03725C7CA', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 1033, @intObjID, @strTreeNodeName, NULL, NULL, NULL, NULL, NULL, 90, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+

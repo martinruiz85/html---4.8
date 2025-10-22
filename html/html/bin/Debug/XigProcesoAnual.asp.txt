@@ -1,0 +1,191 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = XigProcesoAnual.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 11 Mar 2022 11:43:23:607
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data XigProcesoAnual.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigProcesoAnual.asp'
+
+EXEC @intRecTypeID = sp_zObject_ID 'RecordType', 'tPosition', @vblnReturnNewID = 0
+
+
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información de SICE Write', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Información de SICE Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigProcesoAnual.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = NULL, @vstrFieldName = NULL, @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = NULL, @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+--*****************************************************************************************
+--*** Resource Text Data XigProcesoAnual.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigProcesoAnual.asp', @vblnReturnNewID = 0
+
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'IncrementosX', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Incremento Extraordinario'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'IncrementosX', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Incremento Extraordinario'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ResEmpresa', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Resultado Empresa'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ResEmpresa', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Resultado Empresa'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ProcResObj', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Resultados Objetivos Ant.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ProcResObj', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Resultados Objetivos Ant.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ProcObjetivos', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Cargar Obj Act.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ProcObjetivos', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Cargar Obj Act.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Incrementos', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Incremento'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Incrementos', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Incremento'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'HRPlanPerID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Periodo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'HRPlanPerID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Periodo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Proceso de Copia'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Proceso de Copia'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Empleados', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Cargar Empleados'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Empleados', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Cargar Empleados'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BotonConsultar', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Consultar'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BotonConsultar', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Consultar'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BonoXPXOX', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Bono XP/XO Extra.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BonoXPXOX', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Bono XP/XO Extra.'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BonoXPXO', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Bono XP/XO'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BonoXPXO', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Bono XP/XO'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BonoXLP', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Bono XLP'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'BonoXLP', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Bono XLP'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'All', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Todos'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'All', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Todos'
+
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigProcesoAnual.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 0, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 0
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigProcesoAnual.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+
+-- ******************************************************
+-- *** Controller Tree
+-- ******************************************************
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: Códigos > Área de Tablas de Códigos > Xignux > Proceso de Copia SCX (SysLID: 3082)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Proceso de Copia SCX'
+SET @ridCtTreeGUID = N'B24233A5-71ED-4258-A4CC-53A97A4A63C8'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigProcesoAnual.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'F55FF57F-60D3-4FE5-9C1B-E51437BE069C', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 3082, @intObjID, @strTreeNodeName, NULL, N'../../Skins/Default/img/TreeIconPage.gif', NULL, NULL, NULL, -10, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: Codes > Code Table Workspace > Xignux > Proceso de Copia SCX (SysLID: 1033)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Proceso de Copia SCX'
+SET @ridCtTreeGUID = N'B24233A5-71ED-4258-A4CC-53A97A4A63C8'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigProcesoAnual.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'F55FF57F-60D3-4FE5-9C1B-E51437BE069C', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 1033, @intObjID, @strTreeNodeName, NULL, NULL, NULL, NULL, NULL, -10, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+

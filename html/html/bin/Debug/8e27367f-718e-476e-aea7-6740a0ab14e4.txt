@@ -1,0 +1,7 @@
+[[@DateCustomsClearance]] = case when [[@DateCustomsClearance]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate
+[[@EventDate]] = case when [[@EventDate]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate
+[[@ExpirationDate]] = case when [[@ExpirationDate]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate
+[[@LastEventDate]] = case when [[@LastEventDate]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate
+[[@OperationDate]] = case when [[@OperationDate]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate
+[[@productionDate]] = case when [[@productionDate]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate
+[[@ClosingDate]] = case when [[@ClosingDate]] is null then null else dbo.fnGetFieldsForFilter(PivotTable.name,[@OutputDate],'InputDate,OutputDate,RealDate') end, --usa OutputDate

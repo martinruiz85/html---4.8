@@ -1,0 +1,42 @@
+/****** Object:  StoredProcedure [dbo].[spUpdSupsidiary]    Script Date: 26/09/2025 09:54:27 a. m. ******/
+DROP PROCEDURE IF EXISTS [dbo].[spUpdSupsidiary]
+GO
+/****** Object:  StoredProcedure [dbo].[spUpdSupsidiary]    Script Date: 26/09/2025 09:54:27 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[spUpdSupsidiary]	
+@Id INT,    
+@Nombre  NVARCHAR(40),        
+@BaseDeDatos NVARCHAR(510),       
+@Email NVARCHAR(500),  
+@Id_Cliente INT,         
+@status BIT,   
+@usuarioLogeado VARCHAR(50),  
+@TipoSucursalId INT,  
+@EstatusId INT,
+@Longitud Varchar(30),
+@Latitud Varchar(30)
+    
+AS      
+DECLARE @Date DATETIME      
+BEGIN     
+    
+UPDATE sucursal     
+SET nombre = @Nombre,     
+basededatos = @BaseDeDatos,     
+email = @Email,  
+[status] = @status,  
+Id_Cliente = @Id_Cliente,  
+TipoSucursalId = @TipoSucursalId,  
+EstatusId = @EstatusId,
+Latitud = @Latitud,
+Longitud = @Longitud
+WHERE id = @Id     
+  
+SELECT @Date = GETDATE()    
+EXECUTE WansoftAdmin..spInsSupportWebLog @Id, 4,2,@Date, @usuarioLogeado                      
+END
+
+GO

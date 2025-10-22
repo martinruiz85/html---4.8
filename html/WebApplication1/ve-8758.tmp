@@ -1,0 +1,217 @@
+﻿<%@ WebHandler Language="C#" Class="OrgChartImgExporter" %>
+
+using System;
+using System.Web;
+using System.Linq;
+using System.Drawing;
+using System.IO;
+using WebApplication1.App_Code;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
+
+/// <summary>
+/// Exports HTML OrgCharts to PDF.
+/// </summary>
+public class OrgChartImgExporter : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+{
+    /// <summary>
+    /// Processes the request.
+    /// </summary>
+    /// <param name="context"></param>
+    public void ProcessRequest(HttpContext context)
+    {
+        context.Response.ContentType = "image/png";
+
+        int _PosID;
+        if (!int.TryParse(context.Request["PosID"], out _PosID))
+            _PosID = -1;
+
+        Bitmap bmp = new Bitmap(640, 300);
+        Graphics g = Graphics.FromImage(bmp);
+        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+        g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
+        GraphicsUnit gu = GraphicsUnit.Pixel;
+        //g.FillRectangle(Brushes.White, Rectangle.Round(bmp.GetBounds(ref gu)));        
+        g.FillRectangle(Brushes.WhiteSmoke, Rectangle.Round(bmp.GetBounds(ref gu)));        
+
+        Generate(_PosID);
+
+        if (TreeNode != null)
+        {
+            float x = 10;
+            float y = 10;
+            int level = 0;
+            PostOrden<TreePositionData>(TreeNode, ref x, ref y, ref level);
+            TreePaint<TreePositionData>(TreeNode, g);
+        }
+
+        // Make the default transparent color transparent for myBitmap.
+        //bmp.MakeTransparent();
+        g.Dispose();
+
+        //bmp.Save(context.Response.OutputStream, ImageFormat.Png);
+
+        using (Bitmap image = bmp)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                ms.WriteTo(context.Response.OutputStream);
+            }
+        }
+
+    }
+
+    private TreeNodePosition TreeNode;
+
+
+    public void PostOrden<T>(TreeNode<T> t, ref float x, ref float y, ref int level)
+    {
+        t.Level = level;
+        if (t.TreeNodeItem.Count > 0)
+        {
+            level += 1;
+
+        }
+        foreach (TreeNode<T> Item in t.TreeNodeItem)
+        {
+            // Recorre en postorden el hijo i-esimo
+            PostOrden(Item, ref x, ref y, ref level);
+        }
+        // Imprime la llave i-esima
+        Console.WriteLine(string.Format("{0}", t.Data));
+
+        if (t.TreeNodeItem.Count > 0)
+        {
+            level -= 1;
+
+        }
+        
+        float newx = x + level * (t.NodeWidth + t.NodeHorizontalSpacing);
+
+        if (t.TreeNodeItem.Count > 0)
+        {
+            float newy = t.TreeNodeItem.FirstOrDefault().Point.Y + ((t.TreeNodeItem.LastOrDefault().Point.Y - t.TreeNodeItem.FirstOrDefault().Point.Y) / 2F);
+            t.Point = new PointF(newx, newy);
+        }
+        else
+            t.Point = new PointF(newx, y);
+
+        y += t.NodeHeight + t.NodeVerticalSpacing;
+    }
+
+    void TreePaint<T>(TreeNode<T> tree, Graphics g)
+    {
+        tree.DrawRectangle(g);
+        foreach (TreeNode<T> Item in tree.TreeNodeItem)
+        {
+            // Draw line to screen.
+            g.DrawLine(Pens.Black, 
+                //parent
+                new PointF(tree.Point.X + tree.NodeWidth, tree.Point.Y + (tree.NodeHeight / 2)),
+                //parent
+                new PointF(tree.Point.X + (tree.NodeWidth + tree.NodeHorizontalSpacing / 2), tree.Point.Y + (tree.NodeHeight / 2)));
+            
+            g.DrawLine(Pens.Black,
+                //parent 
+                new PointF(tree.Point.X + (tree.NodeWidth + tree.NodeHorizontalSpacing / 2), tree.Point.Y + (tree.NodeHeight / 2)),
+                //child
+                new PointF(Item.Point.X - tree.NodeHorizontalSpacing / 2, Item.Point.Y + tree.NodeHeight / 2));
+            
+            g.DrawLine(Pens.Black,
+                //child
+                new PointF(Item.Point.X, Item.Point.Y + tree.NodeHeight / 2),
+                //child
+                new PointF(Item.Point.X - tree.NodeHorizontalSpacing/2, Item.Point.Y + tree.NodeHeight / 2));
+
+            TreePaint<T>(Item, g);
+        }
+    }
+
+
+    public void Generate(int PosID)
+    {
+        DataTable dt = GetData(PosID);
+        if (dt.Rows.Count > 0)
+        {
+            DataRow[] rows = dt.Select("level = 1");
+            if (rows.Length > 0)
+            {
+                TreePositionData Data = new TreePositionData();
+                Data.Title = rows[0].Field<string>("Title");
+                TreeNode = new TreeNodePosition(Data);
+                TreeNode.Level = rows[0].Field<int>("Level");
+                TreeNode.NodeWidth = 170;
+                TreeNode.NodeVerticalSpacing = 20;
+                TreeNode.NodeHorizontalSpacing = 40;
+
+                GenerateTreeNodes(dt, TreeNode, rows[0].Field<int>("PosID"));
+            }
+        }
+    }
+
+    public void GenerateTreeNodes(DataTable dt, TreeNodePosition tree, int PosID)
+    {
+        DataRow[] rows = dt.Select(string.Format("ParentPosID = {0}", PosID));
+        foreach (DataRow item in rows)
+        {
+            TreePositionData Data = new TreePositionData();
+            Data.Title = item.Field<string>("Title");
+            TreeNodePosition newTreeNode = new TreeNodePosition(Data);
+            newTreeNode.Level = item.Field<int>("Level");
+            newTreeNode.NodeWidth = 170;
+            newTreeNode.NodeVerticalSpacing = 10;
+            newTreeNode.NodeHorizontalSpacing = 40;
+            if (newTreeNode.Level == 2) 
+                newTreeNode.NodeColor = Color.FromArgb(255, 255, 255, 178);
+
+            GenerateTreeNodes(dt, newTreeNode, item.Field<int>("PosID"));
+            tree.TreeNodeItem.Add(newTreeNode);
+        }
+    }
+
+    public DataTable GetData(int PosID)
+    {
+        try
+        {
+            List<SqlParameter> l = new List<SqlParameter>();
+            l.Add(new SqlParameter("@vintUserID", -1));
+            l.Add(new SqlParameter("@vintSysLID", 3082));
+            l.Add(new SqlParameter("@vintPosID", PosID));
+            using (SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["ETWeb"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.pfrmXigPosRelationTree_List", c) { CommandType = CommandType.StoredProcedure })
+                {
+                    c.Open();
+                    cmd.Parameters.AddRange(l.ToArray());
+                    cmd.CommandTimeout = 600;
+                    SqlDataReader Reader = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(Reader);
+                    return dt;
+
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    /// <summary>
+    /// To be sure: Don't reuse this handler.
+    /// </summary>
+    public bool IsReusable
+    {
+        get
+        {
+            return false;
+        }
+    }
+
+}

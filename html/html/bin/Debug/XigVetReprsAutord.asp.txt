@@ -1,0 +1,187 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = XigVetReprsAutord.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 17 Nov 2022 15:35:26:090
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data XigVetReprsAutord.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetReprsAutord.asp'
+
+EXEC @intRecTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetReprsAutord.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetReprsAutord.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetReprsAutord.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetReprsAutord.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to add, edit and delete person''s higher education.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+--*****************************************************************************************
+--*** Resource Text Data XigVetReprsAutord.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetReprsAutord.asp', @vblnReturnNewID = 0
+
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Autoridad Técnica'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Autoridad Técnica'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Leyenda', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'MENCIONE LAS ÁREAS O TEMAS EN LOS QUE USTED REPRESENTA LA AUTORIDAD TÉCNICA DENTRO DE PROLEC'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Leyenda', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'MENCIONE LAS ÁREAS O TEMAS EN LOS QUE USTED REPRESENTA LA AUTORIDAD TÉCNICA DENTRO DE PROLEC'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ReprsAutordDesc', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Descripción'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ReprsAutordDesc', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Descripción'
+
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetReprsAutord.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 0, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 0
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetReprsAutord.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+

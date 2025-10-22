@@ -1,0 +1,26 @@
+C:\Users\Consultorin\Desktop\html\MM.Data\bin\Debug\MM.Data.dll
+C:\Users\Consultorin\Desktop\html\MM.Data\bin\Debug\MM.Data.pdb
+C:\Users\Consultorin\Desktop\html\MM.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\MM.Data\obj\Debug\MM.Data.dll
+C:\Users\Consultorin\Desktop\html\MM.Data\obj\Debug\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Data\bin\Debug\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Data\bin\Debug\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Data\obj\Debug\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Data\obj\Debug\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Data\bin\Debug\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Data\bin\Debug\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Data\obj\Debug\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Data\obj\Debug\MM.Data.pdb
+C:\Proyectos\2015\html\MM.Data\bin\Debug\MM.Data.dll
+C:\Proyectos\2015\html\MM.Data\bin\Debug\MM.Data.pdb
+C:\Proyectos\2015\html\MM.Data\obj\Debug\MM.Data.dll
+C:\Proyectos\2015\html\MM.Data\obj\Debug\MM.Data.pdb
+C:\Proyectos\2015\html\MM.Data\obj\Debug\MM.Data.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\MM.Data\obj\Debug\MM.Data.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Data\bin\Debug\MM.Data.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Data\bin\Debug\MM.Data.pdb
+C:\Users\usu\source\repos\html - 4.8\html\MM.Data\obj\Debug\MM.Data.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Data\obj\Debug\MM.Data.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Data\obj\Debug\MM.Data.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Data\obj\Debug\MM.Data.pdb

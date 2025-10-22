@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8FB174D-9273-4AE7-9756-20E277F0B2F9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UtilETWeb</RootNamespace>
+    <AssemblyName>UtilETWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.38.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.38.0\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.11.4.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.11.4\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.5.1.6\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Sql.BatchParser, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.Data.Tools.Sql.BatchParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.61.3.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.61.3\lib\net462\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.61.3.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.61.3\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.35.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.35.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.35.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.35.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.35.0\lib\net472\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.35.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dmf, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Dmf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dmf.Common, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Dmf.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Collector, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.Collector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.CollectorEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.CollectorEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.HadrData, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.HadrData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.HadrModel, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.HadrModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.RegisteredServers, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.RegisteredServers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.SqlScriptPublish, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.SqlScriptPublish.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEvent, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.XEvent.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventDbScoped, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.XEventDbScoped.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventDbScopedEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Management.XEventEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PolicyEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.PolicyEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.RegSvrEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.RegSvrEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.ServiceBrokerEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo.Notebook, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.Smo.Notebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlClrProvider, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.SqlClrProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.SqlEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlWmiManagement, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.SqlWmiManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=17.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.172.64.0\lib\net472\Microsoft.SqlServer.WmiEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ClientModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ClientModel.1.0.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.35.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.7.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Speech">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ButtonFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ExplorerHelper.cs" />
+    <Compile Include="frmDiccionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiccionary.Designer.cs">
+      <DependentUpon>frmDiccionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateSpPaging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateSpPaging.Designer.cs">
+      <DependentUpon>frmGenerateSpPaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateTableCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateTableCode.Designer.cs">
+      <DependentUpon>frmGenerateTableCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetReportDataSorce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetReportDataSorce.Designer.cs">
+      <DependentUpon>frmGetReportDataSorce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMergeFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMergeFiles.Designer.cs">
+      <DependentUpon>frmMergeFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportNodes2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportNodes2.Designer.cs">
+      <DependentUpon>frmReportNodes2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBoxIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CookieAwareWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmConcurrencia2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConcurrencia2.Designer.cs">
+      <DependentUpon>frmConcurrencia2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewDisableButtonColumn.cs" />
+    <Compile Include="DataGridViewImageAnimator.cs" />
+    <Compile Include="Effects\Animate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FileOperationAPIWrapper.cs" />
+    <Compile Include="frmBase64toFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBase64toFile.designer.cs">
+      <DependentUpon>frmBase64toFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCalendarP2P.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalendarP2P.Designer.cs">
+      <DependentUpon>frmCalendarP2P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConcatenate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConcatenate.Designer.cs">
+      <DependentUpon>frmConcatenate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConcurrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConcurrencia.Designer.cs">
+      <DependentUpon>frmConcurrencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDownloadImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDownloadImage.Designer.cs">
+      <DependentUpon>frmDownloadImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDuplicate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDuplicate.Designer.cs">
+      <DependentUpon>frmDuplicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEffect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEffect.Designer.cs">
+      <DependentUpon>frmEffect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFont.Designer.cs">
+      <DependentUpon>frmFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateInsertsMultiple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateInsertsMultiple.Designer.cs">
+      <DependentUpon>frmGenerateInsertsMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGrafica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGrafica.Designer.cs">
+      <DependentUpon>frmGrafica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficaXig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficaXig.Designer.cs">
+      <DependentUpon>frmGraficaXig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHtmlEncode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHtmlEncode.Designer.cs">
+      <DependentUpon>frmHtmlEncode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImageScale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImageScale.Designer.cs">
+      <DependentUpon>frmImageScale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegex.Designer.cs">
+      <DependentUpon>frmRegex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportNodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportNodes.Designer.cs">
+      <DependentUpon>frmReportNodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResize.Designer.cs">
+      <DependentUpon>frmResize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchAll.Designer.cs">
+      <DependentUpon>frmSearchAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeparateInserts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeparateInserts.Designer.cs">
+      <DependentUpon>frmSeparateInserts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimeLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimeLine.Designer.cs">
+      <DependentUpon>frmTimeLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResizeImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResizeImage.Designer.cs">
+      <DependentUpon>ResizeImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DesingRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmExecuteBach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExecuteBach.Designer.cs">
+      <DependentUpon>frmExecuteBach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExtrarRegex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExtrarRegex.Designer.cs">
+      <DependentUpon>frmExtrarRegex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateInsertsCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateInsertsCustom.Designer.cs">
+      <DependentUpon>frmGenerateInsertsCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateMenu.Designer.cs">
+      <DependentUpon>frmGenerateMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateScriptsETWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateScriptsETWeb.Designer.cs">
+      <DependentUpon>frmGenerateScriptsETWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateSearchFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateSearchFiles.Designer.cs">
+      <DependentUpon>frmGenerateSearchFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetText.Designer.cs">
+      <DependentUpon>frmGetText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EnumType.cs" />
+    <Compile Include="Data\Querys.cs" />
+    <Compile Include="frmCompareTwoListOfString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompareTwoListOfString.Designer.cs">
+      <DependentUpon>frmCompareTwoListOfString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDepends.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepends.Designer.cs">
+      <DependentUpon>frmDepends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDependsCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDependsCustom.Designer.cs">
+      <DependentUpon>frmDependsCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateInserts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateInserts.Designer.cs">
+      <DependentUpon>frmGenerateInserts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateProcedures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateProcedures.Designer.cs">
+      <DependentUpon>frmGenerateProcedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateScriptObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateScriptObject.Designer.cs">
+      <DependentUpon>frmGenerateScriptObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetInfoLabels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetInfoLabels.Designer.cs">
+      <DependentUpon>frmGetInfoLabels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateAlterColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateAlterColumn.Designer.cs">
+      <DependentUpon>frmGenerateAlterColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRadialTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRadialTree.Designer.cs">
+      <DependentUpon>frmRadialTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRenameNumberPrefix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRenameNumberPrefix.Designer.cs">
+      <DependentUpon>frmRenameNumberPrefix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScriptTreeByGuid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScriptTreeByGuid.Designer.cs">
+      <DependentUpon>frmScriptTreeByGuid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageToIcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageToIcon.Designer.cs">
+      <DependentUpon>ImageToIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyConfigSection.cs" />
+    <Compile Include="MyExtensionEnum.cs" />
+    <Compile Include="MyExtensionGrapichs.cs" />
+    <Compile Include="MyExtensionString.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PolarToCartesian.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCompareTwoListOfString.resx">
+      <DependentUpon>frmCompareTwoListOfString.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateSpPaging.resx">
+      <DependentUpon>frmGenerateSpPaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateTableCode.resx">
+      <DependentUpon>frmGenerateTableCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetInfoLabels.resx">
+      <DependentUpon>frmGetInfoLabels.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateAlterColumn.resx">
+      <DependentUpon>frmGenerateAlterColumn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMergeFiles.resx">
+      <DependentUpon>frmMergeFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeparateInserts.resx">
+      <DependentUpon>frmSeparateInserts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RadialTreePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextBoxExtensions.cs" />
+    <Compile Include="TCTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxClean.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TimeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TreeViewCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WheelOfColor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\generator.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\work.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmDepends.resx">
+      <DependentUpon>frmDepends.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDependsCustom.resx">
+      <DependentUpon>frmDependsCustom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateInserts.resx">
+      <DependentUpon>frmGenerateInserts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateScriptObject.resx">
+      <DependentUpon>frmGenerateScriptObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScriptTreeByGuid.resx">
+      <DependentUpon>frmScriptTreeByGuid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\node.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmGenerateInsertsCustom.resx">
+      <DependentUpon>frmGenerateInsertsCustom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateSearchFiles.resx">
+      <DependentUpon>frmGenerateSearchFiles.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetText.resx">
+      <DependentUpon>frmGetText.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateProcedures.resx">
+      <DependentUpon>frmGenerateProcedures.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRadialTree.resx">
+      <DependentUpon>frmRadialTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRenameNumberPrefix.resx">
+      <DependentUpon>frmRenameNumberPrefix.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\application-form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmExecuteBach.resx">
+      <DependentUpon>frmExecuteBach.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateScriptsETWeb.resx">
+      <DependentUpon>frmGenerateScriptsETWeb.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\folder-horizontal-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cross-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\at-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\lightning-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\table-insert-column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\function.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\table-select-all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\script.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmRegex.resx">
+      <DependentUpon>frmRegex.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResizeImage.resx">
+      <DependentUpon>ResizeImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExtrarRegex.resx">
+      <DependentUpon>frmExtrarRegex.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateMenu.resx">
+      <DependentUpon>frmGenerateMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageToIcon.resx">
+      <DependentUpon>ImageToIcon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\lightning.png" />
+    <EmbeddedResource Include="TCTextBox.resx">
+      <DependentUpon>TCTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-tex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-sql.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scripts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQL-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\unnamed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmDiccionary.resx">
+      <DependentUpon>frmDiccionary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetReportDataSorce.resx">
+      <DependentUpon>frmGetReportDataSorce.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConcurrencia2.resx">
+      <DependentUpon>frmConcurrencia2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBase64toFile.resx">
+      <DependentUpon>frmBase64toFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCalendarP2P.resx">
+      <DependentUpon>frmCalendarP2P.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConcurrencia.resx">
+      <DependentUpon>frmConcurrencia.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDownloadImage.resx">
+      <DependentUpon>frmDownloadImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDuplicate.resx">
+      <DependentUpon>frmDuplicate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEffect.resx">
+      <DependentUpon>frmEffect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFont.resx">
+      <DependentUpon>frmFont.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateInsertsMultiple.resx">
+      <DependentUpon>frmGenerateInsertsMultiple.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGrafica.resx">
+      <DependentUpon>frmGrafica.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficaXig.resx">
+      <DependentUpon>frmGraficaXig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHtmlEncode.resx">
+      <DependentUpon>frmHtmlEncode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImageScale.resx">
+      <DependentUpon>frmImageScale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResize.resx">
+      <DependentUpon>frmResize.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimeLine.resx">
+      <DependentUpon>frmTimeLine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Export-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="000-[sp_AddColumn].txt" />
+    <Content Include="001-[Crear_Tabla_Generica].txt" />
+    <Content Include="003-[sp_CompareText].txt" />
+    <Content Include="002-[Split].txt" />
+    <Content Include="004-[Searchinall].txt" />
+    <Content Include="Example Regex.txt" />
+    <None Include="Resources\0001-[sp_Alias_list_pag].sql" />
+    <None Include="Resources\blood.png" />
+    <None Include="Resources\smoke.png" />
+    <None Include="Resources\adventurer-Sheet.png" />
+    <None Include="Resources\w37WnEAy.png" />
+    <None Include="Resources\QQM+_rWS.png" />
+    <None Include="Resources\eoe.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

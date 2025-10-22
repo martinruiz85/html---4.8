@@ -1,0 +1,46 @@
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\MM.Library.dll
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\MM.Library.pdb
+C:\Users\Consultorin\Desktop\html\MM.Library\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\MM.Library\obj\Debug\MM.Library.dll
+C:\Users\Consultorin\Desktop\html\MM.Library\obj\Debug\MM.Library.pdb
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\MM.Data.dll
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\MM.Data.pdb
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Consultorin\Desktop\html\MM.Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\bin\Debug\MM.Library.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\bin\Debug\MM.Library.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\bin\Debug\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\bin\Debug\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\obj\Debug\MM.Library.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\obj\Debug\MM.Library.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\bin\Debug\MM.Library.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\bin\Debug\MM.Library.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\bin\Debug\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\bin\Debug\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\obj\Debug\MM.Library.csprojResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\obj\Debug\MM.Library.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Library\obj\Debug\MM.Library.pdb
+C:\Proyectos\2015\html\MM.Library\bin\Debug\MM.Library.dll
+C:\Proyectos\2015\html\MM.Library\bin\Debug\MM.Library.pdb
+C:\Proyectos\2015\html\MM.Library\bin\Debug\MM.Data.dll
+C:\Proyectos\2015\html\MM.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Proyectos\2015\html\MM.Library\bin\Debug\MM.Data.pdb
+C:\Proyectos\2015\html\MM.Library\obj\Debug\MM.Library.dll
+C:\Proyectos\2015\html\MM.Library\obj\Debug\MM.Library.pdb
+C:\Proyectos\2015\html\MM.Library\obj\Debug\MM.Library.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\MM.Library\obj\Debug\MM.Library.csproj.CopyComplete
+C:\Proyectos\2015\html\MM.Library\obj\Debug\MM.Library.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\bin\Debug\MM.Library.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\bin\Debug\MM.Library.pdb
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\bin\Debug\MM.Data.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\bin\Debug\MM.Data.pdb
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\obj\Debug\MM.Library.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\obj\Debug\MM.Library.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\obj\Debug\MM.Library.csproj.Up2Date
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\obj\Debug\MM.Library.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Library\obj\Debug\MM.Library.pdb

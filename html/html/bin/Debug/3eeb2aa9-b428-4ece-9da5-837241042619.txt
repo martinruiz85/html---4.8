@@ -1,0 +1,84 @@
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'ECommerceGroup',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'EcommerceIntegration',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'ECommerceSaucer',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'ECommerceTamano',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'ECommerceSaucerLog',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'ECommerceGroupLog',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO
+exec dbo.pfrmXigSubject_Save_CataW
+@vintCurUserID = -1,
+@vintCurSysLID = 3082,
+@rintSubjectID = null,
+@vintSysLID    = 3082,
+@vstrCode      = 'EcommerceIntegrationLog',
+@vstrCodeDesc  = '',
+@vblnIsDefault = 1,
+@vintDegreeID  = 4,
+@vintSortOrder = 10,
+@vblnHide      = 0
+GO

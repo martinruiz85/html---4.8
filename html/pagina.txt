@@ -1,0 +1,700 @@
+
+<html>
+<head>
+  <link rel="stylesheet" href="/ETWebDEV103/Skins/Default/style.css">
+  <script type="text/javascript" src="/ETWebDEV103/system/ClientScript/ScrollScript.asp"></script>
+  <title>Dependientes</title>
+</head>
+<body>
+<!-- -----------------------------------------------
+     Page Header
+------------------------------------------------ -->
+<div id="PageHeader" class="PageHeader">
+  
+  <!-- ===================================================== -->
+  <!-- Slot / Employee Banner -->
+  <!-- ===================================================== -->
+  <table cellpadding="0" cellspacing="0" style="margin-bottom: 4px; width: 100%;" >
+    <tr style="vertical-align: top">
+      <td>
+        <div class="EmployeeFormTitle">
+      
+          <!-- Record type icon -->
+          <span>
+            <img src="/ETWebDEV103/Skins/Default/img/RecTypeIconEmployee.gif"
+              style="width: 16px; height: 16px; vertical-align: middle; padding: 2px; margin: 1px">
+          </span>
+
+          <span title="Nombre">
+            , FRANCISCO JAVIER
+          </span>
+          <span>&nbsp;&nbsp;</span>
+          <span style="font-weight: normal"
+                title="C&#243;digo del empleado">
+            <span dir="ltr">(</span>0039420<span dir="ltr">)</span>
+          </span>
+          <span>&nbsp;&nbsp;</span>
+          <span><script type="text/javascript" src="/ETWebDEV103/System/ClientScript/FormEmailControlScript.asp"></script>
+<script type="text/javascript">
+var __emc_EmailLink_Subject = ""
+var __emc_EmailLink_Recipient = ""
+var __emc_EmailLink = new EmailControl("EmailLink", "__emc_EmailLink");
+function EmailLink_load() { __emc_EmailLink.adjustControls(); }
+addEvent(window, "load", EmailLink_load, false);
+</script></span>
+        </div>
+        <div class="Form">
+          <table cellpadding="0" cellspacing="0" style="width: 98%">
+            <tr>
+              <td >
+                <span title="Puesto">
+                  GERENTE SUCURSAL MATEHUALA
+                </span>
+                
+              </td>
+              <td >
+                <span title="C&#243;digo del puesto">
+                  BD014003
+                </span>
+              </td>
+              <td>&nbsp;</td>
+              <td >
+                <span title="Supervisor">
+                  LOPEZ, JOSE ABEL
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td title="Divisi&#243;n">BYDSA</td>
+<td title="Compa&#241;ia">Botanas y Derivados</td>
+<td title="Departamento"></td>
+<td title="Ubicaci&#243;n"></td>
+
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td style="width: 1%; padding-left: 2px; margin: 0px; vertical-align: middle; text-align: center">
+        <img src="/ETWebDEV103/DataPages/PersonPhotoThumb.asp?PID=6417&Dummy=349" style="height: 51px; width: 40px; border: 1px solid #D2D2D2; ">
+      </td>
+    </tr>
+  </table>
+      
+  <!-- ===================================================== -->
+  <!-- End of Slot / Employee Banner -->
+  <!-- ===================================================== -->
+
+  <div class="EmployeeFormTitle" >
+    Dependientes
+  </div>
+</div>
+
+<!-- -----------------------------------------------
+     Page Body (scrolling)
+------------------------------------------------ -->
+<div id="PageBody" class="PageBodyList">
+  <table cellpadding="2" cellspacing="0" style="width: 100%;" class="ListLayoutTable">
+    <!-- table header -->
+    <tr>
+      <!-- The first column is for the buttons, therefore left-aligned.
+           The scroll script only works if the first column is not wrapping.-->
+
+      <th style="text-align: left; vertical-align: top; width: 5%;">&nbsp;</th>
+      <!-- The following columns contain data, aligned depending on type. -->
+      <th style="text-align: left; vertical-align: top; width: 30%;">Nombre</th>
+      <th style="text-align: left; vertical-align: top; width: 15%;">Parentesco</th>
+      <th style="text-align: left; vertical-align: top; width: 15%;">Sexo</th>
+      <th style="text-align: left; vertical-align: top; width: 15%;">Fecha de nacimiento</th>
+      <th style="text-align: left; vertical-align: top; width: 10%;">Edad</th>
+      <th style="text-align: left; vertical-align: top; width: 10%;">Dependiente Econ&#243;mico</th>
+      
+    </tr>
+
+    <!-- open table row -->
+    <tr class="Selected">
+
+      <!-- first column of table containing the button -->
+      <td style="text-align: left; vertical-align: top; white-space: nowrap;">
+<button class="ListButton" title="A&#241;adir nuevo" type="button" onClick="try{window.location.href = &quot;/ETWebDEV103/DataPages/PersonDependant.asp?__Source=lstEmpDependant&amp;__Mode=1&amp;PID=6417&amp;__BannerSettings=PABOAEgAPgA8AFMAdAAgAHUAPQAiAC8ARQBUAFcAZQBiAEQARQBWADEAMAAzAC8ARABhAHQAYQBQAGEAZwBlAHMALwBQAGUAcgBzAG8AbgBEAGUAcABlAG4AZABhAG4AdAAuAGEAcwBwACIAIAB0AD0AIgAiAD4APABzAGsAIABrAD0AIgBCAGEAbgBuAGUAcgBUAHkAcABlACIAPgAxADwALwBzAGsAPgA8AHMAawAgAGsAPQAiAFAASQBEACIAPgA2ADQAMQA3ADwALwBzAGsAPgA8AHMAawAgAGsAPQAiAFAAbwBzAEkARAAiAD4AOAA3ADkAMwA8AC8AcwBrAD4APABzAGsAIABrAD0AIgBTAGwAbwB0AEkARAAiAD4ANAA1ADgANQA3ADwALwBzAGsAPgA8AHMAawAgAGsAPQAiAEQAdQBtAG0AeQAiAD4ANgA0ADAANQA8AC8AcwBrAD4APAAvAFMAdAA%2BADwALwBOAEgAPgANAAoA&quot;;}catch(e){}" id="__EnsureVisible" onMouseOver="document.images['img44755'].src='/ETWebDEV103/Skins/Default/img/ListButtonAddHover.gif'" onMouseOut="document.images['img44755'].src='/ETWebDEV103/Skins/Default/img/ListButtonAdd.gif'" style="cursor:pointer; cursor: hand;"><img src="/ETWebDEV103/Skins/Default/img/ListButtonAdd.gif" width="11" height="11" name="img44755"></img></button>
+      </td>
+      <!-- columns containing data -->
+      <td style="text-align: left; vertical-align: top">&nbsp;</td>
+      <td style="text-align: left; vertical-align: top">&nbsp;</td>
+      <td style="text-align: left; vertical-align: top">&nbsp;</td>
+      <td style="text-align: left; vertical-align: top">&nbsp;</td>
+      <td style="text-align: left; vertical-align: top">&nbsp;</td>
+      <td style="text-align: center; vertical-align: top">&nbsp;</td>
+      
+    </tr>
+
+    <tr>
+      <td colspan="5" class="ListForm">
+<table class="FormLayoutTable">
+<!-- Start of FormControl frmEmpDependant: BeginRender --><form autocomplete="off" id="frmEmpDependant" name="frmEmpDependant" method="POST" action="/ETWebDEV103/DataPages/PersonDependant.asp" target="_self" onSubmit="if (__validateForm_frmEmpDependant) { return __validateForm_frmEmpDependant(this); } else return false;">
+<input type="hidden" id="__Mode" name="__Mode" value="0"></input>
+<input type="hidden" id="__Source" name="__Source" value="frmEmpDependant"></input>
+<input type="hidden" id="__BannerSettings" name="__BannerSettings" value="PABOAEgAPgA8AFMAdAAgAHUAPQAiAC8ARQBUAFcAZQBiAEQARQBWADEAMAAzAC8ARABhAHQAYQBQAGEAZwBlAHMALwBQAGUAcgBzAG8AbgBEAGUAcABlAG4AZABhAG4AdAAuAGEAcwBwACIAIAB0AD0AIgAiAD4APABzAGsAIABrAD0AIgBCAGEAbgBuAGUAcgBUAHkAcABlACIAPgAxADwALwBzAGsAPgA8AHMAawAgAGsAPQAiAFAASQBEACIAPgA2ADQAMQA3ADwALwBzAGsAPgA8AHMAawAgAGsAPQAiAFAAbwBzAEkARAAiAD4AOAA3ADkAMwA8AC8AcwBrAD4APABzAGsAIABrAD0AIgBTAGwAbwB0AEkARAAiAD4ANAA1ADgANQA3ADwALwBzAGsAPgA8AHMAawAgAGsAPQAiAEQAdQBtAG0AeQAiAD4ANgA0ADAANQA8AC8AcwBrAD4APAAvAFMAdAA+ADwALwBOAEgAPgANAAoA"></input>
+<script type="text/javascript" src="/ETWebDEV103/System/ClientScript/ControlStateScript.asp"></script>
+<script type="text/javascript">
+ var FormControlState = new ControlState();
+ var SpellCheckFields = "Comment";
+ var SpellCheckFieldCaptions = "Notas";
+
+ var LegalCheckFields = "";
+ var LegalCheckFieldCaptions = "";
+</script>
+<script type="text/javascript">
+ var needToConfirm = true;
+
+ function setNotNeedToConfirm(){
+   needToConfirm = false;}
+
+ function setNeedToConfirm(){
+   needToConfirm = true;}
+
+ function confirmExit(){
+   //Only warning if the controls have been changed.
+   if(FormControlState.GetFormIsModified() == true){
+     if(needToConfirm){
+       return "Ha realizado cambios en datos que no han sido guardados.";}}
+   window.onerror = null;
+   setNeedToConfirm();}
+
+ window.onbeforeunload = confirmExit;</script>
+<input type="text" name="__Dummy1" disabled="disabled" style="display: none">
+<input type="text" name="__Dummy2" disabled="disabled" style="display: none">
+<!-- End Of FormControl frmEmpDependant: BeginRender -->
+<span>
+<!-- ------------------------------------------
+---- Auto-Rendered table for Form frmEmpDependant
+------------------------------------------- -->
+<input type="hidden" id="PDepID" name="PDepID"></input><input type="hidden" id="PID" name="PID" value="6417"></input></span>
+<colgroup>
+<col style="width:25%"></col><col style="width:25%"></col>
+<col style="width:25%"></col><col style="width:25%"></col>
+</colgroup>
+<tr>
+<td class="ControlLabel"><label for="XigDepNombre" title="">Nombre:*</label></td>
+<td colspan="1"><input id="XigDepNombre" name="XigDepNombre" type="text" maxlength="50" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepNombre(){
+    if (document.getElementById("XigDepNombre"))
+      addEvent(document.getElementById("XigDepNombre"), "change", callOnChangeEvent_XigDepNombre);
+  }
+  function callOnChangeEvent_XigDepNombre(){
+    FormControlState.SetModified("XigDepNombre");
+    FormControlState.SetSpellCheckModified("XigDepNombre");
+    FormControlState.SetLegalCheckModified("XigDepNombre");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepNombre);
+</script>
+</td>
+<td class="ControlLabel"><label for="XigDepApPaterno" title="">Paterno:*</label></td>
+<td colspan="1"><input id="XigDepApPaterno" name="XigDepApPaterno" type="text" maxlength="70" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepApPaterno(){
+    if (document.getElementById("XigDepApPaterno"))
+      addEvent(document.getElementById("XigDepApPaterno"), "change", callOnChangeEvent_XigDepApPaterno);
+  }
+  function callOnChangeEvent_XigDepApPaterno(){
+    FormControlState.SetModified("XigDepApPaterno");
+    FormControlState.SetSpellCheckModified("XigDepApPaterno");
+    FormControlState.SetLegalCheckModified("XigDepApPaterno");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepApPaterno);
+</script>
+</td></tr>
+<tr>
+<td class="ControlLabel"><label for="XigDepApMaterno" title="">Materno:*</label></td>
+<td colspan="1"><input id="XigDepApMaterno" name="XigDepApMaterno" type="text" maxlength="70" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepApMaterno(){
+    if (document.getElementById("XigDepApMaterno"))
+      addEvent(document.getElementById("XigDepApMaterno"), "change", callOnChangeEvent_XigDepApMaterno);
+  }
+  function callOnChangeEvent_XigDepApMaterno(){
+    FormControlState.SetModified("XigDepApMaterno");
+    FormControlState.SetSpellCheckModified("XigDepApMaterno");
+    FormControlState.SetLegalCheckModified("XigDepApMaterno");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepApMaterno);
+</script>
+</td>
+<td class="ControlLabel"><label for="" title="">Parentesco:</label></td>
+<td colspan="1"><select id="DepRelID" name="DepRelID" size="1" style="width:100%;">
+<option value="{{.}}">(sin especificar)</option>
+<option value="10" >Hermano</option>
+<option value="11" >Concubina</option>
+<option value="4" >Hija</option>
+<option value="6" >Padre</option>
+<option value="2" >Abuelo</option>
+<option value="7" >Abuela</option>
+<option value="5" >Madre</option>
+<option value="1" >Otros</option>
+<option value="8" >Hijo</option>
+<option value="9" >Hermana</option>
+<option value="3" >Esposo(a)</option>
+<option value="12" >Hijo Reconocido</option>
+<option value="13" >Hija Acogida</option>
+<option value="14" >Hijo Acogido</option></select>
+<script type="text/javascript">
+  function registerEventHandlers_DepRelID(){
+    if (document.getElementById("DepRelID"))
+      addEvent(document.getElementById("DepRelID"), "change", callOnChangeEvent_DepRelID);
+  }
+  function callOnChangeEvent_DepRelID(){
+    FormControlState.SetModified("DepRelID");
+  }
+  addEvent(window, "load", registerEventHandlers_DepRelID);
+</script>
+</td></tr>
+<tr>
+<td class="ControlLabel"><label for="" title="">Sexo:</label></td>
+<td colspan="1"><select id="GenderID" name="GenderID" size="1" style="width:100%;">
+<option value="{{.}}">(sin especificar)</option>
+<option value="1" >Femenino</option>
+<option value="2" >Masculino</option></select>
+<script type="text/javascript">
+  function registerEventHandlers_GenderID(){
+    if (document.getElementById("GenderID"))
+      addEvent(document.getElementById("GenderID"), "change", callOnChangeEvent_GenderID);
+  }
+  function callOnChangeEvent_GenderID(){
+    FormControlState.SetModified("GenderID");
+  }
+  addEvent(window, "load", registerEventHandlers_GenderID);
+</script>
+</td>
+<td class="ControlLabel"><label for="XigDepEconomico" title="">Dependiente Econ&#243;mico:</label></td>
+<td colspan="1"><input type="checkbox" id="XigDepEconomico" name="XigDepEconomico" value="-1"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepEconomico(){
+    if (document.getElementById("XigDepEconomico"))
+      addEvent(document.getElementById("XigDepEconomico"), "change", callOnChangeEvent_XigDepEconomico);
+  }
+  function callOnChangeEvent_XigDepEconomico(){
+    FormControlState.SetModified("XigDepEconomico");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepEconomico);
+</script>
+</td></tr>
+<tr>
+<td colspan="2"><span>&nbsp;</span></td>
+<td colspan="2"><span>&nbsp;</span></td></tr>
+<tr>
+<td class="ControlLabel"><label for="BirthDate" title="">Fecha de nacimiento:</label></td>
+<td colspan="1">
+<table style="width: 100%" cellpadding="0" cellspacing="0"><tr><td>
+<input type="text" id="BirthDate" name="BirthDate" style="width:100%;"></input>
+</td><td style="width: 1%; white-space: nowrap;"><button class="FindButton" title="Seleccionar una fecha" type="button" onClick="__dtc_BirthDate.showDatepicker(event.clientX, event.clientY);" id="__btnDP_BirthDate" style="cursor:pointer; cursor: hand;"><img src="/ETWebDEV103/Skins/Default/img/FormButtonDatepicker.gif"></img></button></td></tr></table>
+<script type="text/javascript" src="/ETWebDEV103/System/ClientScript/DateTimeControlScript.asp"></script>
+<script type="text/javascript">
+var __dtc_BirthDate = new DateTimeControl("BirthDate", "__dtc_BirthDate", "dd/mm/yyyy", "/", ":");
+__dtc_BirthDate.readOnly = false;
+__dtc_BirthDate.caption = "Fecha de nacimiento";
+function BirthDate_load() { __dtc_BirthDate.adjustControls(); }
+addEvent(window, "load", BirthDate_load, false);
+</script>
+<script type="text/javascript">
+  function registerEventHandlers_BirthDate(){
+    if (document.getElementById("BirthDate"))
+      addEvent(document.getElementById("BirthDate"), "change", callOnChangeEvent_BirthDate);
+  }
+  function callOnChangeEvent_BirthDate(){
+    FormControlState.SetModified("BirthDate");
+  }
+  addEvent(window, "load", registerEventHandlers_BirthDate);
+</script>
+</td>
+<td colspan="2"><span>&nbsp;</span></td></tr>
+<tr>
+<td class="ControlLabel"><label for="" title="">Pais Nacimiento:</label></td>
+<td colspan="1"><select id="XigDepPaisNacID" name="XigDepPaisNacID" onchange="__lc_XigDepPaisNacID.updateByUser();" size="1" style="width:100%;">
+<option value="{{.}}">(sin especificar)</option>
+<option value="8" >Argentina</option>
+<option value="20" >Australia</option>
+<option value="2" >Brasil</option>
+<option value="22" >Canad&#225;</option>
+<option value="14" >Suiza</option>
+<option value="10" >China</option>
+<option value="3" >Colombia</option>
+<option value="5" >Alemania</option>
+<option value="12" >Espa&#241;a</option>
+<option value="19" >Francia</option>
+<option value="17" >Reino Unido</option>
+<option value="16" >Irlanda</option>
+<option value="6" >Italia</option>
+<option value="13" >Jap&#243;n</option>
+<option value="1" >M&#233;xico</option>
+<option value="23" >Malasia</option>
+<option value="15" >Nicaragua</option>
+<option value="25" >Panama</option>
+<option value="11" >Singapur</option>
+<option value="26" >Tailandia</option>
+<option value="24" >Estados Unidos</option></select>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepPaisNacID(){
+    if (document.getElementById("XigDepPaisNacID"))
+      addEvent(document.getElementById("XigDepPaisNacID"), "change", callOnChangeEvent_XigDepPaisNacID);
+  }
+  function callOnChangeEvent_XigDepPaisNacID(){
+    FormControlState.SetModified("XigDepPaisNacID");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepPaisNacID);
+</script>
+
+<script type="text/javascript" src="/ETWebDEV103/System/ClientScript/ListboxScript.asp"></script>
+<script type="text/javascript">
+var __lc_XigDepPaisNacID = new __ListControl("XigDepPaisNacID");
+__lc_XigDepPaisNacID.childControlId = "XigDepEstadoNacID";
+__lc_XigDepPaisNacID.nullText = "(sin especificar)";
+__lc_XigDepPaisNacID.nullValue = "{{.}}";
+__lc_XigDepPaisNacID.showNullListItem = -1;
+__lc_XigDepPaisNacID.isListFilteredByParentValue = -1;
+__lc_XigDepPaisNacID.isParentValueUpdatedOnChange = -1;
+__lc_XigDepPaisNacID.append("8", "Argentina", "{{.}}");
+__lc_XigDepPaisNacID.append("20", "Australia", "{{.}}");
+__lc_XigDepPaisNacID.append("2", "Brasil", "{{.}}");
+__lc_XigDepPaisNacID.append("22", "Canadá", "{{.}}");
+__lc_XigDepPaisNacID.append("14", "Suiza", "{{.}}");
+__lc_XigDepPaisNacID.append("10", "China", "{{.}}");
+__lc_XigDepPaisNacID.append("3", "Colombia", "{{.}}");
+__lc_XigDepPaisNacID.append("5", "Alemania", "{{.}}");
+__lc_XigDepPaisNacID.append("12", "España", "{{.}}");
+__lc_XigDepPaisNacID.append("19", "Francia", "{{.}}");
+__lc_XigDepPaisNacID.append("17", "Reino Unido", "{{.}}");
+__lc_XigDepPaisNacID.append("16", "Irlanda", "{{.}}");
+__lc_XigDepPaisNacID.append("6", "Italia", "{{.}}");
+__lc_XigDepPaisNacID.append("13", "Japón", "{{.}}");
+__lc_XigDepPaisNacID.append("1", "México", "{{.}}");
+__lc_XigDepPaisNacID.append("23", "Malasia", "{{.}}");
+__lc_XigDepPaisNacID.append("15", "Nicaragua", "{{.}}");
+__lc_XigDepPaisNacID.append("25", "Panama", "{{.}}");
+__lc_XigDepPaisNacID.append("11", "Singapur", "{{.}}");
+__lc_XigDepPaisNacID.append("26", "Tailandia", "{{.}}");
+__lc_XigDepPaisNacID.append("24", "Estados Unidos", "{{.}}");
+__lc_XigDepPaisNacID.updateByInit();
+</script>
+</td>
+<td class="ControlLabel"><label for="" title="">Estado Nacimiento:</label></td>
+<td colspan="1"><select id="XigDepEstadoNacID" name="XigDepEstadoNacID" onchange="__lc_XigDepEstadoNacID.updateByUser();" size="1" style="width:100%;">
+<option value="{{.}}">(sin especificar)</option>
+<option value="3" >Aguascalientes</option>
+<option value="2" >Atl&#225;ntico</option>
+<option value="4" >Baja California Norte</option>
+<option value="5" >Baja California Sur</option>
+<option value="37" >California</option>
+<option value="6" >Campeche</option>
+<option value="8" >Chihuahua</option>
+<option value="7" >Chiapas</option>
+<option value="9" >Coahuila</option>
+<option value="10" >Colima</option>
+<option value="11" >Distrito Federal</option>
+<option value="12" >Durango</option>
+<option value="13" >Estado de M&#233;xico</option>
+<option value="15" >Guerrero</option>
+<option value="14" >Guanajuato</option>
+<option value="16" >Hidalgo</option>
+<option value="17" >Jalisco</option>
+<option value="39" >Massachusetts</option>
+<option value="40" >Manahua</option>
+<option value="18" >Michoac&#225;n</option>
+<option value="38" >Missouri</option>
+<option value="19" >Morelos</option>
+<option value="36" >Matera</option>
+<option value="20" >Nayarit</option>
+<option value="22" >Nuevo Le&#243;n</option>
+<option value="23" >Oaxaca</option>
+<option value="24" >Puebla</option>
+<option value="25" >Quer&#233;taro</option>
+<option value="26" >Quintana Roo</option>
+<option value="28" >Sinaloa</option>
+<option value="27" >San Luis Potos&#237;</option>
+<option value="29" >Sonora</option>
+<option value="1" >Sao Paulo</option>
+<option value="30" >Tabasco</option>
+<option value="31" >Tamaulipas</option>
+<option value="32" >Tlaxcala</option>
+<option value="33" >Veracruz</option>
+<option value="34" >Yucat&#225;n</option>
+<option value="35" >Zacatecas</option></select>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepEstadoNacID(){
+    if (document.getElementById("XigDepEstadoNacID"))
+      addEvent(document.getElementById("XigDepEstadoNacID"), "change", callOnChangeEvent_XigDepEstadoNacID);
+  }
+  function callOnChangeEvent_XigDepEstadoNacID(){
+    FormControlState.SetModified("XigDepEstadoNacID");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepEstadoNacID);
+</script>
+
+<script type="text/javascript" src="/ETWebDEV103/System/ClientScript/ListboxScript.asp"></script>
+<script type="text/javascript">
+var __lc_XigDepEstadoNacID = new __ListControl("XigDepEstadoNacID");
+__lc_XigDepEstadoNacID.parentControlId = "XigDepPaisNacID";
+__lc_XigDepEstadoNacID.nullText = "(sin especificar)";
+__lc_XigDepEstadoNacID.nullValue = "{{.}}";
+__lc_XigDepEstadoNacID.showNullListItem = -1;
+__lc_XigDepEstadoNacID.isListFilteredByParentValue = -1;
+__lc_XigDepEstadoNacID.isParentValueUpdatedOnChange = -1;
+__lc_XigDepEstadoNacID.append("3", "Aguascalientes", "1");
+__lc_XigDepEstadoNacID.append("2", "Atlántico", "3");
+__lc_XigDepEstadoNacID.append("4", "Baja California Norte", "1");
+__lc_XigDepEstadoNacID.append("5", "Baja California Sur", "1");
+__lc_XigDepEstadoNacID.append("37", "California", "24");
+__lc_XigDepEstadoNacID.append("6", "Campeche", "1");
+__lc_XigDepEstadoNacID.append("8", "Chihuahua", "1");
+__lc_XigDepEstadoNacID.append("7", "Chiapas", "1");
+__lc_XigDepEstadoNacID.append("9", "Coahuila", "1");
+__lc_XigDepEstadoNacID.append("10", "Colima", "1");
+__lc_XigDepEstadoNacID.append("11", "Distrito Federal", "1");
+__lc_XigDepEstadoNacID.append("12", "Durango", "1");
+__lc_XigDepEstadoNacID.append("13", "Estado de México", "1");
+__lc_XigDepEstadoNacID.append("15", "Guerrero", "1");
+__lc_XigDepEstadoNacID.append("14", "Guanajuato", "1");
+__lc_XigDepEstadoNacID.append("16", "Hidalgo", "1");
+__lc_XigDepEstadoNacID.append("17", "Jalisco", "1");
+__lc_XigDepEstadoNacID.append("39", "Massachusetts", "24");
+__lc_XigDepEstadoNacID.append("40", "Manahua", "15");
+__lc_XigDepEstadoNacID.append("18", "Michoacán", "1");
+__lc_XigDepEstadoNacID.append("38", "Missouri", "24");
+__lc_XigDepEstadoNacID.append("19", "Morelos", "1");
+__lc_XigDepEstadoNacID.append("36", "Matera", "6");
+__lc_XigDepEstadoNacID.append("20", "Nayarit", "1");
+__lc_XigDepEstadoNacID.append("22", "Nuevo León", "1");
+__lc_XigDepEstadoNacID.append("23", "Oaxaca", "1");
+__lc_XigDepEstadoNacID.append("24", "Puebla", "1");
+__lc_XigDepEstadoNacID.append("25", "Querétaro", "1");
+__lc_XigDepEstadoNacID.append("26", "Quintana Roo", "1");
+__lc_XigDepEstadoNacID.append("28", "Sinaloa", "1");
+__lc_XigDepEstadoNacID.append("27", "San Luis Potosí", "1");
+__lc_XigDepEstadoNacID.append("29", "Sonora", "1");
+__lc_XigDepEstadoNacID.append("1", "Sao Paulo", "2");
+__lc_XigDepEstadoNacID.append("30", "Tabasco", "1");
+__lc_XigDepEstadoNacID.append("31", "Tamaulipas", "1");
+__lc_XigDepEstadoNacID.append("32", "Tlaxcala", "1");
+__lc_XigDepEstadoNacID.append("33", "Veracruz", "1");
+__lc_XigDepEstadoNacID.append("34", "Yucatán", "1");
+__lc_XigDepEstadoNacID.append("35", "Zacatecas", "1");
+__lc_XigDepEstadoNacID.updateByInit();
+</script>
+</td></tr>
+<tr>
+<td class="ControlLabel"><label for="XigDepCiudadNac" title="">Ciudad Nacimiento:</label></td>
+<td colspan="1"><input id="XigDepCiudadNac" name="XigDepCiudadNac" type="text" maxlength="50" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepCiudadNac(){
+    if (document.getElementById("XigDepCiudadNac"))
+      addEvent(document.getElementById("XigDepCiudadNac"), "change", callOnChangeEvent_XigDepCiudadNac);
+  }
+  function callOnChangeEvent_XigDepCiudadNac(){
+    FormControlState.SetModified("XigDepCiudadNac");
+    FormControlState.SetSpellCheckModified("XigDepCiudadNac");
+    FormControlState.SetLegalCheckModified("XigDepCiudadNac");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepCiudadNac);
+</script>
+</td>
+<td colspan="2"><span>&nbsp;</span></td></tr>
+<tr>
+<td colspan="2"><span>&nbsp;</span></td>
+<td colspan="2"><span>&nbsp;</span></td></tr>
+<tr>
+<td class="ControlLabel"><label for="XigDepCURP" title="">CURP:</label></td>
+<td colspan="1"><input id="XigDepCURP" name="XigDepCURP" type="text" maxlength="50" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepCURP(){
+    if (document.getElementById("XigDepCURP"))
+      addEvent(document.getElementById("XigDepCURP"), "change", callOnChangeEvent_XigDepCURP);
+  }
+  function callOnChangeEvent_XigDepCURP(){
+    FormControlState.SetModified("XigDepCURP");
+    FormControlState.SetSpellCheckModified("XigDepCURP");
+    FormControlState.SetLegalCheckModified("XigDepCURP");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepCURP);
+</script>
+</td>
+<td class="ControlLabel"><label for="XigDepRFC" title="">RFC:</label></td>
+<td colspan="1"><input id="XigDepRFC" name="XigDepRFC" type="text" maxlength="50" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepRFC(){
+    if (document.getElementById("XigDepRFC"))
+      addEvent(document.getElementById("XigDepRFC"), "change", callOnChangeEvent_XigDepRFC);
+  }
+  function callOnChangeEvent_XigDepRFC(){
+    FormControlState.SetModified("XigDepRFC");
+    FormControlState.SetSpellCheckModified("XigDepRFC");
+    FormControlState.SetLegalCheckModified("XigDepRFC");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepRFC);
+</script>
+</td></tr>
+<tr>
+<td class="ControlLabel"><label for="XigDepEmail" title="">Correo Electronico:</label></td>
+<td colspan="1"><input id="XigDepEmail" name="XigDepEmail" type="text" maxlength="50" size="1" style="width:100%;"></input>
+<script type="text/javascript">
+  function registerEventHandlers_XigDepEmail(){
+    if (document.getElementById("XigDepEmail"))
+      addEvent(document.getElementById("XigDepEmail"), "change", callOnChangeEvent_XigDepEmail);
+  }
+  function callOnChangeEvent_XigDepEmail(){
+    FormControlState.SetModified("XigDepEmail");
+    FormControlState.SetSpellCheckModified("XigDepEmail");
+    FormControlState.SetLegalCheckModified("XigDepEmail");
+  }
+  addEvent(window, "load", registerEventHandlers_XigDepEmail);
+</script>
+</td></tr>
+<tr><td colspan="4"><div class="OppositeAlign"><button class="FormButton" title="A&#241;adir nuevo registro" type="submit" onClick="this.form.elements['__Mode'].value = '4';if(window.needToConfirm != null)setNotNeedToConfirm();" style="cursor:pointer; cursor: hand;">Guardar</button><button class="FormButton" title="Cancelar sin guardar cambios" type="submit" onClick="this.form.elements['__Mode'].value = '7';if(window.needToConfirm != null)setNotNeedToConfirm();" style="cursor:pointer; cursor: hand;">Cancelar</button></div></td>
+</tr>
+<!-- Start of FormControl frmEmpDependant: EndRender -->
+<script type="text/javascript" defer="defer" src="/ETWebDEV103/system/ClientScript/ValidationScript.asp"></script>
+<script type="text/javascript">
+var __pageSubmitted = false;
+function __validateForm_frmEmpDependant(pobjForm) {
+var blnOK = true;
+try {
+  var checkDownload = trim("Test");
+}
+catch(err) {
+  return false;
+}
+blnOK = (blnOK && checkPageSubmitted(__pageSubmitted));
+blnOK = blnOK && validateRequired(pobjForm.elements["XigDepNombre"]);
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepNombre"], 50);
+blnOK = blnOK && validateRequired(pobjForm.elements["XigDepApPaterno"]);
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepApPaterno"], 70);
+blnOK = blnOK && validateRequired(pobjForm.elements["XigDepApMaterno"]);
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepApMaterno"], 70);
+blnOK = blnOK && validateDate(pobjForm.elements["BirthDate"], "dd/mm/yyyy", "/", ":", "31/12/2006");
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepCiudadNac"], 50);
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepCURP"], 50);
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepRFC"], 50);
+blnOK = blnOK && validateLength(pobjForm.elements["XigDepEmail"], 50);
+if (blnOK){ __pageSubmitted = true;}
+return blnOK; }</script>
+</form>
+<!-- End Of FormControl frmEmpDependant: EndRender -->
+</table>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<!-- -----------------------------------------------
+     Page Footer
+------------------------------------------------ -->
+<div id="PageFooter" class="PageFooter">
+  <div class="PageStatus"><table cellpadding="0" cellspacing="0" style="width:100%;"><tr><td class="PageStatus_InfoLabel">Listo.</td></tr></table></div>
+  <script type="text/javascript" language="javascript">
+
+  function __toggleNotes677() {
+
+    var textPanel = document.getElementById("__ObjectNotesText677");
+    var showNotes = (textPanel.style["display"] == "block");
+
+    // toggle showNotes
+    showNotes = !showNotes;
+
+    // set visibility on text
+    textPanel.style["display"] = (showNotes) ? "block" : "none";
+
+    // change the icon
+    if (__notesMouseOver677) __notesMouseOver677();
+
+    // cause the resize script to make space for the expanded panel
+    if (__windowOnResize) __windowOnResize();
+  }
+
+  function __notesMouseOver677() {
+
+    var textPanel = document.getElementById("__ObjectNotesText677");
+    var iconImage =  document.getElementById("__ObjectNotesImage677");
+
+    var showNotes = (textPanel.style["display"] == "block");
+
+    // toggle showNotes
+    showNotes = !showNotes;
+
+    // set image on hyperlink
+    iconImage.src = (showNotes) ?
+      "/ETWebDEV103/Skins/Default/img/FormButtonRelatedInfoShowHover.gif" :
+      "/ETWebDEV103/Skins/Default/img/FormButtonRelatedInfoHideHover.gif" ;
+
+  }
+
+  function __notesMouseOut677() {
+    var textPanel = document.getElementById("__ObjectNotesText677");
+    var iconImage =  document.getElementById("__ObjectNotesImage677");
+
+    var showNotes = (textPanel.style["display"] == "block");
+
+    // toggle showNotes
+    showNotes = !showNotes;
+
+    // set image on hyperlink
+    iconImage.src = (showNotes) ?
+      "/ETWebDEV103/Skins/Default/img/FormButtonRelatedInfoShow.gif" :
+      "/ETWebDEV103/Skins/Default/img/FormButtonRelatedInfoHide.gif" ;
+
+  }
+
+  </script>
+  <script type="text/javascript" language="javascript">
+  // This function is called by the edit link.
+  // It opens the ObjectNotesEditPage in a new browser window.
+  function __EditNotesClick() {
+
+    window.open("/ETWebDEV103/Datapages/ObjectHelpEdit.asp?ObjectName=PersonDependant.asp",
+      "ObjectNotesEdit",
+      "width=640,height=425,dependent=yes,hotkeys=no,location=no,menubar=no,resizable=no,screenX=0,screenY=0,scrollbars=no,status=yes,toolbar=no").focus();
+  }
+  </script>
+
+  <table width="99%">
+    <tr>
+      <td>
+        <div class="HelpBannerTitle">
+          <a href="javascript:if(window.needToConfirm != null)setNeedToConfirm();__toggleNotes677();"
+             onMouseOver="__notesMouseOver677();"
+             onMouseOut="__notesMouseOut677();"
+             onClick="if(window.needToConfirm != null)setNotNeedToConfirm();">
+
+            <img id="__ObjectNotesImage677"
+                 src="/ETWebDEV103/Skins/Default/img/FormButtonRelatedInfoShow.gif"
+                 style="border: none"></a>
+
+                 &nbsp;
+          <a href="javascript:if(window.needToConfirm != null)setNeedToConfirm();__toggleNotes677();"
+             onMouseOver="__notesMouseOver677();"
+             onMouseOut="__notesMouseOut677();"
+             onClick="if(window.needToConfirm != null)setNotNeedToConfirm();">
+
+            Notas de ayuda sobre esta p&#225;gina
+
+          </a>
+        </div> 
+      </td>
+  
+        <td style="text-align: right">
+  
+          <div class="HelpBannerTitle">
+          <a href="javascript:if(window.needToConfirm != null)setNeedToConfirm();__EditNotesClick();"
+             onClick="if(window.needToConfirm != null)setNotNeedToConfirm();">
+          Editar
+          </a>
+        </div>
+      </td>
+  
+    </tr>
+  </table>
+  <div class="HelpBanner" id="__ObjectNotesText677" style="display:none;">
+  Lista que incluye c&#243;nyuge, hijos y cualquier otra persona a su cargo.<br><br>Nota: seleccione la casilla Acompa&#241;a al expatriado si la persona a cargo acompa&#241;ar&#225; a la persona en su traslado.<br><br>Vea la Ayuda online en caso de necesitar m&#225;s informaci&#243;n a la hora de editar formularios en lista.
+  </div>
+
+</div>
+</body>
+</html>

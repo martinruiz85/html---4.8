@@ -1,0 +1,274 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = XigVetExtWorkHist.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 17 Nov 2022 15:29:12:340
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data XigVetExtWorkHist.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetExtWorkHist.asp'
+
+EXEC @intRecTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetExtWorkHist.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to edit the person''s external work history.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 1033
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetExtWorkHist.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to edit the person''s external work history.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 1033, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 1033, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetExtWorkHist.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to edit the person''s external work history.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetExtWorkHist.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = N'Form to edit the person''s external work history.', @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+--*****************************************************************************************
+--*** Resource Text Data XigVetExtWorkHist.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetExtWorkHist.asp', @vblnReturnNewID = 0
+
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Experiencia', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Experiencia'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Experiencia', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Experiencia'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'International', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Experiencia internacional'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Location', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Ubicación'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Responsibility', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Responsabilidades / Logros'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'StartDate', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Fecha de inicio'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Title', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Puesto'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'AORCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Área de responsabilidad'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Comment', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Notas'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Company', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Company'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Company', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Compañía'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'CtryID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'País'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'EndDate', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Fecha de término'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Historial Laboral Externo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'AORCode', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Area of responsibility'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Comment', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Notes'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'CtryID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Country'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'EndDate', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'End date'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'External Work History'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'International', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'International experience'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Location', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Location'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Responsibility', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Responsibilities / Accomplishments'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'StartDate', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Start date'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'Title', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Position'
+
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 1, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPageControl_Load @vintObjID = @intObjID, @vstrName = N'Comment', @vblnIsLegalCheckEnabled = 0, @vblnIsSpellCheckEnabled = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPageControl_Load @vintObjID = @intObjID, @vstrName = N'Responsibility', @vblnIsLegalCheckEnabled = 0, @vblnIsSpellCheckEnabled = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPageControl_Load @vintObjID = @intObjID, @vstrName = N'Title', @vblnIsLegalCheckEnabled = 0, @vblnIsSpellCheckEnabled = 1
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+
+DECLARE @intObjID INT
+
+IF EXISTS(SELECT * FROM tFileCategory WHERE FileCatID = -10)
+BEGIN
+  EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+  EXEC pzObjectFileCategory_Load @vintObjID = @intObjID, @vintFileCatID = -10
+END --IF
+GO
+
+
+DECLARE @intObjID INT
+
+IF EXISTS(SELECT * FROM tFileCategory WHERE FileCatID = -8)
+BEGIN
+  EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+  EXEC pzObjectFileCategory_Load @vintObjID = @intObjID, @vintFileCatID = -8
+END --IF
+GO
+
+
+DECLARE @intObjID INT
+
+IF EXISTS(SELECT * FROM tFileCategory WHERE FileCatID = -1)
+BEGIN
+  EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetExtWorkHist.asp', NULL, NULL, NULL, NULL, NULL, 0 
+  EXEC pzObjectFileCategory_Load @vintObjID = @intObjID, @vintFileCatID = -1
+END --IF
+GO
+
+

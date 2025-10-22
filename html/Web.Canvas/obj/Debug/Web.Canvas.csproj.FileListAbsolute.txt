@@ -1,0 +1,37 @@
+C:\Users\Consultorin\Desktop\html\Web.Canvas\bin\Web.Canvas.dll
+C:\Users\Consultorin\Desktop\html\Web.Canvas\bin\Web.Canvas.pdb
+C:\Users\Consultorin\Desktop\html\Web.Canvas\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\Web.Canvas\obj\Debug\Web.Canvas.dll
+C:\Users\Consultorin\Desktop\html\Web.Canvas\obj\Debug\Web.Canvas.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Web.Canvas\bin\Web.Canvas.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Web.Canvas\bin\Web.Canvas.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Web.Canvas\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Web.Canvas\bin\Web.Canvas.dll.config
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Web.Canvas\bin\Web.Canvas.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Web.Canvas\bin\Web.Canvas.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.csprojResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.pdb
+C:\Proyectos\2015\html\Web.Canvas\bin\Web.Canvas.dll.config
+C:\Proyectos\2015\html\Web.Canvas\bin\Web.Canvas.dll
+C:\Proyectos\2015\html\Web.Canvas\bin\Web.Canvas.pdb
+C:\Proyectos\2015\html\Web.Canvas\obj\Debug\Web.Canvas.dll
+C:\Proyectos\2015\html\Web.Canvas\obj\Debug\Web.Canvas.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\bin\Web.Canvas.dll.config
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\bin\Web.Canvas.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\bin\Web.Canvas.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.csprojAssemblyReference.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.csproj.CoreCompileInputs.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\Web.Canvas\obj\Debug\Web.Canvas.pdb
+C:\Proyectos\2015\html\Web.Canvas\obj\Debug\Web.Canvas.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\Web.Canvas\obj\Debug\Web.Canvas.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\bin\Web.Canvas.dll.config
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\bin\Web.Canvas.dll
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\bin\Web.Canvas.pdb
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\obj\Debug\Web.Canvas.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\obj\Debug\Web.Canvas.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\obj\Debug\Web.Canvas.dll
+C:\Users\usu\source\repos\html - 4.8\html\Web.Canvas\obj\Debug\Web.Canvas.pdb

@@ -1,0 +1,9 @@
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\bin\Release\TCTextBoxDemo.exe
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\bin\Release\TCTextBoxDemo.pdb
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\ResolveAssemblyReference.cache
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\Trestan.Form1.resources
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\Trestan.Properties.Resources.resources
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\Trestan.TCTextBox.resources
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\TCTextBoxDemo.csproj.GenerateResource.Cache
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\TCTextBoxDemo.exe
+C:\Users\consultorin\Desktop\html\TCTextBoxDemo\obj\Release\TCTextBoxDemo.pdb

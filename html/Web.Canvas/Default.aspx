@@ -1,0 +1,1781 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web.Canvas._Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate" />
+    <title></title>
+    <style type="text/css">
+        @font-face
+        {
+            font-family: "your_custom_font";
+            src: url(Font/Roboto-Black.ttf);
+        }
+        .css_selector
+        {
+            font-family: "your_custom_font";
+            font-size: 50px;
+        }
+        @font-face
+        {
+            font-family: 'MyRoboto-Regular';
+            src: url('<%= ResolveUrl("~/Font/Roboto-Regular.eot") %>');
+            src: url('<%= ResolveUrl("~/Font/Roboto-Regular.eot") %>?#iefix') format('embedded-opentype'), url('<%= ResolveUrl("~/Font/Roboto-Regular.woff") %>') format('woff'), url('<%= ResolveUrl("~/Font/Roboto-Regular.ttf") %>') format('truetype'), url(<%= ResolveUrl("~/Font/Roboto-Regular.svg") %>#Roboto-Regular') format('svg');
+        }
+    </style>
+
+    <script type="text/javascript" language="javascript">
+
+        //https://www.w3schools.com/tags/ref_canvas.asp
+
+        /** 
+        * Draws a rounded rectangle using the current state of the canvas.  
+        * If you omit the last three params, it will draw a rectangle  
+        * outline with a 5 pixel border radius  
+        * @param {Number} x The top left x coordinate 
+        * @param {Number} y The top left y coordinate  
+        * @param {Number} width The width of the rectangle  
+        * @param {Number} height The height of the rectangle 
+        * @param {Object} radius All corner radii. Defaults to 0,0,0,0; 
+        * @param {Boolean} fill Whether to fill the rectangle. Defaults to false. 
+        * @param {Boolean} stroke Whether to stroke the rectangle. Defaults to true. 
+        */
+        CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius, fill, stroke) {
+            var cornerRadius = { upperLeft: 0, upperRight: 0, lowerLeft: 0, lowerRight: 0 };
+            if (typeof stroke == "undefined") {
+                stroke = true;
+            }
+            if (typeof radius === "object") {
+                for (var side in radius) {
+                    cornerRadius[side] = radius[side];
+                }
+            }
+
+            this.beginPath();
+            this.moveTo(x + cornerRadius.upperLeft, y);
+            this.lineTo(x + width - cornerRadius.upperRight, y);
+            this.quadraticCurveTo(x + width, y, x + width, y + cornerRadius.upperRight);
+            this.lineTo(x + width, y + height - cornerRadius.lowerRight);
+            this.quadraticCurveTo(x + width, y + height, x + width - cornerRadius.lowerRight, y + height);
+            this.lineTo(x + cornerRadius.lowerLeft, y + height);
+            this.quadraticCurveTo(x, y + height, x, y + height - cornerRadius.lowerLeft);
+            this.lineTo(x, y + cornerRadius.upperLeft);
+            this.quadraticCurveTo(x, y, x + cornerRadius.upperLeft, y);
+            this.closePath();
+            if (stroke) {
+                this.stroke();
+            }
+            if (fill) {
+                this.fill();
+            }
+        }
+
+        String.prototype.isNullOrWhitespace = function(input) {
+
+            if (typeof input === 'undefined' || input == null) return true;
+
+            return input.replace(/\s/g, '').length < 1;
+        }
+
+        // First, checks if it isn't implemented yet.
+        if (!String.prototype.format) {
+            String.prototype.format = function() {
+                var args = arguments;
+                return this.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined' ? args[number] : match;
+                });
+            };
+        }
+
+        //https://stackoverflow.com/questions/3969475/javascript-pause-settimeout
+        var Timer = function(callback, delay, start) {
+            var timerId, start, remaining = delay;
+
+            this.pause = function() {
+                window.clearTimeout(timerId);
+                remaining -= Date.now() - start;
+            };
+
+            this.resume = function() {
+                start = Date.now();
+                window.clearTimeout(timerId);
+                timerId = window.setTimeout(callback, remaining);
+            };
+
+            start = (typeof start === 'boolean') ? start : true;
+
+            if (start)
+                this.resume();
+        };
+
+        var Animate = function() {
+            $this = this;
+
+
+            var isBusy = false;
+            this.GetIsBusy = function() {
+                return isBusy;
+            };
+            this.SetIsBusy = function(value) {
+                isBusy = value;
+            };
+
+            var timers = [];
+            this.AddTimer = function(value) {
+                timers.push(value);
+            };
+            this.Splice = function(index, count) {
+                timers.splice(index, count);
+            };
+
+            this.GetTimers = function() {
+                return timers;
+            };
+            this.Star = function() {
+                if (timers.length > 0)
+                    timers[0].resume();
+            };
+
+        };
+
+        var Data = {};
+        Data.users = { id: 1, user: "mruiz", points: 0, level: 0 };
+
+
+        var Direction = {};
+        Direction.UP = 1;
+        Direction.RIGHT = 2;
+        Direction.DOWN = 3;
+        Direction.LEFT = 4;
+
+        var Draw = function(prms) {
+
+            var $this = this;
+
+            var x = prms.x || 0;
+            var y = prms.y || 0;
+            var w = prms.w || 0;
+            var h = prms.h || 0;
+
+            this.GetX = function() {
+                return x;
+            };
+            this.GetY = function() {
+                return y;
+            };
+            this.GetW = function() {
+                return w;
+            };
+            this.GetH = function() {
+                return h;
+            };
+            this.SetX = function(value) {
+                x = value;
+            };
+            this.SetY = function(value) {
+                y = value;
+            };
+            this.SetW = function(value) {
+                w = value;
+            };
+            this.SetH = function(value) {
+                h = value;
+            };
+            this.isPointInside = function(x, y) {
+                return (x >=
+                (this.GetX() - ($this.GetW() - square_width) / 2)
+            && x <= (this.GetX() - ($this.GetW() - square_width) / 2) + this.GetW()
+            && y >= (this.GetY() - ($this.GetH() - square_height) / 2)
+            && y <= (this.GetY() - ($this.GetH() - square_height) / 2) + this.GetH());
+            }
+
+            // returns true if there is any overlap
+            // params: x,y,w,h of two rectangles
+            this.intersects = function(x1, y1, w1, h1, x2, y2, w2, h2) {
+                if (w2 !== Infinity && w1 !== Infinity) {
+                    w2 += x2;
+                    w1 += x1;
+                    if (isNaN(w1) || isNaN(w2) || x2 > w1 || x1 > w2) return false;
+                }
+                if (y2 !== Infinity && h1 !== Infinity) {
+                    h2 += y2;
+                    h1 += y1;
+                    if (isNaN(h1) || isNaN(y2) || y2 > h1 || y1 > h2) return false;
+                }
+                return true;
+            }
+        };
+        Draw.STATUS = {};
+        Draw.STATUS.ACTIVE = 1;
+        Draw.STATUS.INACTIVE = 2;
+
+
+        var HourGlass = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var status = Draw.STATUS.INACTIVE;
+            this.GetStatus = function() {
+                return status;
+            };
+            this.SetStatus = function(value) {
+                status = value;
+            };
+
+            var timer = null;
+            this.GetTimer = function() {
+                return timer;
+            };
+            this.SetTimer = function(value) {
+                timer = value;
+            };
+
+            var sx = prms.sx || 0;
+            this.GetSX = function() {
+                return sx;
+            };
+            this.SetSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy || 0;
+            this.GetSY = function() {
+                return sy;
+            };
+            this.SetSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 0;
+            this.GetPorcent = function() {
+                return porcent;
+            };
+            this.SetPorcent = function(value) {
+                porcent = value;
+            };
+
+
+            this.StopTime = function() {
+                var $this = this;
+                t_move.pause();
+                $this.Stop({ "cicle": 250, "time": 0 });
+                for (var i = 0; i < DrawObjects.length; i++) {
+                    if (DrawObjects[i].constructor === Letter) {
+                        DrawObjects[i].GetTimer().pause();
+                    }
+                }
+
+            };
+
+            var t_stop = null;
+            this.Stop = function(prms) {
+                var $this = this;
+
+                $this.SetStatus(Draw.STATUS.ACTIVE);
+
+                t_hit = new Timer(function() {
+
+                    var porcentaje = prms.cicle / 250;
+                    // establece el porcenetaje para desaparecer
+                    $this.SetPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        $this.Stop(prms);
+                    }
+                    // al terminar
+                    else {
+
+                        var l = DrawObjects.splice(DrawObjects.indexOf($this), 1);
+                        delete l[0];
+
+                        $this.SetStatus(Draw.STATUS.INACTIVE);
+
+                        for (var i = 0; i < DrawObjects.length; i++) {
+                            if (DrawObjects[i].constructor === Letter) {
+                                DrawObjects[i].GetTimer().resume();
+                            }
+                        }
+                    }
+
+                }, prms.time);
+            };
+
+
+            this.onDraw = function(ctx, x, y, porcent) {
+
+                if ($this.GetStatus() == Draw.STATUS.INACTIVE) {
+                    ctx.beginPath();
+                    //ctx.save();
+                    //ctx.globalAlpha = (1 - $this.GetPorcent());
+                    ctx.drawImage(HourGlass.IMG, $this.GetSX(), $this.GetSY(), 24, 24, this.GetX() - ((24 - square_width) / 2), this.GetY() - ((24 - square_height) / 2), 24, 24);
+
+                    //                    ctx.fillStyle = "rgba(0, 0, 0, 0.87)";
+                    //                    ctx.textAlign = "center";
+                    //                    ctx.textBaseline = "middle";
+                    //                    ctx.font = "12px your_custom_font";
+
+                    //                    ctx.fillText(
+                    //                        "{0}".format(parseInt($this.GetSX()/24)),
+                    //                        this.GetX() + this.GetW() / 2,
+                    //                        this.GetY() + this.GetH() / 2);
+
+
+                    //ctx.restore();
+                    ctx.stroke();
+                }
+                else if ($this.GetStatus() == Draw.STATUS.ACTIVE) {
+
+                    ctx.beginPath();
+
+                    //ctx.strokeStyle = "#cbcbcb";
+                    //ctx.strokeStyle = "rgba(0, 0, 0," + (1 - $this.GetPorcent()) + ")";
+                    ctx.strokeStyle = "rgba(0, 0, 0, 0.87)";
+                    ctx.lineWidth = "3";
+
+                    ctx.arc(
+                        $this.GetX() + $this.GetW() / 2,
+                        $this.GetY() + $this.GetH() / 2,
+                        $this.GetW() / 2,
+                        0,
+                        (2 * $this.GetPorcent()) * Math.PI);
+
+                    ctx.fillStyle = "rgba(0, 0, 0, 0.87)";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.font = "12px your_custom_font";
+
+                    ctx.fillText(
+                        "{0}".format(parseInt(5 * $this.GetPorcent()) + 1),
+                        this.GetX() + this.GetW() / 2,
+                        this.GetY() + this.GetH() / 2);
+
+                    ctx.stroke();
+
+                }
+
+            };
+
+
+            var t_move = null;
+            this.Move = function(prms) {
+                var $this = this;
+
+                t_move = new Timer(function() {
+
+                    var porcentaje = prms.cicle / 4;
+                    $this.SetSX((4 - prms.cicle) * 24);
+                    // establece el porcenetaje para desaparecer
+                    //$this.SetPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = 500;
+                        $this.Move(prms);
+                    }
+                    // al terminar
+                    else {
+                        $this.Move({ "cicle": 4, "time": 0 });
+                    }
+
+                }, prms.time);
+            };
+
+            window.setTimeout(function() {
+                $this.Move({ "cicle": 4, "time": 0 });
+            }, 1000);
+        }
+        HourGlass.prototype = new Draw({});
+        HourGlass.IMG = document.createElement("img");
+        HourGlass.IMG.setAttribute("src", "Images/icons8-hourglass-24.png");
+        HourGlass.prototype.constructor = HourGlass;
+
+        var Smoke = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var status = Draw.STATUS.INACTIVE;
+            this.GetStatus = function() {
+                return status;
+            };
+            this.SetStatus = function(value) {
+                status = value;
+            };
+
+            var timer = null;
+            this.GetTimer = function() {
+                return timer;
+            };
+            this.SetTimer = function(value) {
+                timer = value;
+            };
+
+
+            var sx = prms.sx;
+            this.GetSX = function() {
+                return sx;
+            };
+            this.SetSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy;
+            this.GetSY = function() {
+                return sy;
+            };
+            this.SetSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 1;
+            this.GetPorcent = function() {
+                return porcent;
+            };
+            this.SetPorcent = function(value) {
+                porcent = value;
+            };
+
+            this.onDraw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+
+                ctx.save();
+                ctx.globalAlpha = (1 - $this.GetPorcent());
+                ctx.drawImage(Smoke.IMG, $this.GetSX(), $this.GetSY(), 64, 64, this.GetX() - ((64 - square_width) / 2), this.GetY() - ((64 - square_height) / 2), 64, 64);
+                ctx.restore();
+
+                ctx.stroke();
+
+            };
+        };
+        Smoke.prototype = new Draw({});
+        Smoke.IMG = document.createElement("img");
+        Smoke.IMG.setAttribute("src", "Images/smoke64.png");
+        Smoke.prototype.constructor = Smoke;
+
+
+        var Bloode = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var status = Draw.STATUS.INACTIVE;
+            this.GetStatus = function() {
+                return status;
+            };
+            this.SetStatus = function(value) {
+                status = value;
+            };
+
+            var timer = null;
+            this.GetTimer = function() {
+                return timer;
+            };
+            this.SetTimer = function(value) {
+                timer = value;
+            };
+
+            var sx = prms.sx;
+            this.GetSX = function() {
+                return sx;
+            };
+            this.SetSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy;
+            this.GetSY = function() {
+                return sy;
+            };
+            this.SetSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 1;
+            this.GetPorcent = function() {
+                return porcent;
+            };
+            this.SetPorcent = function(value) {
+                porcent = value;
+            };
+
+            this.onDraw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+                //ctx.save();
+                //ctx.globalAlpha = (1 - $this.GetPorcent());
+                //ctx.drawImage(Bloode.IMG, prms.sx, prms.sy, 64, 64, this.GetX() - ((64 - square_width) / 2), this.GetY() - ((64 - square_height) / 2), 64, 64);
+                ctx.drawImage(Bloode.IMG, $this.GetSX(), $this.GetSY(), 64, 64, this.GetX() - ((64 - square_width) / 2), this.GetY() - ((64 - square_height) / 2), 64, 64);
+                //ctx.restore();
+                ctx.stroke();
+
+            };
+        };
+        Bloode.prototype = new Draw({});
+        Bloode.IMG = document.createElement("img");
+        Bloode.IMG.setAttribute("src", "Images/blood64Black.png");
+        Bloode.prototype.constructor = Bloode;
+
+
+
+        var Bite = function(prms) {
+            var $this = this;
+
+            Draw.call(this, prms);
+
+            var sx = prms.sx;
+            this.GetSX = function() {
+                return sx;
+            };
+            this.SetSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy;
+            this.GetSY = function() {
+                return sy;
+            };
+            this.SetSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 1;
+            this.GetPorcent = function() {
+                return porcent;
+            };
+            this.SetPorcent = function(value) {
+                porcent = value;
+            };
+
+            var image = prms.image;
+            this.GetImage = function() {
+                return image;
+            };
+            this.SetImage = function(value) {
+                image = value;
+            };
+
+            var timer;
+            this.GetTimer = function() {
+                return timer;
+            };
+            this.SetTimer = function(value) {
+                timer = value;
+            };
+
+            this.onDraw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+
+                //ctx.strokeStyle = "#cbcbcb";
+                ctx.strokeStyle = "rgba(203,203,203," + (1 - $this.GetPorcent()) + ")";
+
+                ctx.lineWidth = "1";
+
+                //ctx.fillStyle = '#ffffff';
+                //ctx.fillStyle = "rgba(255,255,255," + (1 - $this.GetPorcent()) + ")";
+
+                ctx.rect(this.GetX(), this.GetY(), this.GetW(), this.GetH());
+
+                ctx.save();
+                ctx.globalAlpha = (1 - $this.GetPorcent());
+                ctx.drawImage(image, prms.sx, prms.sy, 5, 5, this.GetX(), this.GetY(), 5, 5);
+                ctx.restore();
+
+
+                ctx.stroke();
+
+            }
+
+        };
+        Bite.prototype = new Draw({});
+        Bite.prototype.constructor = Bite;
+
+        function cartesian2Polar(x, y) {
+            distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+            radians = Math.atan2(y, x);  //This takes y first
+            polarCoor = { distance: distance, radians: radians }
+            return polarCoor
+        }
+
+        var Letter = function(prms) {
+
+            var $this = this;
+
+            Draw.call(this, prms);
+
+
+            var life = prms.life || 2;
+            this.GetLife = function() {
+                return life;
+            };
+            this.SetLife = function(value) {
+                life = value;
+            };
+
+            var status = Letter.STATUS.LIFE;
+            this.GetStatus = function() {
+                return status;
+            };
+            this.SetStatus = function(value) {
+                status = value;
+            };
+
+            var charater = prms.character;
+            this.GetCharacter = function() {
+                return charater;
+            };
+            this.SetCharacter = function(value) {
+                charater = value;
+            };
+
+            var timer = null;
+            this.GetTimer = function() {
+                return timer;
+            };
+            this.SetTimer = function(value) {
+                timer = value;
+            };
+
+
+            var capturado = false;
+            this.GetCapturado = function() {
+                return capturado;
+            };
+            this.SetCapturado = function(value) {
+                capturado = value;
+            };
+
+            var porcent = 1;
+            this.GetPorcent = function() {
+                return porcent;
+            };
+            this.SetPorcent = function(value) {
+                porcent = value;
+            };
+
+            var porcent_appear = 1;
+            this.GetPorcentAppear = function() {
+                return porcent_appear;
+            };
+            this.SetPorcentAppear = function(value) {
+                porcent_appear = value;
+            };
+
+
+            var bite_image = [];
+            var clone_bites = [];
+            this.CreateImage = function() {
+                bite_image = [];
+                clone_bites = [];
+
+                var $this = this;
+                var c = document.createElement('canvas');
+                c.width = $this.GetW();
+                c.height = $this.GetH();
+                var ctx = c.getContext("2d", { alpha: false });
+                ctx.imageSmoothingEnabled = false;
+                ctx.translate(.5, .5);
+                $this.onDraw(ctx, 0, 0, 1);
+                var image = c.toDataURL("image/png");
+                var img = document.createElement('img');
+                img.src = image;
+                //img.style.border = "1px solid #000";
+                document.body.appendChild(img);
+                for (var i = 0; i < 4; i++) {
+                    for (var j = 0; j < 4; j++) {
+                        // original
+                        var bite = new Bite({
+                            "sx": j * ($this.GetW() / 4),
+                            "sy": i * ($this.GetH() / 4),
+                            "x": $this.GetX() + j * (($this.GetW()) / 4),
+                            "y": $this.GetY() + i * (($this.GetH()) / 4),
+                            "w": $this.GetW() / 4,
+                            "h": $this.GetH() / 4,
+                            "image": img
+                        });
+
+                        bite_image.push(bite);
+
+                        // clon
+                        var clone_bite = new Bite({
+                            "sx": j * ($this.GetW() / 4),
+                            "sy": i * ($this.GetH() / 4),
+                            "x": $this.GetX() + j * (($this.GetW()) / 4),
+                            "y": $this.GetY() + i * (($this.GetH()) / 4),
+                            "w": $this.GetW() / 4,
+                            "h": $this.GetH() / 4,
+                            "image": img
+                        });
+
+                        clone_bites.push(clone_bite);
+
+                    }
+                }
+
+                for (var b = 0; b < bite_image.length; b++) {
+                    DrawObjects.push(bite_image[b]);
+                }
+
+
+
+                $this.Destroy({ "cicle": 24, "bites": bite_image, "clone_bites": clone_bites });
+
+
+            };
+
+            var t_destroy = null;
+            this.Destroy = function(prms) {
+                var $this = this;
+
+                t_destroy = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+
+                    for (var b = 0; b < prms.bites.length; b++) {
+
+                        // punto original menos el centro
+                        var polar = cartesian2Polar(
+                            prms.clone_bites[b].GetX() - (prms.clone_bites[0].GetX() + 10),
+                            prms.clone_bites[b].GetY() - (prms.clone_bites[0].GetY() + 10)
+                            );
+
+                        // punto original mas una distancia
+                        var new_x = prms.clone_bites[b].GetX() + (40 * porcentaje) * Math.cos(polar.radians);
+                        var new_y = prms.clone_bites[b].GetY() + (40 * porcentaje) * Math.sin(polar.radians);
+
+                        //asignar al arreglo
+                        prms.bites[b].SetX(new_x);
+                        prms.bites[b].SetY(new_y);
+
+                        // establece el porcenetaje para desaparecer
+                        prms.bites[b].SetPorcent(porcentaje);
+                    }
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        $this.Destroy(prms);
+                    }
+                    // al terminar
+                    else {
+                        prms.bites.forEach(function(obj) {
+                            var l = DrawObjects.splice(DrawObjects.indexOf(obj), 1);
+                            delete l[0];
+                        });
+                        delete prms.bites;
+                        delete prms.clone_bites;
+                    }
+
+
+                }, 20);
+
+            };
+
+
+            var animate_desinflate = new Animate();
+            this.CreateHit = function() {
+
+
+                var $this = this;
+
+                /*
+                var draw_object = new Smoke({
+                "sx": 0,
+                "sy": 0,
+                "x": $this.GetX(),
+                "y": $this.GetY(),
+                "w": square_width,
+                "h": square_height
+                });
+
+                DrawObjects.push(draw_object);
+                */
+
+
+                var draw_object = new Bloode({
+                    "sx": 0,
+                    "sy": 0,
+                    "x": $this.GetX(),
+                    "y": $this.GetY(),
+                    "w": square_width,
+                    "h": square_height
+                });
+
+                DrawObjects.push(draw_object);
+
+                $this.Hit({ "draw_object": draw_object, "cicle": 6, "time": 0 });
+
+                if ($this.GetIsAlpha() && array_equals_character.length > 0) {
+
+                    $this.GetTimer().pause();
+
+                    $this.Message("letras", "{0}".format(array_equals_character.length));
+
+                    var l = array_equals_character.splice(0, 1);
+                    //delete l[0];
+
+                    // obsoleto se pierden valores 
+                    //var new_width = Math.pow(Math.pow($this.GetW(), 2) - Math.pow(array_equals_character[0].GetW(), 2), 0.5);
+                    //var new_height = Math.pow(Math.pow($this.GetW(), 2) - Math.pow(array_equals_character[0].GetH(), 2), 0.5);
+
+                    var new_width = Math.pow(array_equals_character.length * Math.pow(square_width, 2) + Math.pow(square_width, 2), 0.5);
+                    var new_height = Math.pow(array_equals_character.length * Math.pow(square_width, 2) + Math.pow(square_height, 2), 0.5);
+
+                    $this.Desinflate({
+                        "cicle": 24,
+                        "width": $this.GetW(),
+                        "new_width": new_width,
+                        "height": $this.GetH(),
+                        "new_height": new_height,
+                        "time": 0
+                    });
+
+                    //var new_x = $this.GetX() - Math.floor($this.GetX() / square_width) + 2 * square_width;
+                    //var new_y = $this.GetY() - Math.floor($this.GetY() / square_height) + 2 * square_height;
+
+                    //posicion actual
+                    var old_x = $this.GetX();
+                    var old_y = $this.GetY();
+
+                    //posicion valida del grid
+                    var tentative_x = parseInt(old_x / square_width)
+                    var tentative_y = parseInt(old_y / square_height)
+
+                    var direction = Math.floor(Math.random() * 3);
+                    if (direction == 0) {
+                        // para abajo
+                        var salto_abajo = Math.max(Math.ceil(new_height / square_height) + 1, Math.floor(Math.random() * (map_rows - tentative_y)));
+                        var new_x = tentative_x * square_width;
+                        var new_y = tentative_y * square_height + salto_abajo * square_height;
+                    }
+                    else if (direction == 1) {
+                        //derecha
+                        var salto_derecha = Math.max(Math.ceil(new_width / square_width) + 1, Math.floor(Math.random() * (map_cols - tentative_x)));
+                        var new_x = parseInt(old_x / square_width) * square_width + salto_derecha * square_height;
+                        var new_y = parseInt(old_y / square_height) * square_height;
+                    }
+                    else if (direction == 2) {
+                        //izquierda
+                        var salto_izquierda = Math.max(Math.ceil(new_width / square_width) + 1, Math.floor(Math.random() * (map_cols - tentative_x)));
+                        var new_x = parseInt(old_x / square_width) * square_width - salto_izquierda * square_height;
+                        var new_y = parseInt(old_y / square_height) * square_height;
+                    }
+                    else if (direction == 3) {
+                        //arriba
+                        var salto_arriba = Math.max(Math.ceil(new_height / square_height) + 1, Math.floor(Math.random() * (map_rows - tentative_y)));
+                        var new_x = parseInt(old_x / square_width) * square_width;
+                        var new_y = parseInt(old_y / square_height) * square_height - salto_arriba * square_height;
+                    }
+
+                    //antes de dibujar
+                    l[0].SetX(old_x);
+                    l[0].SetY(old_y);
+                    DrawObjects.push(l[0]);
+
+
+                    l[0].Expulsar({
+                        "cicle": 24,
+                        "x": old_x,
+                        "new_x": new_x,
+                        "y": old_y,
+                        "new_y": new_y,
+                        "time": 20
+                    });
+
+                    //animar secuencia de animaciones;
+                    if (!animate_desinflate.GetIsBusy()) {
+                        animate_desinflate.SetIsBusy(true);
+                        animate_desinflate.Star();
+                    }
+
+                }
+
+            };
+
+
+            this.Message = function(id, text) {
+                var t = document.createTextNode(text);
+                document.getElementById(id).appendChild(t);
+            };
+
+
+            this.Desinflate = function(prms) {
+                var $this = this;
+
+                var t_desinflate = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.SetPorcent(porcentaje);
+                    //$this.SetW($this.GetW() + (prms.new_width - $this.GetW()) * porcentaje);
+                    //$this.SetH($this.GetH() + (prms.new_height - $this.GetH()) * porcentaje);
+                    $this.SetW(prms.width - (prms.width - prms.new_width) * porcentaje);
+                    $this.SetH(prms.height - (prms.height - prms.new_height) * porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        //$this.Desinflate(prms)
+                        animate_desinflate.GetTimers()[0].resume();
+                    } else {
+                        //Ir quitando animaciones
+                        animate_desinflate.GetTimers().splice(0, 1);
+                        if (animate_desinflate.GetTimers().length > 0)
+                            animate_desinflate.GetTimers()[0].resume();
+                        else
+                            animate_desinflate.SetIsBusy(false);
+
+                        $this.GetTimer().resume();
+                    }
+
+                }, prms.time, false);
+
+                animate_desinflate.AddTimer(t_desinflate);
+            };
+
+
+            var t_hit = null;
+            this.Hit = function(prms) {
+                var $this = this;
+                prms.draw_object.SetStatus(Draw.STATUS.ACTIVE);
+
+                t_hit = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 6;
+                    prms.draw_object.SetSX((6 - prms.cicle) * 64);
+                    // establece el porcenetaje para desaparecer
+                    prms.draw_object.SetPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = 100;
+                        $this.Hit(prms);
+                    }
+                    // al terminar
+                    else {
+                        prms.draw_object.SetStatus(Draw.STATUS.INACTIVE);
+
+                        var l = DrawObjects.splice(DrawObjects.indexOf(prms.draw_object), 1);
+                        delete l[0];
+                        delete prms.bites;
+                        delete prms.clone_bites;
+                    }
+
+                }, prms.time);
+            };
+
+            this.onDraw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+                if ($this.GetCharacter() == wordcopy[currentletter])
+                //ctx.strokeStyle = "rgba(231,76,60," + $this.GetPorcent() + ")";
+                //ctx.strokeStyle = "rgba(46, 204, 113, 1)";
+                //ctx.strokeStyle = "#e74c3c";
+                    ctx.strokeStyle = "rgba(52, 152, 219, 1)";
+
+                else
+                    ctx.strokeStyle = "#cbcbcb";
+
+                if ($this.GetCharacter() == word[currentletter])
+                    ctx.lineWidth = 2 * (porcent || this.GetPorcent());
+                //ctx.lineWidth = "1";
+                else
+                    ctx.lineWidth = "1";
+
+
+
+                //ctx.fillStyle = '#ffffff';
+                ctx.fillStyle = "rgba(255, 255, 255, {0})".format($this.GetPorcentAppear());
+
+                //ctx.rect(this.GetX(), this.GetY(), this.GetW(), this.GetH());
+                if ($this.GetCharacter() == wordcopy[currentletter])
+                    ctx.roundRect(
+                        (x || this.GetX()) - 2 * (porcent || this.GetPorcent()) - ($this.GetW() - square_width) / 2,
+                        (y || this.GetY()) - 2 * (porcent || this.GetPorcent()) - ($this.GetH() - square_height) / 2,
+                        this.GetW() + 4 * (porcent || this.GetPorcent()),
+                        this.GetH() + 4 * (porcent || this.GetPorcent()),
+                        {
+                            upperLeft: 2 + 2 * (porcent || this.GetPorcent()),
+                            upperRight: 2 + 2 * (porcent || this.GetPorcent()),
+                            lowerLeft: 2 + 2 * (porcent || this.GetPorcent()),
+                            lowerRight: 2 + 2 * (porcent || this.GetPorcent())
+                        }, true, true);
+                else
+                    ctx.roundRect(
+                        ((typeof x === 'number') ? x : this.GetX()) - ($this.GetW() - square_width) / 2,
+                        ((typeof y === 'number') ? y : this.GetY()) - ($this.GetH() - square_height) / 2,
+                        this.GetW(),
+                        this.GetH(),
+                        {
+                            upperLeft: 2,
+                            upperRight: 2,
+                            lowerLeft: 2,
+                            lowerRight: 2
+                        }, true, true);
+
+                ctx.stroke();
+
+                //ctx.fillStyle = "rgba(0, 0, 0, 0.87)";
+                ctx.fillStyle = "rgba(0, 0, 0, {0})".format($this.GetPorcentAppear());
+
+
+
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+
+                if ($this.GetCharacter() == wordcopy[currentletter])
+                //"{0}px Verdana".format(12 + 2 * $this.GetPorcent());
+                //ctx.font = "12px your_custom_font"; 
+                    ctx.font = "{0}px your_custom_font".format($this.GetH() * 0.6);
+                else
+                    ctx.font = "{0}px your_custom_font".format($this.GetH() * 0.6);
+
+                ctx.fillText(
+                        this.GetCharacter(),
+                        ((typeof x === 'number') ? x : this.GetX()) - ($this.GetW() - square_width) / 2 + (this.GetW() / 2),
+                        ((typeof y === 'number') ? y : this.GetY()) - ($this.GetH() - square_height) / 2 + (this.GetH() / 2));
+
+                /*
+                //https://emojipedia.org/
+                ctx.fillText('😜',
+                ((typeof x === 'number') ? x : this.GetX()) + this.GetW() / 2,
+                ((typeof y === 'number') ? y : this.GetY()) + this.GetH() / 2);
+                */
+
+
+                /*
+                ctx.fillText(String.fromCharCode(0x1F61D),
+                ((typeof x === 'number') ? x : this.GetX()) + this.GetW() / 2,
+                ((typeof y === 'number') ? y : this.GetY()) + this.GetH() / 2);
+                ctx.fillText('\u1F61D',
+                ((typeof x === 'number') ? x : this.GetX()) + this.GetW() / 2,
+                ((typeof y === 'number') ? y : this.GetY()) + this.GetH() / 2);
+                */
+
+            };
+
+            var t_marquer = null;
+            this.Marquer = function(prms) {
+                var $this = this;
+
+                t_marquer = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.SetPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1)
+                        $this.Marquer({ "cicle": prms.cicle })
+                    else if (DrawObjects.indexOf($this) > -1)
+                        $this.Marquer({ "cicle": 24 })
+
+                }, 24);
+
+            };
+
+
+            var t_translate = null;
+            this.Translate = function(prms) {
+                var $this = this;
+
+                t_translate = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.SetPorcent(porcentaje);
+
+                    //rechazar
+                    //$this.SetX(prms.x + (prms.x + prms.new_x) * porcentaje);
+                    //$this.SetY(prms.y + (prms.y + prms.new_y) * porcentaje);
+
+                    $this.SetX(prms.x + (prms.new_x) * porcentaje);
+                    $this.SetY(prms.y + (prms.new_y) * porcentaje);
+                    $this.SetPorcentAppear(prms.cicle / 24);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        $this.Translate(prms)
+                    } else {
+                        //remover
+                        var index = DrawObjects.indexOf($this);
+                        if (index > -1) {
+                            var l = DrawObjects.splice(index, 1); ;
+                            delete l;
+                        }
+                        t_translate.pause();
+                    }
+
+                }, prms.time);
+
+            };
+
+
+
+            var t_expulsar = null;
+            this.Expulsar = function(prms) {
+                var $this = this;
+
+                t_expulsar = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.SetPorcent(porcentaje);
+
+                    //rechazar
+                    //$this.SetX(prms.x + (prms.x + prms.new_x) * porcentaje);
+                    //$this.SetY(prms.y + (prms.y + prms.new_y) * porcentaje);
+
+                    $this.SetX(prms.x + (prms.new_x - prms.x) * porcentaje);
+                    $this.SetY(prms.y + (prms.new_y - prms.y) * porcentaje);
+                    $this.SetPorcentAppear(porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        $this.Expulsar(prms)
+                    } else {
+
+                        $this.SetCapturado(false);
+
+                        //$this.GetTimer().resume();
+                        $this.Move({
+                            "cicle": 10,
+                            "ox": $this.GetX(),
+                            "oy": $this.GetY(),
+                            "direction": Math.floor((Math.random() * 4) + 1)
+                        });
+                    }
+
+                }, prms.time);
+            };
+
+
+
+            var t_inflate = null;
+            this.Inflate = function(prms) {
+                var $this = this;
+
+                t_inflate = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.SetPorcent(porcentaje);
+                    //$this.SetW($this.GetW() + (prms.new_width - $this.GetW()) * porcentaje);
+                    //$this.SetH($this.GetH() + (prms.new_height - $this.GetH()) * porcentaje);
+                    $this.SetW(prms.width + (prms.new_width - prms.width) * porcentaje);
+                    $this.SetH(prms.height + (prms.new_height - prms.height) * porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        $this.Inflate(prms)
+                    }
+
+                }, prms.time);
+            };
+
+
+            var is_alpha = prms.is_alpha || false;
+            this.GetIsAlpha = function() {
+                return is_alpha;
+            };
+            this.SetIsAlpha = function(value) {
+                is_alpha = value;
+            };
+
+            var array_equals_character = [];
+            this.EqualsCharacter = function(prms) {
+                for (var i = 0; i < DrawObjects.length; i++) {
+                    if (array_equals_character.indexOf(DrawObjects[i]) > -1)
+                        continue;
+                    if (DrawObjects[i].constructor === Letter && DrawObjects[i] != $this && !DrawObjects[i].GetCapturado()) {
+                        if ($this.intersects(
+                                $this.GetX() - ($this.GetW() - square_width) / 2,
+                                $this.GetY() - ($this.GetH() - square_height) / 2,
+                                $this.GetW(),
+                                $this.GetH(),
+                                DrawObjects[i].GetX(),
+                                DrawObjects[i].GetY(),
+                                DrawObjects[i].GetW(),
+                                DrawObjects[i].GetH())) {
+                            if (DrawObjects[i].GetCharacter() == $this.GetCharacter()) {
+                                //alert("equals");
+
+
+                                array_equals_character.push(DrawObjects[i]);
+                                DrawObjects[i].SetCapturado(true);
+
+                                //var new_width = Math.pow(Math.pow($this.GetW(), 2) + Math.pow(DrawObjects[i].GetW(), 2), 0.5);
+                                //var new_height = Math.pow(Math.pow($this.GetH(), 2) + Math.pow(DrawObjects[i].GetH(), 2), 0.5);
+
+                                var new_width = Math.pow(Math.pow(square_width, 2) + Math.pow(square_width, 2) * array_equals_character.length, 0.5);
+                                var new_height = Math.pow(Math.pow(square_height, 2) + Math.pow(square_width, 2) * array_equals_character.length, 0.5);
+
+                                $this.Message("letras2", "{0}".format(array_equals_character.length));
+
+                                //$this.SetW(new_width);
+                                //$this.SetH(new_height);
+
+                                $this.Inflate({
+                                    "cicle": 24,
+                                    "width": $this.GetW(),
+                                    "new_width": new_width,
+                                    "height": $this.GetH(),
+                                    "new_height": new_height,
+                                    "time": 0
+                                });
+
+                                var new_x = $this.GetX() - DrawObjects[i].GetX();
+                                var new_y = $this.GetY() - DrawObjects[i].GetY();
+
+                                DrawObjects[i].GetTimer().pause();
+                                DrawObjects[i].Translate({
+                                    "cicle": 24,
+                                    "x": DrawObjects[i].GetX(),
+                                    "new_x": new_x,
+                                    "y": DrawObjects[i].GetY(),
+                                    "new_y": new_y,
+                                    "time": 0
+                                });
+
+
+
+                                var life = $this.GetLife();
+                                $this.SetLife(life + 1);
+                                //var l = DrawObjects.splice(i, 1);
+                                return;
+                            }
+                        }
+                    }
+                }
+            };
+
+            this.Move = function(prms) {
+                var $this = this;
+
+
+                //window.setTimeout(function() {
+                $this.SetTimer(new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 10;
+                    var distancia = 20;
+
+
+
+                    if (prms.direction == Direction.RIGHT) {
+
+                        if (prms.ox + distancia < Map[0].length * 20) {
+                            $this.SetX(prms.ox + distancia * porcentaje);
+                            if ($this.GetIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else if (prms.direction == Direction.UP) {
+
+                        if (prms.oy - distancia >= 0) {
+                            $this.SetY(prms.oy - distancia * porcentaje);
+                            if ($this.GetIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else if (prms.direction == Direction.DOWN) {
+                        if (prms.oy + distancia < Map.length * 20) {
+                            $this.SetY(prms.oy + distancia * porcentaje);
+                            if ($this.GetIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else if (prms.direction == Direction.LEFT) {
+                        if (prms.ox - distancia >= 0) {
+                            $this.SetX(prms.ox - distancia * porcentaje);
+                            if ($this.GetIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else {
+                        alert("error");
+                    }
+
+                    prms.cicle = prms.cicle - 1;
+                    if (prms.cicle > -1)
+                        $this.Move({ "cicle": prms.cicle, "ox": prms.ox, "oy": prms.oy, "direction": prms.direction });
+                    else if (DrawObjects.indexOf($this) > -1 && $this.GetStatus() == Letter.STATUS.LIFE)
+                        $this.Move({ "cicle": 10, "ox": $this.GetX(), "oy": $this.GetY(), "direction": Math.floor((Math.random() * 4) + 1) });
+
+
+                }, 24));
+            };
+
+
+            window.setTimeout(function() {
+                //if ($this.GetIsAlpha()) {
+                //$this.Move({ "cicle": 10, "ox": $this.GetX(), "oy": $this.GetY(), "direction": Direction.RIGHT });
+                $this.Move({ "cicle": 10, "ox": $this.GetX(), "oy": $this.GetY(), "direction": Math.floor((Math.random() * 4) + 1) });
+                //}
+                $this.Marquer({ "cicle": 10 });
+            }, 1000);
+
+
+
+        };
+        Letter.prototype = new Draw({});
+        Letter.prototype.constructor = Letter;
+
+        Letter.STATUS = {};
+        Letter.STATUS.LIFE = 1;
+        Letter.STATUS.DETAH = 2;
+        Letter.STATUS.SLEEP = 3;
+
+        Letter.Expulsar = {};
+        Letter.Expulsar.TOP = 0;
+        Letter.Expulsar.LEFT = 1;
+        Letter.Expulsar.RIGHT = 2;
+        Letter.Expulsar.BOTTOM = 3;
+
+        DrawObjects = [];
+
+        Map = [
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", "H", "E", "L", "L", "O", "!", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", "2"]
+              ];
+
+        //        Map = [
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", "*", "G", "A", "B", "R", "I", "E", "L", "A"],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", "2"]
+        //              ];
+
+        //        Map = [
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", "J", "K", "A", "B", "C", "B", "C", "A", " "],
+        //                [" ", "B", "C", "A", "B", "C", "B", "C", "A", " "],
+        //                [" ", "*", "G", "A", "B", "R", "I", "E", "L", " "],
+        //                [" ", "J", "K", "A", "B", "C", "B", "C", "A", " "],
+        //                [" ", "B", "C", "A", "B", "C", "B", "C", "A", " "],
+        //                [" ", "E", "F", "A", "B", "C", "B", "C", "A", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        //                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+        //              ];
+        //Map = [["A"]];
+
+        var pause = false;
+        var currentletter = 0;
+        //var word = ["*", "G", "A", "B", "R", "I", "E", "L", " ", "2"];
+        var word = ["H", "E", "L", "L", "O", " ", "!"];
+        var wordcopy = [];
+
+        var transX;
+        var transY;
+        var map_cols;
+        var map_rows;
+        var square_width = 20;
+        var square_height = 20;
+
+
+        function random(min, max, length) {
+            var numbers = [];
+
+            function _random(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            Array.apply(null, new Array(length)).reduce(function(previous) {
+                var nextRandom;
+
+                if (previous === min) {
+                    nextRandom = _random(min + 1, max);
+                } else if (previous === max) {
+                    nextRandom = _random(min, max - 1);
+                } else {
+                    if (_random(0, 1)) {
+                        nextRandom = _random(previous + 1, max);
+                    } else {
+                        nextRandom = _random(min, previous - 1);
+                    }
+                }
+
+                numbers.push(nextRandom);
+                return nextRandom;
+            }, _random(min, max));
+
+            return numbers;
+        }
+
+        window.onload = function() {
+
+            Map = [
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+              ];
+
+            map_cols = Map[0].length;
+            map_rows = Map.length;
+
+
+            var refresh = null;
+
+            var btnStart = document.getElementById("btnStart");
+            btnStart.onclick = function() {
+
+                if (refresh != null)
+                    clearTimeout(refresh);
+
+
+                word = document.getElementById("txtWord").value.split("");
+
+
+                //guardar copia de la palabra
+                wordcopy = word.slice(0, word.length);
+
+
+                Map = [
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+                [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+              ];
+
+                map_cols = Map[0].length;
+                map_rows = Map.length;
+
+                var x = Math.floor(Math.random() * 10);
+                var y = Math.floor(Math.random() * 20);
+
+                Map[y][x] = "time";
+
+                // asignar posiciones aleatorias a las letras de la palabra
+                var wordcopy2 = word.slice(0, word.length);
+                while (wordcopy2.length > 0) {
+
+                    x = Math.floor(Math.random() * 10);
+                    y = Math.floor(Math.random() * 20);
+
+                    //var text = document.createTextNode("[{0}]".format(y));
+                    //document.getElementById("Div1").appendChild(text);
+
+                    // Map y= row x= cols
+                    if (Map[y][x] == " ") {
+                        Map[y][x] = wordcopy2[0];
+                        //var text = document.createTextNode("[{0}{1}]={2}".format(x, y, wordcopy2[0]));
+                        //document.getElementById("Div1").appendChild(text);
+
+
+
+                        wordcopy2.splice(0, 1);
+                    }
+                }
+
+                ArrangeLetters();
+
+                refresh = window.setInterval(function() {
+
+                    ctx.clearRect(-transX, -transY, c.width, c.height);
+                    //currentletter = ReturnIndex();                   
+
+                    for (var i = 0; i < map_rows; i++) {
+                        for (var j = 0; j < map_cols; j++) {
+
+                            var _upperLeft = 0;
+                            var _upperRight = 0;
+                            var _lowerLeft = 0;
+                            var _lowerRight = 0;
+
+                            if (i == 0 && j == 0) _upperLeft = 2;
+                            if (i == 9 && j == 0) _upperRight = 2;
+                            if (i == 0 && j == 9) _lowerLeft = 2;
+                            if (i == 9 && j == 9) _lowerRight = 2;
+
+                            ctx.beginPath();
+                            ctx.strokeStyle = "#cbcbcb";
+                            ctx.lineWidth = "1";
+                            ctx.fillStyle = '#ffffff';
+                            //ctx.rect(this.GetX(), this.GetY(), this.GetW(), this.GetH());
+                            ctx.roundRect(j * square_width, i * square_height, square_width, square_height, { upperLeft: _upperLeft, upperRight: _upperRight, lowerLeft: _lowerLeft, lowerRight: _lowerRight }, true, true);
+
+                            ctx.stroke();
+
+                        }
+                    }
+
+
+
+
+                    for (var i = 0; i < DrawObjects.length; i++) {
+                        DrawObjects[i].onDraw(ctx);
+                    }
+
+                }, 40);
+
+            };
+
+            var btn = document.getElementById("btn");
+            btn.onclick = function() {
+
+                for (var i = 0; i < DrawObjects.length; i++) {
+                    if (DrawObjects[i].GetTimer()) {
+                        if (!pause)
+                            DrawObjects[i].GetTimer().pause();
+                        else
+                            DrawObjects[i].GetTimer().resume();
+                    }
+                }
+
+                pause = !pause;
+
+            };
+
+            var c = document.getElementById("myCanvas");
+
+            var ctx = c.getContext("2d", { alpha: false });
+            ctx.imageSmoothingEnabled = false;
+
+            transX = (c.width - map_cols * square_width) * 0.5;
+            transY = (c.height - map_rows * square_height) * 0.5;
+
+            ctx.translate(transX, transY);
+
+            ctx.restore();
+            ctx.translate(.5, .5);
+
+            //var l = new Letter({ "x": 0, "y": 0, "w": 20, "h": 20, "character": "A" });
+            //l.onDraw(ctx);
+
+
+
+
+            ctx.clearRect(-transX, -transY, c.width, c.height);
+
+
+
+            //            ctx.restore();
+            //            ctx.translate(.5, .5);
+
+            c.onmousedown = function(e) { handleMouseDown(e); };
+
+
+        };
+
+        // calc the mouseclick position and test if it's inside the rect
+        function handleMouseDown(e) {
+
+
+            // calculate the mouse click position
+            var c = document.getElementById("myCanvas");
+            mouseX = parseInt(e.clientX - c.offsetLeft - transX);
+            mouseY = parseInt(e.clientY - c.offsetTop - transY);
+
+
+            for (var i = DrawObjects.length - 1; i > -1; i--) {
+                if (DrawObjects[i].isPointInside(mouseX, mouseY) && DrawObjects[i].constructor === HourGlass) {
+                    DrawObjects[i].StopTime();
+                }
+                if (DrawObjects[i].isPointInside(mouseX, mouseY) && DrawObjects[i].constructor === Letter) {
+
+                    // revisar vida
+                    if (DrawObjects[i].GetLife() > 1) {
+                        var new_life = DrawObjects[i].GetLife() - 1;
+                        DrawObjects[i].SetLife(new_life);
+                        DrawObjects[i].CreateHit();
+                        return;
+                    }
+
+                    // remover el caracter de la sopa de letras
+                    var l = DrawObjects.splice(i, 1);
+
+                    //remover la letra del la palabra copia, que no era la siguiente x
+                    var index = wordcopy.join("").indexOf(l[0].GetCharacter());
+                    if (index > 0) {
+
+                        var select_leter = wordcopy.splice(index, 1);
+                        delete select_leter;
+                        l[0].SetStatus(Letter.STATUS.DETAH);
+                        l[0].CreateImage();
+                        delete l[0];
+                        document.getElementById("WordCopy").innerHTML = wordcopy;
+
+                        //continue;
+                        return;
+                    }
+                    else {
+
+                        //remover la letra de la palabra copia, que si era la siguiente ok
+                        //wordcopy.splice(currentletter, 1);
+                        var select_leter = wordcopy.splice(0, 1);
+                        delete select_leter;
+                        l[0].SetStatus(Letter.STATUS.DETAH);
+                        l[0].CreateImage();
+                        delete l[0];
+                        document.getElementById("WordCopy").innerHTML = wordcopy;
+
+                        // siguiente letra
+                        //currentletter += 1;
+
+
+                        // mientras existan letras en palabra, ignorar espacios u cadenas vacias
+                        while (wordcopy.length > 0) {
+                            // si es espacio o cadena vacia pasar a la siguiente letra
+                            if (wordcopy[0] == "" || wordcopy[0] == " ") {
+                                //currentletter += 1;
+                                var select_leter = wordcopy.splice(0, 1);
+                                delete select_leter;
+                                document.getElementById("WordCopy").innerHTML = wordcopy;
+
+                            }
+                            //salir del ciclo                            
+                            else
+                                break;
+                        }
+
+
+                        // si ya no hay mas letras de la palabra borrar el exceso
+                        if (wordcopy.length == 0) {
+                            window.setTimeout(function() {
+                                var select_leter = DrawObjects.splice(0, DrawObjects.length);
+                                if (select_leter === Letter) {
+                                    select_leter.SetStatus(Letter.STATUS.DETAH);
+                                    select_leter.CreateImage();
+                                    delete select_leter;
+                                }
+                            }, 500);
+
+                        }
+
+                        //salir de la funcion para solo remover una sola letra
+                        return;
+                    }
+
+
+                }
+            }
+        };
+
+        function ReturnIndex() {
+            for (var i = 0; i < DrawObjects.length; i++) {
+                if (DrawObjects[i].GetCharacter() == word[currentletter]) {
+                    return currentletter;
+                }
+            }
+            //return currentletter + 1;
+            return currentletter
+        }
+
+        function ArrangeLetters() {
+            DrawObjects = [];
+            for (var j = 0; j < Map.length; j++) {
+                for (var i = 0; i < Map[0].length; i++) {
+
+                    if (Map[j][i] == "time") {
+                        DrawObjects.push(new HourGlass({
+                            "x": i * 20,
+                            "y": j * 20,
+                            "w": 20,
+                            "h": 20,
+                            "character": Map[j][i]
+                        }));
+                    }
+                    else if (Map[j][i] != " ") {
+                        DrawObjects.push(new Letter({
+                            "x": i * 20,
+                            "y": j * 20,
+                            "w": 20,
+                            "h": 20,
+                            "character": Map[j][i]
+                        }));
+                    }
+                }
+            }
+            /*
+            var index = Math.floor(Math.random() * DrawObjects.length);
+            if (index > 0)
+            DrawObjects[index].SetIsAlpha(true);
+            */
+            //PONER UN ALPHA POR CADA GRUPO DE LETRAS IGUALES
+            //DrawObjects[0].SetIsAlpha(true);
+            var array_alpha = [];
+            DrawObjects.forEach(function(currentValue, index, array) {
+                if (currentValue.constructor === Letter && array_alpha.indexOf(currentValue.GetCharacter()) == -1) {
+                    array_alpha.push(currentValue.GetCharacter());
+                    currentValue.SetIsAlpha(true);
+                }
+            });
+
+            //            DrawObjects.map(function(currentValue, index, array) {
+            //                
+            //            });
+
+        };        
+                  
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <input id="txtWord" type="text" />
+        <input id="btnStart" type="button" value=">" />
+        <input id="btn" type="button" value="||" style="display: inline;" />
+        <canvas id="myCanvas" width="240" height="480" style="border: 1px solid #efefef;
+            cursor: pointer; display: block;"></canvas>
+        <div id="WordCopy">
+        </div>
+        <div id="Div1">
+        </div>
+        <div id="letras2" style="border: 1px solid #000;">
+        </div>
+        <div id="letras" style="border: 1px solid red;">
+        </div>
+    </div>
+    </form>
+</body>
+</html>

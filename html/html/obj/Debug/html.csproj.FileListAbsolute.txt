@@ -1,0 +1,25 @@
+Z:\[Base]\Fuente\html\html\obj\Debug\ResolveAssemblyReference.cache
+Z:\[Base]\Fuente\html\html\obj\Debug\html.Properties.Resources.resources
+Z:\[Base]\Fuente\html\html\obj\Debug\html.csproj.GenerateResource.Cache
+Z:\[Base]\Fuente\html\html\bin\Debug\html.exe
+Z:\[Base]\Fuente\html\html\bin\Debug\html.pdb
+Z:\[Base]\Fuente\html\html\bin\Debug\HtmlAgilityPack.dll
+Z:\[Base]\Fuente\html\html\bin\Debug\HtmlAgilityPack.pdb
+Z:\[Base]\Fuente\html\html\bin\Debug\HtmlAgilityPack.xml
+Z:\[Base]\Fuente\html\html\obj\Debug\html.exe
+Z:\[Base]\Fuente\html\html\obj\Debug\html.pdb
+Z:\[Base]\Fuente\html\html\obj\Debug\html.Form1.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.exe
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.pdb
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\html.exe
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\html.pdb
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.dll
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\HtmlAgilityPack.xml
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.Form1.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.Properties.Resources.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.csproj.GenerateResource.Cache
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmGenerateAlterColumn.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\obj\Debug\html.frmMain.resources
+C:\Users\consultorin\Documents\Visual Studio 2008\Projects\html\html\bin\Debug\html.exe.config

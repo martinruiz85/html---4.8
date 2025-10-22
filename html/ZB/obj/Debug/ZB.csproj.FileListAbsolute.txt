@@ -1,0 +1,46 @@
+C:\Users\Consultorin\Desktop\html\ZB\bin\Debug\ZB.exe
+C:\Users\Consultorin\Desktop\html\ZB\bin\Debug\ZB.pdb
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ZB.Properties.Resources.resources
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ZB.csproj.GenerateResource.Cache
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ZB.exe
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ZB.pdb
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ZB.frmPaint.resources
+C:\Users\Consultorin\Desktop\html\ZB\obj\Debug\ZB.Form2.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\bin\Debug\ZB.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\bin\Debug\ZB.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ZB.Form2.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ZB.frmPaint.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ZB.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ZB.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ZB.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\ZB\obj\Debug\ZB.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\bin\Debug\ZB.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\bin\Debug\ZB.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\obj\Debug\ZB.Form2.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\obj\Debug\ZB.frmPaint.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\obj\Debug\ZB.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\obj\Debug\ZB.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\obj\Debug\ZB.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\ZB\obj\Debug\ZB.pdb
+C:\Proyectos\2015\html\ZB\bin\Debug\ZB.exe
+C:\Proyectos\2015\html\ZB\bin\Debug\ZB.pdb
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.Form2.resources
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.frmPaint.resources
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.Properties.Resources.resources
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.csproj.GenerateResource.Cache
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.exe
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.pdb
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\ZB\obj\Debug\ZB.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\ZB\bin\Debug\ZB.exe
+C:\Users\usu\source\repos\html - 4.8\html\ZB\bin\Debug\ZB.pdb
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.Form2.resources
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.frmPaint.resources
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.Properties.Resources.resources
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.csproj.GenerateResource.cache
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.exe
+C:\Users\usu\source\repos\html - 4.8\html\ZB\obj\Debug\ZB.pdb

@@ -1,0 +1,92 @@
+--INICIA
+--@Item:Id
+IF COL_LENGTH('Clientes','Id') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Id] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Id'
+END
+--@Item:Nombre
+IF COL_LENGTH('Clientes','Nombre') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Nombre] [varchar](100) NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Nombre'
+END
+--@Item:RazonSocial
+IF COL_LENGTH('Clientes','RazonSocial') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [RazonSocial] [varchar](100) NULL
+ PRINT 'LA COLUMNA INSERTADA: RazonSocial'
+END
+--@Item:Telefono
+IF COL_LENGTH('Clientes','Telefono') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Telefono] [nvarchar](50) NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Telefono'
+END
+--@Item:Telefono2
+IF COL_LENGTH('Clientes','Telefono2') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Telefono2] [nvarchar](50) NULL
+ PRINT 'LA COLUMNA INSERTADA: Telefono2'
+END
+--@Item:Gerente
+IF COL_LENGTH('Clientes','Gerente') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Gerente] [nvarchar](50) NULL
+ PRINT 'LA COLUMNA INSERTADA: Gerente'
+END
+--@Item:Status
+IF COL_LENGTH('Clientes','Status') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Status] [bit] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: Status'
+END
+--@Item:RFC
+IF COL_LENGTH('Clientes','RFC') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [RFC] [varchar](15) NULL
+ PRINT 'LA COLUMNA INSERTADA: RFC'
+END
+--@Item:Referencia
+IF COL_LENGTH('Clientes','Referencia') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Referencia] [varchar](50) NULL
+ PRINT 'LA COLUMNA INSERTADA: Referencia'
+END
+--@Item:Id_Banco
+IF COL_LENGTH('Clientes','Id_Banco') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [Id_Banco] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: Id_Banco'
+END
+--@Item:No_Cuenta
+IF COL_LENGTH('Clientes','No_Cuenta') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [No_Cuenta] [varchar](20) NULL
+ PRINT 'LA COLUMNA INSERTADA: No_Cuenta'
+END
+--@Item:CfdiUseId
+IF COL_LENGTH('Clientes','CfdiUseId') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [CfdiUseId] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: CfdiUseId'
+END
+--@Item:FiscalRegimeCode
+IF COL_LENGTH('Clientes','FiscalRegimeCode') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [FiscalRegimeCode] [varchar](5) NULL
+ PRINT 'LA COLUMNA INSERTADA: FiscalRegimeCode'
+END
+--@Item:CP
+IF COL_LENGTH('Clientes','CP') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [CP] [varchar](5) NULL
+ PRINT 'LA COLUMNA INSERTADA: CP'
+END
+--@Item:CfdiVersionId
+IF COL_LENGTH('Clientes','CfdiVersionId') IS NULL
+BEGIN
+ ALTER TABLE [Clientes] ADD [CfdiVersionId] [tinyint] NULL
+ PRINT 'LA COLUMNA INSERTADA: CfdiVersionId'
+END
+--EXITO

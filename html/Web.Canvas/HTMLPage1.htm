@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        html
+        {
+            height: 100%;
+        }
+        body
+        {
+            min-height: 100%;
+        }
+        body
+        {
+            margin: 0px 0px;
+        }
+    </style>
+
+    <script type="text/javascript" language="javascript">
+
+        var square_width;
+        var square_height;
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var c = document.getElementById("myCanvas");
+            c.setAttribute("width", document.documentElement.offsetWidth);
+            c.setAttribute("height", document.documentElement.offsetHeight);
+            square_width = document.documentElement.offsetWidth / 10;
+            square_height = square_width; //ctx.canvas.height / 10;
+
+            var ctx = c.getContext("2d", { alpha: false });
+            ctx.imageSmoothingEnabled = false;
+
+            var timer = window.setInterval(function() {
+
+
+                //border
+                ctx.beginPath();
+                ctx.lineWidth = "1";
+                //colir de linea
+                ctx.strokeStyle = "#ffffff";
+                //cols
+                for (var i = 0; i < 20; i++) {
+                    //rows
+                    for (var j = 0; j < 10; j++) {
+                        ctx.rect(j * square_width, i * square_height, square_width, square_height);
+                    }
+                }
+                ctx.stroke();
+
+
+            }, 20);
+
+        });
+
+        window.addEventListener("resize", function() {
+            var c = document.getElementById("myCanvas");
+            c.setAttribute("width", document.documentElement.offsetWidth);
+            c.setAttribute("height", document.documentElement.offsetHeight);
+
+            square_width = document.documentElement.offsetWidth / 10;
+            square_height = square_width; //ctx.canvas.height / 10;
+        });
+    
+    </script>
+
+</head>
+<body style="height: 100%">
+    <canvas id="myCanvas" style="border: 0px solid #000;"></canvas>
+</body>
+</html>

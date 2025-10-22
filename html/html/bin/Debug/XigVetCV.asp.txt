@@ -1,0 +1,209 @@
+--***************************************************************
+--
+-- Parameters:
+-- ObjectName               = XigVetCV.asp
+-- ObjectTypeName           = Data page
+-- ScriptTree               = 1
+-- ScriptOnlyActiveLanguage = 1
+-- SetObjectGroups          = 0
+-- LastModDate              = <NULL>
+--
+-- Script Source: 
+-- Date          = 17 Nov 2022 12:42:49:487
+-- Server Name   = XMTYMXINTSQL01\SQLAPPS
+-- ETWeb Version = 11.4.0.2121
+--
+--***************************************************************
+
+
+--*****************************************************************************************
+--*** Main Object data XigVetCV.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+DECLARE @blnIsNewObject BIT 
+DECLARE @intRecTypeID INT
+DECLARE @intRecFieldTypeID INT
+DECLARE @intObjGrpID INT
+DECLARE @txtHelpHtml NVARCHAR(4000)
+
+-- New Object ID
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetCV.asp'
+
+EXEC @intRecTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+ 
+-- Init if this is a new Object
+SET @blnIsNewObject = 0
+IF NOT EXISTS (SELECT ObjID FROM tzObject WHERE ObjID = @intObjID) 
+   SET @blnIsNewObject = 1 -- New Object
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuacion VET Divisional Write', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetCV.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = NULL, @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+EXEC @intRecFieldTypeID = sp_zObject_ID 'RecordType', 'tPerson', @vblnReturnNewID = 0
+
+
+-- Keep existing Html help text
+SELECT @txtHelpHtml = HelpHTML FROM tzObjectText WHERE ObjID = @intObjID AND SysLID = 3082
+
+
+
+
+
+-- Set object group membership only for new objects
+IF (@blnIsNewObject = 1) 
+   EXEC @intObjGrpID = sp_zObject_ID 'ObjectGroup', N'Xignux - Valuación VET Divisional Read', @vblnReturnNewID = 0
+
+
+-- Execute Load SP
+EXEC pzObject_Load @vintObjID = @intObjID, @vstrName = N'XigVetCV.asp', @vintObjTypeID = -1, @vintRecTypeID = @intRecTypeID, @vtxtComment = NULL, @vstrFieldName = N'PID', @vintFieldRecTypeID = @intRecFieldTypeID, @vintObjGrpID = @intObjGrpID, @vstrObjGrpFieldName = N'PID', @vintSysLID = 3082, @vtxtHelpHtml = NULL
+-- Load Html help text
+EXEC pzObjectText_Load @vintObjID = @intObjID, @vintSysLID = 3082, @vtxtHelpHtml = @txtHelpHtml
+
+GO
+
+
+
+--*****************************************************************************************
+--*** Resource Text Data XigVetCV.asp
+--*****************************************************************************************
+
+
+DECLARE @intObjID INT
+EXEC @intObjID = sp_zObject_ID 'Object', 'XigVetCV.asp', @vblnReturnNewID = 0
+
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'PeriodCode', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Periodo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'PeriodCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Periodo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FechaCreacion', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Fecha Creación'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FechaCreacion', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Fecha Creación'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'HRPlanPerID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Periodo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'HRPlanPerID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Periodo'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DivisionID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Division'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DivisionID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'División'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigVetEspCode', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Specialty'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigVetEspCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Especialidad'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigVetEspID', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Specialty'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigVetEspID', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Especialidad'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigVetCVCodeDesc', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Description'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'XigVetCVCodeDesc', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'Descripción'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DivisionCode', @vintSysLID = 1033, @vstrResourceDesc = NULL, @vstrResourceText = N'Division'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'DivisionCode', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'División'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 3082, @vstrResourceDesc = N'Curriculum Vitae', @vstrResourceText = N'Curriculum Vitae'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'FormTitle', @vintSysLID = 1033, @vstrResourceDesc = N'Curriculum Vitae', @vstrResourceText = N'Curriculum Vitae'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ImageFile', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'../../Skins/Default/img/TreeIconDTUSetting.gif'
+
+EXEC pzResource_Load @vintObjID = @intObjID , @vstrResourceName = N'ImageVetFile', @vintSysLID = 3082, @vstrResourceDesc = NULL, @vstrResourceText = N'../../Skins/Default/img/FormIconRelatedFile.gif'
+
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetCV.asp', NULL, NULL, NULL, NULL, NULL, 0 
+EXEC pzObjectDataPage_Load @vintObjID = @intObjID, @vblnIsSaveDataWarningEnabled = 0, @vblnIsLegalCheckOnSaveEnabled = 0, @vblnDisplayLegalCheckButton = 0, @vblnIsSpellCheckOnSaveEnabled = 0, @vblnDisplaySpellCheckButton = 0
+GO
+
+
+DECLARE @intObjID INT
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetCV.asp', NULL, NULL, NULL, NULL, NULL, 0 
+DELETE FROM tzObjectFileCategory WHERE ObjID = @intObjID
+GO
+
+-- ******************************************************
+-- *** Controller Tree
+-- ******************************************************
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: Explorador de RR.HH. > Explorador de RR.HH. > Información Básica del Empleado > VET > Currículum Vitae (SysLID: 3082)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Currículum Vitae'
+SET @ridCtTreeGUID = N'53DCB133-58EF-4D19-A8F4-15937A4F8CE1'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetCV.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'6E9ECB2E-EDF7-4B91-AC17-27E0D1ECB531', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 3082, @intObjID, @strTreeNodeName, N'Currículum Vitae
+', NULL, NULL, N'BannerType{{=}}1', NULL, 20, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Controller Tree Node: HR Explorer > HR Explorer > Employee Core Information > VET > Currículum Vitae (SysLID: 1033)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DECLARE @intCtTreeID INT
+DECLARE @vintParentCtTreeID INT
+DECLARE @intObjID INT
+DECLARE @ridCtTreeGUID UNIQUEIDENTIFIER
+DECLARE @strTreeNodeName NVARCHAR(255)
+
+SET @strTreeNodeName = N'Currículum Vitae'
+SET @ridCtTreeGUID = N'53DCB133-58EF-4D19-A8F4-15937A4F8CE1'
+
+EXEC @intObjID = sp_zObject_ID 'Object', N'XigVetCV.asp', NULL, NULL, NULL, NULL, NULL, 0
+EXEC @intCtTreeID = sp_zObject_ID 'TreeByGuid', @ridCtTreeGUID
+EXEC @vintParentCtTreeID = sp_zObject_ID 'TreeByGuid', N'6E9ECB2E-EDF7-4B91-AC17-27E0D1ECB531', NULL, NULL, NULL, NULL, NULL, 0
+EXEC pzControllerTree_Load @intCtTreeID, 1033, @intObjID, @strTreeNodeName, NULL, NULL, NULL, N'BannerType{{=}}1', NULL, 20, 0, @ridCtTreeGUID
+EXEC pzControllerTree_Load2 @intCtTreeID, @vintParentCtTreeID, NULL
+GO
+
+

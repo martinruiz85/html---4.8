@@ -1,0 +1,35 @@
+C:\Users\Consultorin\Desktop\html\WebCatalog\bin\WebCatalog.dll
+C:\Users\Consultorin\Desktop\html\WebCatalog\bin\WebCatalog.pdb
+C:\Users\Consultorin\Desktop\html\WebCatalog\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\WebCatalog\obj\Debug\WebCatalog.dll
+C:\Users\Consultorin\Desktop\html\WebCatalog\obj\Debug\WebCatalog.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebCatalog\bin\WebCatalog.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebCatalog\bin\WebCatalog.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebCatalog\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebCatalog\obj\Debug\WebCatalog.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebCatalog\obj\Debug\WebCatalog.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebCatalog\bin\WebCatalog.dll.config
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebCatalog\bin\WebCatalog.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebCatalog\bin\WebCatalog.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebCatalog\obj\Debug\WebCatalog.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebCatalog\obj\Debug\WebCatalog.pdb
+C:\Proyectos\2015\html\WebCatalog\bin\WebCatalog.dll.config
+C:\Proyectos\2015\html\WebCatalog\bin\WebCatalog.dll
+C:\Proyectos\2015\html\WebCatalog\bin\WebCatalog.pdb
+C:\Proyectos\2015\html\WebCatalog\obj\Debug\WebCatalog.dll
+C:\Proyectos\2015\html\WebCatalog\obj\Debug\WebCatalog.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebCatalog\bin\WebCatalog.dll.config
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebCatalog\bin\WebCatalog.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebCatalog\bin\WebCatalog.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebCatalog\obj\Debug\WebCatalog.csproj.CoreCompileInputs.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebCatalog\obj\Debug\WebCatalog.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebCatalog\obj\Debug\WebCatalog.pdb
+C:\Proyectos\2015\html\WebCatalog\obj\Debug\WebCatalog.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\WebCatalog\obj\Debug\WebCatalog.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\bin\WebCatalog.dll.config
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\bin\WebCatalog.dll
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\bin\WebCatalog.pdb
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\obj\Debug\WebCatalog.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\obj\Debug\WebCatalog.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\obj\Debug\WebCatalog.dll
+C:\Users\usu\source\repos\html - 4.8\html\WebCatalog\obj\Debug\WebCatalog.pdb

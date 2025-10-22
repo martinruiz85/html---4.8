@@ -1,0 +1,13 @@
+/****** Object:  StoredProcedure [dbo].[sp_person_list]    Script Date: 11/04/2025 08:35:41 p. m. ******/
+DROP PROCEDURE IF EXISTS [dbo].[sp_person_list]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_person_list]    Script Date: 11/04/2025 08:35:41 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure sp_person_list
+as
+select *
+  from [dbo].[person]
+GO

@@ -1,0 +1,147 @@
+/****** Object:  StoredProcedure [dbo].[spAlterViewsForCentralizeUserInfoDb]    Script Date: 08/10/2025 10:24:59 p. m. ******/
+DROP PROCEDURE IF EXISTS [dbo].[spAlterViewsForCentralizeUserInfoDb]
+GO
+/****** Object:  StoredProcedure [dbo].[spAlterViewsForCentralizeUserInfoDb]    Script Date: 08/10/2025 10:24:59 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+      
+CREATE PROC spAlterViewsForCentralizeUserInfoDb
+@dataBase NVARCHAR(510), @dataBaseMaster NVARCHAR(510),    
+@SubsidiaryId int, @LoggedUser VARCHAR(100)              
+AS            
+BEGIN            
+
+  DECLARE @returnTemp table (returnId int)    
+  DECLARE @Date DateTime     
+  DECLARE  @dynsql NVARCHAR(max),@CountSQLQuery varchar(30),@ParmDefinition nvarchar(500), @existsTable INT           
+     
+ SET @Date = GETDATE();           
+ SET @ParmDefinition = N'@result varchar(30) OUTPUT';          
+          
+ SET  @dynsql =  N'USE ' + Quotename(@dataBaseMaster)           
++ N' IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''[dbo].[usuario]'') AND OBJECTPROPERTY(id, N''IsUserTable'')= 1)          
+  SELECT @result = 1          
+  ELSE           
+  SELECT @result = 0'            
+ EXEC Sp_executesql @dynsql,@ParmDefinition ,@result=@CountSQLQuery OUTPUT          
+ SELECT @existsTable = CAST(@CountSQLQuery as int)          
+ IF (@existsTable = 1)          
+  BEGIN             
+  SET @dynsql =  N'ALTER VIEW [dbo].[usuario]            
+   AS            
+  SELECT  *            
+  FROM ' +   @dataBaseMaster+'.dbo.usuario go'            
+  set @dynsql = 'exec ' + @dataBase + '..sp_executesql N''' + @dynsql + ''''            
+EXEC Sp_executesql @dynsql             
+   
+  INSERT INTO @returnTemp (returnId)    
+   SELECT 16    
+  END          
+      
+   SET  @dynsql =  N'USE ' + Quotename(@dataBaseMaster)           
++ N' IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''[dbo].[usuariolog]'') AND OBJECTPROPERTY(id, N''IsUserTable'')= 1)          
+  SELECT @result = 1          
+  ELSE           
+  SELECT @result = 0'            
+ EXEC Sp_executesql @dynsql,@ParmDefinition ,@result=@CountSQLQuery OUTPUT          
+ SELECT @existsTable = CAST(@CountSQLQuery as int)          
+ IF (@existsTable = 1)          
+  BEGIN             
+  SET @dynsql =  N'ALTER VIEW [dbo].[usuariolog]            
+   AS            
+  SELECT  *            
+  FROM ' +   @dataBaseMaster+'.dbo.usuariolog go'            
+  set @dynsql = 'exec ' + @dataBase + '..sp_executesql N''' + @dynsql + ''''            
+EXEC Sp_executesql @dynsql             
+
+  INSERT INTO @returnTemp (returnId)    
+   SELECT 39    
+  END     
+                        
+SET  @dynsql =  N'USE ' + Quotename(@dataBaseMaster)           
++ N' IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''[dbo].[permisousuario]'') AND OBJECTPROPERTY(id, N''IsUserTable'')= 1)          
+  SELECT @result = 1          
+  ELSE           
+  SELECT @result = 0'            
+ EXEC Sp_executesql @dynsql,@ParmDefinition ,@result=@CountSQLQuery OUTPUT          
+ SELECT @existsTable = CAST(@CountSQLQuery as int)          
+ IF (@existsTable = 1)          
+  BEGIN                
+  SET @dynsql =  N'ALTER VIEW [dbo].[permisousuario]            
+    AS            
+    SELECT  *            
+    FROM ' +   @dataBaseMaster+'.dbo.[permisousuario] go'            
+    set @dynsql = 'exec ' + @dataBase + '..sp_executesql N''' + @dynsql + ''''            
+  EXEC Sp_executesql @dynsql             
+
+  INSERT INTO @returnTemp (returnId)    
+   SELECT 42    
+  END            
+    
+SET  @dynsql =  N'USE ' + Quotename(@dataBaseMaster)           
++ N' IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''[dbo].[permisousuariolog]'') AND OBJECTPROPERTY(id, N''IsUserTable'')= 1)          
+  SELECT @result = 1          
+  ELSE           
+  SELECT @result = 0'            
+ EXEC Sp_executesql @dynsql,@ParmDefinition ,@result=@CountSQLQuery OUTPUT          
+ SELECT @existsTable = CAST(@CountSQLQuery as int)          
+ IF (@existsTable = 1)          
+  BEGIN                
+  SET @dynsql =  N'ALTER VIEW [dbo].[permisousuariolog]            
+    AS            
+    SELECT  *            
+    FROM ' +   @dataBaseMaster+'.dbo.[permisousuariolog] go'            
+    set @dynsql = 'exec ' + @dataBase + '..sp_executesql N''' + @dynsql + ''''            
+  EXEC Sp_executesql @dynsql             
+
+  INSERT INTO @returnTemp (returnId)    
+   SELECT 43    
+  END     
+    
+SET  @dynsql =  N'USE ' + Quotename(@dataBaseMaster)           
++ N' IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''[dbo].[UsuarioHuellas]'') AND OBJECTPROPERTY(id, N''IsUserTable'')= 1)          
+  SELECT @result = 1          
+  ELSE           
+  SELECT @result = 0'            
+ EXEC Sp_executesql @dynsql,@ParmDefinition ,@result=@CountSQLQuery OUTPUT          
+ SELECT @existsTable = CAST(@CountSQLQuery as int)          
+ IF (@existsTable = 1)          
+  BEGIN                
+  SET @dynsql =  N'ALTER VIEW [dbo].[UsuarioHuellas]            
+    AS            
+    SELECT  *            
+    FROM ' +   @dataBaseMaster+'.dbo.[UsuarioHuellas] go'            
+    set @dynsql = 'exec ' + @dataBase + '..sp_executesql N''' + @dynsql + ''''            
+  EXEC Sp_executesql @dynsql             
+   
+  INSERT INTO @returnTemp (returnId)    
+   SELECT 23    
+  END    
+      
+  SET  @dynsql =  N'USE ' + Quotename(@dataBaseMaster)           
++ N' IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''[dbo].[UsuarioHuellasLog]'') AND OBJECTPROPERTY(id, N''IsUserTable'')= 1)          
+  SELECT @result = 1          
+  ELSE           
+  SELECT @result = 0'            
+ EXEC Sp_executesql @dynsql,@ParmDefinition ,@result=@CountSQLQuery OUTPUT          
+ SELECT @existsTable = CAST(@CountSQLQuery as int)          
+ IF (@existsTable = 1)          
+  BEGIN                
+  SET @dynsql =  N'ALTER VIEW [dbo].[UsuarioHuellasLog]            
+    AS            
+    SELECT  *            
+    FROM ' +   @dataBaseMaster+'.dbo.[UsuarioHuellasLog] go'            
+    set @dynsql = 'exec ' + @dataBase + '..sp_executesql N''' + @dynsql + ''''            
+  EXEC Sp_executesql @dynsql             
+    
+  INSERT INTO @returnTemp (returnId)    
+   SELECT 41    
+  END               
+  select * from @returnTemp
+  DECLARE @otherinfo VARCHAR(500) = CONCAT('Nueva bd maestra: ', @dataBaseMaster)
+  EXECUTE wansoftAdmin..spInsSupportWebLog @SubsidiaryId, 4,107, @Date, @LoggedUser, 0, @otherinfo
+END          
+
+GO

@@ -1,0 +1,84 @@
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\MM.Site.dll
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\MM.Site.pdb
+C:\Users\Consultorin\Desktop\html\MM.Site\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\MM.Site\obj\Debug\MM.Site.dll
+C:\Users\Consultorin\Desktop\html\MM.Site\obj\Debug\MM.Site.pdb
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\MM.Library.dll
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\MM.Library.pdb
+C:\Users\Consultorin\Desktop\html\MM.Site\obj\Debug\MM.Site.Properties.Resources.resources
+C:\Users\Consultorin\Desktop\html\MM.Site\obj\Debug\MM.Site.csproj.GenerateResource.Cache
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\MM.Data.dll
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\MM.Data.pdb
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\Newtonsoft.Json.dll
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\Newtonsoft.Json.pdb
+C:\Users\Consultorin\Desktop\html\MM.Site\bin\Newtonsoft.Json.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\MM.Site.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\MM.Site.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\MM.Library.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\MM.Library.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\obj\Debug\MM.Site.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\obj\Debug\MM.Site.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\obj\Debug\MM.Site.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\obj\Debug\MM.Site.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\MM.Site\bin\Newtonsoft.Json.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Site.dll.config
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Site.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Site.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Library.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\Newtonsoft.Json.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Data.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Library.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Data.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.csprojResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.pdb
+C:\Proyectos\2015\html\MM.Site\bin\MM.Site.dll.config
+C:\Proyectos\2015\html\MM.Site\bin\MM.Site.dll
+C:\Proyectos\2015\html\MM.Site\bin\MM.Site.pdb
+C:\Proyectos\2015\html\MM.Site\bin\MM.Library.dll
+C:\Proyectos\2015\html\MM.Site\bin\Newtonsoft.Json.dll
+C:\Proyectos\2015\html\MM.Site\bin\MM.Data.dll
+C:\Proyectos\2015\html\MM.Site\bin\MM.Library.pdb
+C:\Proyectos\2015\html\MM.Site\bin\MM.Data.pdb
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.Properties.Resources.resources
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.csproj.GenerateResource.Cache
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.dll
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Site.dll.config
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Site.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Site.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Library.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\Newtonsoft.Json.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Data.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Library.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\bin\MM.Data.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.csprojAssemblyReference.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.Properties.Resources.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.csproj.GenerateResource.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.csproj.CoreCompileInputs.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.csproj.CopyComplete
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\MM.Site\obj\Debug\MM.Site.pdb
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.csproj.CopyComplete
+C:\Proyectos\2015\html\MM.Site\obj\Debug\MM.Site.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Site.dll.config
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Site.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Site.pdb
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Library.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\Newtonsoft.Json.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Data.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Library.pdb
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\bin\MM.Data.pdb
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.Properties.Resources.resources
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.csproj.GenerateResource.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.csproj.Up2Date
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.dll
+C:\Users\usu\source\repos\html - 4.8\html\MM.Site\obj\Debug\MM.Site.pdb

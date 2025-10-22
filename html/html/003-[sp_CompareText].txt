@@ -1,0 +1,58 @@
+CREATE PROCEDURE sp_CompareText(        
+ @Spro VARCHAR(max),        
+ @Sdev VARCHAR(max)         
+)        
+as        
+begin        
+--http://www.sensefulsolutions.com/2010/10/format-text-as-table.html        
+--http://www.tablesgenerator.com/text_tables        
+--http://truben.no/table/        
+DECLARE @xmlpro XML, @xmldev XML          
+          
+declare @temp table(plataform varchar(max), line1 varchar(max))        
+        
+SET @xmlpro  = CAST('<col><row>' + REPLACE(@Spro,CHAR(13),'</row><row>') + '</row></col>' AS XML)        
+SELECT  'PRO' as plataform,        
+  REPLACE(LTRIM(RTRIM(T.Item.value('.', 'varchar(8000)'))),CHAR(10),'') AS line1        
+INTO #temp1        
+FROM    @xmlpro.nodes('/col/row') AS T(Item)        
+        
+SET @xmldev  = CAST('<col><row>' + REPLACE(@Sdev,CHAR(13),'</row><row>') + '</row></col>' AS XML)        
+SELECT  'DEV' as plataform,        
+  REPLACE(LTRIM(RTRIM(T.Item.value('.', 'varchar(8000)'))),CHAR(10),'') AS line1        
+INTO #temp2        
+FROM    @xmldev.nodes('/col/row') AS T(Item)          
+        
+insert INTO @temp(plataform,line1)        
+select plataform,line1 from #temp1 UNION all        
+select plataform,line1 from #temp2        
+    
+--select * from @temp    
+        
+--select * from @temp        
+        
+select ROW_NUMBER() OVER(ORDER BY tpivot.line1 asc) AS Row,        
+  tpivot.line1 "Object",        
+  [PRO] = case tpivot.[PRO] when 1 then 'x' else '-' end,        
+  [DEV] = case tpivot.[DEV] when 1 then 'x' else '-' end        
+from @temp t        
+pivot (count ("plataform")                                                    -- Pivot on this column        
+  for "plataform" in ([PRO],[DEV]))         -- Make colum where IncomeDay is in one of these.        
+  as tpivot           
+where len(tpivot.line1)>1             
+        
+        
+select t1.line1 as "Produccion", t2.line1 "Desarrollo"        
+--into #temp_compare        
+from #temp1 t1        
+  FULL JOIN #temp2 t2 on t1.line1 = t2.line1        
+where (len(t1.line1)>1 or len(t2.line1)>1)        
+          
+--select *         
+--from #temp_compare                                     -- Colums to pivot        
+        
+            
+--drop table #temp_compare          
+drop TABLE  #temp1         
+drop TABLE  #temp2         
+end

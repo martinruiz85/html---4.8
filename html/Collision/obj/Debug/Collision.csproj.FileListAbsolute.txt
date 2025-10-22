@@ -1,0 +1,37 @@
+C:\Users\Consultorin\Desktop\html\Collision\bin\Debug\Collision.exe
+C:\Users\Consultorin\Desktop\html\Collision\bin\Debug\Collision.pdb
+C:\Users\Consultorin\Desktop\html\Collision\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Consultorin\Desktop\html\Collision\obj\Debug\Collision.Properties.Resources.resources
+C:\Users\Consultorin\Desktop\html\Collision\obj\Debug\Collision.csproj.GenerateResource.Cache
+C:\Users\Consultorin\Desktop\html\Collision\obj\Debug\Collision.exe
+C:\Users\Consultorin\Desktop\html\Collision\obj\Debug\Collision.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\bin\Debug\Collision.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\bin\Debug\Collision.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\obj\Debug\Collision.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\obj\Debug\Collision.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\obj\Debug\Collision.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\Collision\obj\Debug\Collision.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\bin\Debug\Collision.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\bin\Debug\Collision.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\obj\Debug\Collision.csprojResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\obj\Debug\Collision.Properties.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\obj\Debug\Collision.csproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\obj\Debug\Collision.exe
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\Collision\obj\Debug\Collision.pdb
+C:\Proyectos\2015\html\Collision\bin\Debug\Collision.exe
+C:\Proyectos\2015\html\Collision\bin\Debug\Collision.pdb
+C:\Proyectos\2015\html\Collision\obj\Debug\Collision.Properties.Resources.resources
+C:\Proyectos\2015\html\Collision\obj\Debug\Collision.csproj.GenerateResource.Cache
+C:\Proyectos\2015\html\Collision\obj\Debug\Collision.exe
+C:\Proyectos\2015\html\Collision\obj\Debug\Collision.pdb
+C:\Proyectos\2015\html\Collision\obj\Debug\Collision.csproj.CoreCompileInputs.cache
+C:\Proyectos\2015\html\Collision\obj\Debug\Collision.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\Collision\bin\Debug\Collision.exe
+C:\Users\usu\source\repos\html - 4.8\html\Collision\bin\Debug\Collision.pdb
+C:\Users\usu\source\repos\html - 4.8\html\Collision\obj\Debug\Collision.csproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\Collision\obj\Debug\Collision.Properties.Resources.resources
+C:\Users\usu\source\repos\html - 4.8\html\Collision\obj\Debug\Collision.csproj.GenerateResource.cache
+C:\Users\usu\source\repos\html - 4.8\html\Collision\obj\Debug\Collision.csproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\Collision\obj\Debug\Collision.exe
+C:\Users\usu\source\repos\html - 4.8\html\Collision\obj\Debug\Collision.pdb

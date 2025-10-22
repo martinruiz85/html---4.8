@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MM.master.cs" Inherits="MM.Site.MM" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/ui-bootstrap-csp.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style=" background:#F6F6F6;">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Path="~/js/jquery-3.4.1.js" />
+            <asp:ScriptReference Path="~/js/popper.min.js" />
+            <asp:ScriptReference Path="~/js/jquery-ui.js" />
+            <asp:ScriptReference Path="~/js/bootstrap.js" />
+            <asp:ScriptReference Path="~/js/angular.js" />
+            <asp:ScriptReference Path="~/js/angular-animate.js" />
+            <asp:ScriptReference Path="~/js/ui-bootstrap.js" />
+            <asp:ScriptReference Path="~/js/ui-bootstrap-tpls.js" />
+            <asp:ScriptReference Path="~/js/loadingoverlay.js" />
+        </Scripts>
+    </asp:ScriptManager>
+    <div id="elementtoScrollToID" class="jumbotron text-center" style="background-color: #ffffff;
+        background-image: url(../images/kawai.png); padding:0px;">
+        <div style="background: url(../images/colors.png) no-repeat -58px -130px; height:100%; width:100%; border:0px solid #000;">
+            <table>
+                <tr>
+                    <td style=" border:0px solid #000;">
+                        <div style="width: 168px; height: 100px; background: url(../images/bow-images-clipart100px.png) no-repeat center center;">
+                            <img alt="Moños Marie" src="images/bow-images-clipart.png" style="width: 168px; height: 100px;
+                                display: none;" />
+                        </div>
+                    </td>
+                    <td  style=" border:0px solid #000;">
+                        <div style="position: relative; border: 0px solid #000; width: 300px; height: 100px;
+                            overflow: hidden;">
+                            <div id="box" style="position: absolute; left: -260px; top:10px; text-align: left;">
+                                <div>
+                                    <img alt="moños marie" src="images/logo.png" style=" height:80px;" />                                  
+                                </div>                                
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div ng-app="myApp" ng-controller="myCtrl" >
+        <div class="container-fluid" >
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>
+                    Column 1</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>
+                    Column 2</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>
+                    Column 3</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <script type="text/javascript">
+        // A $( document ).ready() block.
+        $(document).ready(function() {
+            $("#box").animate({ left: "-3px", speed: 2000 });
+        });        
+    </script>
+
+</body>
+</html>

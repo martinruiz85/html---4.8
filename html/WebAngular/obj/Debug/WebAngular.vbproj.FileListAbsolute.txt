@@ -1,0 +1,50 @@
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\bin\WebAngular.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\bin\WebAngular.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\bin\WebAngular.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\obj\Debug\WebAngular.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\obj\Debug\WebAngular.vbproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\obj\Debug\WebAngular.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\obj\Debug\WebAngular.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2008\Projects\html\WebAngular\obj\Debug\WebAngular.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.dll.config
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.pdb
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.vbprojResolveAssemblyReference.cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.Resources.resources
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.vbproj.GenerateResource.Cache
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.dll
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.xml
+C:\Users\ConsultorIN\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.pdb
+C:\Proyectos\2015\html\WebAngular\bin\WebAngular.dll.config
+C:\Proyectos\2015\html\WebAngular\bin\WebAngular.dll
+C:\Proyectos\2015\html\WebAngular\bin\WebAngular.pdb
+C:\Proyectos\2015\html\WebAngular\bin\WebAngular.xml
+C:\Proyectos\2015\html\WebAngular\obj\Debug\WebAngular.Resources.resources
+C:\Proyectos\2015\html\WebAngular\obj\Debug\WebAngular.vbproj.GenerateResource.Cache
+C:\Proyectos\2015\html\WebAngular\obj\Debug\WebAngular.dll
+C:\Proyectos\2015\html\WebAngular\obj\Debug\WebAngular.xml
+C:\Proyectos\2015\html\WebAngular\obj\Debug\WebAngular.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.dll.config
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.pdb
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\bin\WebAngular.xml
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.Resources.resources
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.vbproj.GenerateResource.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.vbproj.CoreCompileInputs.cache
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.dll
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.xml
+C:\Users\ConsultorIN\OneDrive - Xignux Corp\Documents\Visual Studio 2015\Projects\html\WebAngular\obj\Debug\WebAngular.pdb
+C:\Proyectos\2015\html\WebAngular\obj\Debug\WebAngular.vbproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\bin\WebAngular.dll.config
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\bin\WebAngular.dll
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\bin\WebAngular.pdb
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\bin\WebAngular.xml
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.vbproj.AssemblyReference.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.Resources.resources
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.vbproj.GenerateResource.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.vbproj.CoreCompileInputs.cache
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.dll
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.xml
+C:\Users\usu\source\repos\html - 4.8\html\WebAngular\obj\Debug\WebAngular.pdb

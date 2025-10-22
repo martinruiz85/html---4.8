@@ -1,0 +1,8 @@
+  + sp_TimeZone_list_borrar
+    |✕ + column|sp_TimeZone_list_borrar|user table|Description|:[x][-]
+    |✕ + column|sp_TimeZone_list_borrar|user table|Id|:[x][-]
+    |✕ + column|sp_TimeZone_list_borrar|user table|IsActive|:[x][-]
+       + user table|dbo.TimeZone|:[x][x]
+         |  + column|dbo.TimeZone|Description|varchar|200||:[x][x]
+         |  + column|dbo.TimeZone|Id|int|4||:[x][x]
+          ✕ + column|dbo.TimeZone|IsActive|bit|1||:[x][-]

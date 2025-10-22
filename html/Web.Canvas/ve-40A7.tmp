@@ -1,0 +1,2738 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="Web.Canvas.WebForm3" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, user-scalable=no, target-densitydpi=device-dpi ">
+    <style type="text/css">
+        @font-face
+        {
+            font-family: "your_custom_font";
+            src: url(Font/Roboto-Black.ttf);
+        }
+        html, body
+        {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            min-height: 100%;
+            margin: 0px 0px;
+            padding: 0px;
+            border: 0px;
+        }
+    </style>
+
+    <script type="text/javascript" language="javascript">
+        //https://eloquentjavascript.net/16_game.html
+        //https://w3bits.com/labs/css-image-hover-zoom/
+        //https://stackoverflow.com/questions/19262141/resize-image-with-javascript-canvas-smoothly
+        //http://www.williammalone.com/articles/html5-game-scaling/
+        //https://www.w3schools.com/tags/ref_canvas.asp
+        //https: //www.html5canvastutorials.com/tutorials/html5-canvas-circles/
+        //https://developer.mozilla.org/es/docs/M%C3%B3vil/Viewport_meta_tag
+
+        /** 
+        * Draws a rounded rectangle using the current state of the canvas.  
+        * If you omit the last three params, it will draw a rectangle  
+        * outline with a 5 pixel border radius  
+        * @param {Number} x The top left x coordinate 
+        * @param {Number} y The top left y coordinate  
+        * @param {Number} width The width of the rectangle  
+        * @param {Number} height The height of the rectangle 
+        * @param {Object} radius All corner radii. Defaults to 0,0,0,0; 
+        * @param {Boolean} fill Whether to fill the rectangle. Defaults to false. 
+        * @param {Boolean} stroke Whether to stroke the rectangle. Defaults to true. 
+        */
+        CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius, fill, stroke) {
+            var cornerRadius = { upperLeft: 0, upperRight: 0, lowerLeft: 0, lowerRight: 0 };
+            if (typeof stroke == "undefined") {
+                stroke = true;
+            }
+            if (typeof radius === "object") {
+                for (var side in radius) {
+                    cornerRadius[side] = radius[side];
+                }
+            }
+
+            this.beginPath();
+            this.moveTo(x + cornerRadius.upperLeft, y);
+            this.lineTo(x + width - cornerRadius.upperRight, y);
+            this.quadraticCurveTo(x + width, y, x + width, y + cornerRadius.upperRight);
+            this.lineTo(x + width, y + height - cornerRadius.lowerRight);
+            this.quadraticCurveTo(x + width, y + height, x + width - cornerRadius.lowerRight, y + height);
+            this.lineTo(x + cornerRadius.lowerLeft, y + height);
+            this.quadraticCurveTo(x, y + height, x, y + height - cornerRadius.lowerLeft);
+            this.lineTo(x, y + cornerRadius.upperLeft);
+            this.quadraticCurveTo(x, y, x + cornerRadius.upperLeft, y);
+            this.closePath();
+            if (stroke) {
+                this.stroke();
+            }
+            if (fill) {
+                this.fill();
+            }
+        }
+
+        // First, checks if it isn't implemented yet.
+        if (!String.prototype.format) {
+            String.prototype.format = function() {
+                var args = arguments;
+                return this.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined' ? args[number] : match;
+                });
+            };
+        }
+
+        Array.prototype.removeItem = function(item) {
+            //iteratively checks every variable in the list
+            for (var i = this.length - 1; i > -1; i--) {
+                if (this[i] === item) {
+                    var obj = this.splice(i, 1) //wherever item appears, delete a single element
+                    delete obj;
+                }
+            }
+        };
+
+        //https://stackoverflow.com/questions/3969475/javascript-pause-settimeout
+        var Timer = function(callback, delay, start) {
+
+            var $this = this;
+            Timer.Array.push($this);
+
+            var timerId, start, remaining = delay;
+
+            this.pause = function() {
+                window.clearTimeout(timerId);
+                remaining -= Date.now() - start;
+            };
+
+            this.resume = function() {
+                start = Date.now();
+                window.clearTimeout(timerId);
+                timerId = window.setTimeout(callback, remaining);
+            };
+
+            start = (typeof start === 'boolean') ? start : true;
+
+            if (start)
+                this.resume();
+        };
+        Timer.Array = [];
+        Timer.Stop = function() {
+            Timer.Array.forEach(function(t) {
+                t.pause();
+            });
+        };
+        Timer.Start = function() {
+            Timer.Array.forEach(function(t) {
+                t.resume();
+            });
+        };
+
+        var Animate = function() {
+            $this = this;
+
+            var isBusy = false;
+            this.getIsBusy = function() {
+                return isBusy;
+            };
+            this.setIsBusy = function(value) {
+                isBusy = value;
+            };
+
+            var timers = [];
+            this.getTimers = function() {
+                return timers;
+            };
+
+            this.addTimer = function(value) {
+                timers.push(value);
+            };
+            this.removeTimer = function(value) {
+                timers.removeItem(value);
+            };
+
+            this.start = function() {
+                if (timers.length > 0) {
+                    timers[0].resume();
+                }
+            };
+
+        };
+
+        var maquina = {
+            status: null,
+            getStatus: function() {
+                return this.status;
+            },
+            setStatus: function(value) {
+                this.status = value;
+            }
+        };
+
+        var Draw = function(prms) {
+            var $this = this;
+
+            var text = prms.text || "a";
+            this.getText = function() {
+                return text;
+            };
+            this.setText = function(value) {
+                text = text;
+            };
+
+            var background = prms.background || "#000000";
+            this.getBackground = function() {
+                return background;
+            };
+            this.setBackground = function(value) {
+                background = value;
+            };
+
+            var timers = [];
+            this.getTimers = function() {
+                return timers;
+            };
+            this.setTimers = function(value) {
+                timers = value;
+            };
+
+            var x = prms.x || 0;
+            this.getX = function() {
+                return x;
+            };
+            this.setX = function(value) {
+                x = value;
+            };
+
+            var y = prms.y || 0;
+            this.getY = function() {
+                return y;
+            };
+            this.setY = function(value) {
+                y = value;
+            };
+
+            var w = prms.w || 0;
+            this.getW = function() {
+                return w;
+            };
+            this.setW = function(value) {
+                w = value;
+            };
+
+            var h = prms.h || 0;
+            this.getH = function() {
+                return h;
+            };
+            this.setH = function(value) {
+                h = value;
+            };
+
+            this.draw = function(ctx) {
+                ctx.beginPath();
+                ctx.stroke();
+            };
+
+            this.hexToRgb = function hexToRgb(hex) {
+                var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16)} : null;
+            };
+
+            this.isPointInside = function(x, y) {
+                return (x >=
+                (this.getX() - ($this.getW() - square_width) / 2)
+            && x <= (this.getX() + this.getW())
+            && y >= (this.getY() - ($this.getH() - square_height) / 2)
+            && y <= (this.getY() + this.getH()));
+            };
+
+            this.isPointInside_back = function(x, y) {
+                return (x >=
+                (this.getX() - ($this.getW() - square_width) / 2)
+            && x <= (this.getX() - ($this.getW() - square_width) / 2) + this.getW()
+            && y >= (this.getY() - ($this.getH() - square_height) / 2)
+            && y <= (this.getY() - ($this.getH() - square_height) / 2) + this.getH());
+            };
+
+            // returns true if there is any overlap
+            // params: x,y,w,h of two rectangles
+            this.intersects = function(x1, y1, w1, h1, x2, y2, w2, h2) {
+                if (w2 !== Infinity && w1 !== Infinity) {
+                    w2 += x2;
+                    w1 += x1;
+                    if (isNaN(w1) || isNaN(w2) || x2 > w1 || x1 > w2) return false;
+                }
+                if (y2 !== Infinity && h1 !== Infinity) {
+                    h2 += y2;
+                    h1 += y1;
+                    if (isNaN(h1) || isNaN(y2) || y2 > h1 || y1 > h2) return false;
+                }
+                return true;
+            }
+
+            this.valid = function(index) {
+                return true;
+            };
+
+            this.Destructors = function() {
+                $this.getTimers().forEach(function(item, index, array) {
+                    if (item) item.pause();
+                });
+            };
+        };
+
+        Draw.STATUS = {};
+        Draw.STATUS.ACTIVE = 1;
+        Draw.STATUS.INACTIVE = 2;
+
+        var DIRECTION = {};
+        DIRECTION.UP = 1;
+        DIRECTION.RIGHT = 2;
+        DIRECTION.DOWN = 3;
+        DIRECTION.LEFT = 4;
+
+        var BlockScreen = function() {
+            var $this = this;
+            Draw.call(this, prms);
+            this.draw = function(ctx) {
+                ctx.beginPath();
+                ctx.strokeStyle = "#cbcbcb";
+                ctx.lineWidth = "1";
+                ctx.fillStyle = "rgb(0,0,0)";
+                ctx.fillRect(0,
+                        0,
+                        canvas_width,
+                        canvas_height);
+                ctx.stroke();
+            };
+        };
+        BlockScreen.prototype = new Draw({});
+        BlockScreen.prototype.constructor = BlockScreen;
+
+        var Cursor = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var opacity = prms.opacity | 1;
+            this.getOpacity = function() {
+                return opacity;
+            };
+            this.setOpacity = function(value) {
+                opacity = value;
+            };
+
+            this.draw = function(ctx) {
+                ctx.beginPath();
+                /*ctx.fillRect(
+                $this.getX(),
+                $this.getY(),
+                $this.getW(),
+                $this.getH());*/
+                ctx.arc(
+                        $this.getX() + $this.getW() / 2,
+                        $this.getY() + $this.getH() / 2,
+                        $this.getH() / 2,
+                        0,
+                        2 * Math.PI);
+                ctx.fillStyle = "rgba(255,255,255,{0})".format($this.getOpacity());
+                ctx.fill();
+                ctx.lineWidth = 0;
+                ctx.strokeStyle = "rgba(255,255,255,{0})".format($this.getOpacity());
+                ctx.stroke();
+            };
+
+            var t_disappear = null;
+            this.Disappear = function(prms) {
+                var $this = this;
+                prms.total = prms.total || prms.cicle;
+                t_disappear = new Timer(function() {
+                    var porcentaje = 1 - prms.cicle / prms.total;
+                    // establece el porcentaje para desaparecer
+                    $this.setOpacity(prms.cicle / prms.total);
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = prms.milisecounds;
+                        $this.Disappear(prms);
+                    }
+                    // al terminar
+                    else {
+                        t_disappear.pause();
+                    }
+                }, prms.time || 0);
+                $this.getTimers().push(t_disappear);
+            };
+
+            $this.Disappear({
+                "cicle": 10,
+                "milisecounds": 20
+            });
+
+        };
+        Cursor.prototype = new Draw({});
+        Cursor.prototype.constructor = Cursor;
+
+
+        var HourGlass = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var status = Draw.STATUS.INACTIVE;
+            this.getStatus = function() {
+                return status;
+            };
+            this.setStatus = function(value) {
+                status = value;
+            };
+
+            var timer = null;
+            this.getTimer = function() {
+                return timer;
+            };
+            this.setTimer = function(value) {
+                timer = value;
+            };
+
+            var sx = prms.sx || 0;
+            this.getSX = function() {
+                return sx;
+            };
+            this.setSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy || 0;
+            this.getSY = function() {
+                return sy;
+            };
+            this.setSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 0;
+            this.getPorcent = function() {
+                return porcent;
+            };
+            this.setPorcent = function(value) {
+                porcent = value;
+            };
+
+
+            this.stopTime = function() {
+                var $this = this;
+                if (t_move) t_move.pause();
+                $this.stop({ "cicle": 250, "milisecounds": 0 });
+                for (var i = 0; i < play.drawobjects.length; i++) {
+                    if (play.drawobjects[i].constructor === Letter) {
+                        play.drawobjects[i].getTimer().pause();
+                    }
+                }
+
+            };
+
+            var t_stop = null;
+            this.stop = function(prms) {
+                var $this = this;
+                prms.total = prms.total || prms.cicle;
+                $this.setStatus(Draw.STATUS.ACTIVE);
+                t_hit = new Timer(function() {
+                    var porcentaje = prms.cicle / prms.total;
+                    // establece el porcenetaje para desaparecer
+                    $this.setPorcent(porcentaje);
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = prms.milisecounds;
+                        $this.stop(prms);
+                    }
+                    // al terminar
+                    else {
+                        play.drawobjects.removeItem($this);
+                        $this.setStatus(Draw.STATUS.INACTIVE);
+                        for (var i = 0; i < play.drawobjects.length; i++) {
+                            if (play.drawobjects[i].constructor === Letter) {
+                                play.drawobjects[i].getTimer().resume();
+                            }
+                        }
+                    }
+                }, prms.time || 0);
+                $this.getTimers().push(t_stop);
+            };
+
+
+            this.draw = function(ctx, x, y, porcent) {
+
+                if ($this.getStatus() == Draw.STATUS.INACTIVE) {
+                    ctx.beginPath();
+                    //ctx.save();
+                    //ctx.globalAlpha = (1 - $this.GetPorcent());
+                    ctx.drawImage(
+                    HourGlass.IMG,
+                    $this.getSX(),
+                    $this.getSY(),
+                    96,
+                    96,
+                    //this.getX() - ((96 - square_width) / 2),
+                    //this.getY() - ((96 - square_height) / 2),
+                    this.getX(),
+                    this.getY(),
+                    square_width,
+                    square_height);
+
+                    //                    ctx.fillStyle = "rgba(0, 0, 0, 0.87)";
+                    //                    ctx.textAlign = "center";
+                    //                    ctx.textBaseline = "middle";
+                    //                    ctx.font = "12px your_custom_font";
+
+                    //                    ctx.fillText(
+                    //                        "{0}".format(parseInt($this.GetSX()/24)),
+                    //                        this.getX() + this.getW() / 2,
+                    //                        this.getY() + this.getH() / 2);
+
+
+                    //ctx.restore();
+                    ctx.stroke();
+                }
+                else if ($this.getStatus() == Draw.STATUS.ACTIVE) {
+
+                    ctx.beginPath();
+
+                    //ctx.strokeStyle = "#cbcbcb";
+                    //ctx.strokeStyle = "rgba(0, 0, 0," + (1 - $this.GetPorcent()) + ")";
+                    ctx.strokeStyle = "rgba(0, 0, 0, 0.87)";
+                    ctx.lineWidth = $this.getW() * .2;
+
+                    ctx.arc(
+                        $this.getX() + $this.getW() / 2,
+                        $this.getY() + $this.getH() / 2,
+                        $this.getW() / 2,
+                        0,
+                        (2 * $this.getPorcent()) * Math.PI);
+
+                    ctx.fillStyle = "rgba(0, 0, 0, 0.87)";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.font = "{0}px your_custom_font".format($this.getH() * .5);
+
+                    ctx.fillText(
+                        "{0}".format(parseInt(5 * $this.getPorcent()) + 1),
+                        this.getX() + this.getW() / 2,
+                        this.getY() + this.getH() / 2);
+
+                    ctx.stroke();
+
+                }
+
+            };
+
+
+            var t_move = null;
+            this.Move = function(prms) {
+                var $this = this;
+
+                t_move = new Timer(function() {
+
+                    var porcentaje = prms.cicle / 4;
+                    $this.setSX((4 - prms.cicle) * 96);
+                    // establece el porcenetaje para desaparecer
+                    //$this.SetPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = 500;
+                        $this.Move(prms);
+                    }
+                    // al terminar
+                    else {
+                        $this.Move({ "cicle": 4, "time": 0 });
+                    }
+
+                }, prms.time);
+            };
+
+            window.setTimeout(function() {
+                $this.Move({ "cicle": 4, "time": 0 });
+            }, 1000);
+
+            var apply = false;
+            this.valid = function(index) {
+                if (!apply) {
+                    $this.stopTime();
+                    apply = true;
+                }
+            };
+        }
+        HourGlass.prototype = new Draw({});
+        HourGlass.IMG = document.createElement("img");
+        HourGlass.IMG.setAttribute("src", "Images/icons8-hourglass-24.png");
+        HourGlass.prototype.constructor = HourGlass;
+
+
+        var Player = function(prms) {
+            var $this = this;
+
+            Draw.call(this, prms);
+
+            var life = 0;
+            this.getLife = function() {
+                return life;
+            };
+            this.setLife = function(value) {
+                life = value;
+                if (life == 1 && !b_danger) {
+                    $this.Danger({
+                        "cicles": 20,
+                        "time": 20
+                    });
+                }
+            };
+
+            var b_danger = false;
+            var t_danger = null;
+            this.Danger = function(prms) {
+                b_danger = true;
+                prms.total = prms.total || prms.cicles;
+                t_danger = new Timer(function() {
+                    if (prms.cicles > 0) {
+                        var porcentaje = prms.cicles / prms.total;
+                        $this.setBackground("rgb(231, 76, 60,{0})".format(Math.max(porcentaje, 1 - porcentaje)));
+                        prms.cicles -= 1;
+                        $this.Danger(prms);
+                    }
+                    else {
+                        $this.Danger({
+                            "cicles": 20,
+                            "time": 20
+                        })
+                    }
+
+                }, prms.time);
+            };
+
+            var porcent = 1;
+            this.getPorcent = function() {
+                return porcent;
+            };
+            this.setPorcent = function(value) {
+                porcent = value;
+            };
+
+            var timer;
+            this.getTimer = function() {
+                return timer;
+            };
+            this.setTimer = function(value) {
+                timer = value;
+            };
+
+            this.draw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+                ctx.strokeStyle = "#cbcbcb";
+                ctx.lineWidth = "1";
+                ctx.fillStyle = $this.getBackground();
+                //ctx.fillStyle = "rgba(255,255,255," + (1 - $this.GetPorcent()) + ")";
+                /*
+                ctx.rect(
+                this.getX(),
+                this.getY(),
+                this.getW(),
+                this.getH()
+                );
+                */
+                ctx.fillRect(this.getX(),
+                        this.getY(),
+                        this.getW() * $this.getPorcent(),
+                        this.getH());
+                ctx.stroke();
+            };
+
+            $this.setBackground('#ffffff');
+            $this.setLife(prms.life || 3);
+            $this.setPorcent($this.getLife() / 3);
+
+        };
+        Player.prototype = new Draw({});
+        Player.prototype.constructor = Player;
+
+
+
+        var Temporizador = function(prms) {
+            var $this = this;
+
+            Draw.call(this, prms);
+
+            var porcent = 1;
+            this.getPorcent = function() {
+                return porcent;
+            };
+            this.setPorcent = function(value) {
+                porcent = value;
+                if ($this.getCount() - 1 < 7 && !b_danger) {
+                    $this.Danger({
+                        "cicles": 20,
+                        "time": 20
+                    })
+                }
+            };
+
+            var count;
+            this.getCount = function() {
+                return count;
+            };
+            this.setCount = function(value) {
+                count = value;
+            };
+
+            var timer;
+            this.getTimer = function() {
+                return timer;
+            };
+            this.setTimer = function(value) {
+                timer = value;
+            };
+
+            var b_danger = false;
+            var t_danger = null;
+            this.Danger = function(prms) {
+                b_danger = true;
+                prms.total = prms.total || prms.cicles;
+                t_danger = new Timer(function() {
+                    if (prms.cicles > 0) {
+                        var porcentaje = prms.cicles / prms.total;
+                        $this.setBackground("rgb(231, 76, 60,{0})".format(Math.max(porcentaje, 1 - porcentaje)));
+                        prms.cicles -= 1;
+                        $this.Danger(prms);
+                    }
+                    else {
+                        $this.Danger({
+                            "cicles": 20,
+                            "time": 20
+                        })
+                    }
+
+                }, prms.time);
+            };
+
+            this.CuentaRegresiva = function(prms) {
+                var $this = this;
+                prms.total = prms.total || prms.cicle;
+                $this.setTimer(new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / prms.total;
+                    $this.setPorcent(prms.cicle / prms.total);
+                    $this.setCount(prms.cicle);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        $this.CuentaRegresiva(prms)
+                    } else {
+                        //terminar el juego
+                        Timer.Stop();
+                        lose.inicia();
+                        maquina.setStatus(4);
+                    }
+
+                }, prms.time));
+            }; //explulsar
+
+            this.draw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+                ctx.strokeStyle = "#cbcbcb";
+                ctx.lineWidth = "1";
+                ctx.fillStyle = $this.getBackground(); //'#ffffff';
+                //ctx.fillStyle = "rgba(255,255,255," + (1 - $this.GetPorcent()) + ")";
+                /*
+                ctx.rect(
+                this.getX(),
+                this.getY(),
+                this.getW(),
+                this.getH()
+                );
+                ctx.fillRect(this.getX(),
+                this.getY(),
+                this.getW() * $this.getPorcent(),
+                this.getH());
+                */
+
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                //font
+                ctx.font = "{0}px your_custom_font".format(parseInt(Math.ceil($this.getH() * 0.5)));
+                //dibujar texto
+                if ($this.getCount()) {
+                    ctx.fillText(
+                    "{0}".format($this.getCount() - 1),
+                    //"{0}".format(parseInt($this.getPorcent() * $this.getCount())),
+                    $this.getX() - ($this.getW() - square_width) / 2 + $this.getW() / 2,
+                    $this.getY() - ($this.getH() - square_height) / 2 + $this.getH() / 2);
+                }
+                ctx.stroke();
+            }
+
+            $this.setBackground("#ffffff");
+            $this.CuentaRegresiva({
+                "cicle": prms.cicle,
+                "time": 1000
+            });
+
+        };
+        Temporizador.prototype = new Draw({});
+        Temporizador.prototype.constructor = Temporizador;
+
+
+
+        var Bite = function(prms) {
+            var $this = this;
+
+            Draw.call(this, prms);
+
+            var sx = prms.sx;
+            this.getSX = function() {
+                return sx;
+            };
+            this.setSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy;
+            this.getSY = function() {
+                return sy;
+            };
+            this.setSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 1;
+            this.getPorcent = function() {
+                return porcent;
+            };
+            this.setPorcent = function(value) {
+                porcent = value;
+            };
+
+            var image = prms.image;
+            this.getImage = function() {
+                return image;
+            };
+            this.setImage = function(value) {
+                image = value;
+            };
+
+            var timer;
+            this.getTimer = function() {
+                return timer;
+            };
+            this.setTimer = function(value) {
+                timer = value;
+            };
+
+            this.draw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+
+                //ctx.strokeStyle = "#cbcbcb";
+                ctx.strokeStyle = "rgba(203,203,203," + (1 - $this.getPorcent()) + ")";
+
+                ctx.lineWidth = "1";
+
+                //ctx.fillStyle = '#ffffff';
+                //ctx.fillStyle = "rgba(255,255,255," + (1 - $this.GetPorcent()) + ")";
+
+                ctx.rect(
+                        this.getX(),
+                        this.getY(),
+                        this.getW() * (1 - $this.getPorcent()),
+                        this.getH() * (1 - $this.getPorcent())
+                        );
+
+                ctx.save();
+                ctx.globalAlpha = (1 - $this.getPorcent());
+                ctx.drawImage(
+                        image,
+                        prms.sx,
+                        prms.sy,
+                        prms.w,
+                        prms.h,
+                        this.getX(),
+                        this.getY(),
+                        prms.w * (1 - $this.getPorcent()),
+                        prms.h * (1 - $this.getPorcent()));
+
+                ctx.restore();
+
+
+                ctx.stroke();
+
+            }
+
+
+        };
+        Bite.prototype = new Draw({});
+        Bite.prototype.constructor = Bite;
+
+
+        var Bloode = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var status = Draw.STATUS.INACTIVE;
+            this.getStatus = function() {
+                return status;
+            };
+            this.setStatus = function(value) {
+                status = value;
+            };
+
+            var timer = null;
+            this.getTimer = function() {
+                return timer;
+            };
+            this.setTimer = function(value) {
+                timer = value;
+            };
+
+            var sx = prms.sx;
+            this.getSX = function() {
+                return sx;
+            };
+            this.setSX = function(value) {
+                sx = value;
+            };
+
+            var sy = prms.sy;
+            this.getSY = function() {
+                return sy;
+            };
+            this.setSY = function(value) {
+                sy = value;
+            };
+
+            var porcent = 1;
+            this.getPorcent = function() {
+                return porcent;
+            };
+            this.setPorcent = function(value) {
+                porcent = value;
+            };
+
+            this.draw = function(ctx, x, y, porcent) {
+
+                ctx.beginPath();
+                //ctx.save();
+                //ctx.globalAlpha = (1 - $this.GetPorcent());
+                //ctx.drawImage(Bloode.IMG, prms.sx, prms.sy, 64, 64, this.getX() - ((64 - square_width) / 2), this.getY() - ((64 - square_height) / 2), 64, 64);
+                ctx.drawImage(
+                        Bloode.IMG,
+                        $this.getSX(),
+                        $this.getSY(),
+                        64,
+                        64,
+                        this.getX() - ((square_width * 2 - square_width) / 2),
+                        this.getY() - ((square_height * 2 - square_height) / 2),
+                        square_width * 2,
+                        square_height * 2);
+                //ctx.restore();
+                ctx.stroke();
+
+            };
+
+        };
+        Bloode.prototype = new Draw({});
+        Bloode.IMG = document.createElement("img");
+        Bloode.IMG.setAttribute("src", "Images/blood64Black.png");
+        Bloode.prototype.constructor = Bloode;
+
+
+        function cartesian2Polar(x, y) {
+            distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+            radians = Math.atan2(y, x);  //This takes y first
+            polarCoor = { distance: distance, radians: radians }
+            return polarCoor
+        }
+
+        var Letter = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var show_border = false;
+            this.getShowBorder = function() {
+                return show_border;
+            };
+            this.setShowBorder = function(value) {
+                show_border = value;
+            };
+
+            var porcent = 1;
+            this.getPorcent = function() {
+                return porcent;
+            };
+            this.setPorcent = function(value) {
+                porcent = value;
+            };
+
+            var opacity = prms.opacity | 1;
+            this.getOpacity = function() {
+                return opacity;
+            };
+            this.setOpacity = function(value) {
+                opacity = value;
+            };
+
+            var color = prms.color || "#000000";
+            this.getColor = function() {
+                return color;
+            };
+            this.setColor = function(value) {
+                color = value;
+            };
+
+            var border_color = prms.border_color || "#000000";
+            this.getBorderColor = function() {
+                return border_color;
+            };
+            this.setBorderColor = function(value) {
+                border_color = value;
+            };
+
+            var status = Letter.STATUS.LIFE;
+            this.getStatus = function() {
+                return status;
+            };
+            this.setStatus = function(value) {
+                status = value;
+            };
+
+            var hide = prms.hide || true;
+            this.getHide = function() {
+                return hide;
+            };
+            this.setHide = function(value) {
+                hide = value;
+            };
+
+            var life = prms.life || 1;
+            this.getLife = function() {
+                return life;
+            };
+            this.setLife = function(value) {
+                life = value;
+            };
+
+            var map = prms.map || null;
+            this.getMap = function() {
+                return map;
+            };
+            this.setMap = function(value) {
+                map = value;
+            };
+
+            var timer = null;
+            this.getTimer = function() {
+                return timer;
+            };
+            this.setTimer = function(value) {
+                timer = value;
+            };
+
+            this.draw = function(ctx) {
+
+                if (!$this.getHide()) {
+                    if ($this.getShowBorder()) {
+                        ctx.beginPath();
+
+                        if ($this.getStatus() == Letter.STATUS.LOCKED)
+                            ctx.strokeStyle = "#c0392b"; // "rgba(52, 152, 219, 1)";
+                        else
+                            ctx.strokeStyle = $this.getBorderColor(); // "rgba(52, 152, 219, 1)";
+
+                        if ($this.getText() == play.wordcopy[0]) {
+                            ctx.lineWidth = 4 * (this.getPorcent());
+                        }
+                        else {
+                            ctx.lineWidth = "1";
+                        }
+                        //dubujar rectangulo
+                        ctx.fillStyle = $this.getBackground();
+                        //ctx.fillRect($this.getX(), $this.getY(), $this.getW(), $this.getH());
+                        //ctx.rect($this.getX(), $this.getY(), $this.getW(), $this.getH());
+
+                        ctx.roundRect(
+                        $this.getX() - ($this.getW() - square_width) / 2,
+                        $this.getY() - ($this.getH() - square_height) / 2,
+                        $this.getW(),
+                        $this.getH(),
+                        {
+                            upperLeft: 3,
+                            upperRight: 3,
+                            lowerLeft: 3,
+                            lowerRight: 3
+                        }, true, true)
+                        ctx.stroke();
+                    }
+
+
+                    ctx.beginPath();
+                    //background debugger letra
+                    var color = this.hexToRgb($this.getColor());
+                    ctx.fillStyle = "rgba({0},{1},{2},{3})".format(color.r, color.g, color.b, $this.getOpacity()); //$this.getColor();
+
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    //font
+                    ctx.font = "{0}px your_custom_font".format(parseInt(Math.ceil($this.getH() * 0.8)));
+                    //dibujar texto
+                    ctx.fillText(
+                    $this.getText(),
+                    $this.getX() - ($this.getW() - square_width) / 2 + $this.getW() / 2,
+                    $this.getY() - ($this.getH() - square_height) / 2 + $this.getH() / 2);
+                    ctx.stroke();
+                }
+            };
+
+            var bite_image = [];
+            var clone_bites = [];
+            this.CreateImage = function() {
+                bite_image = [];
+                clone_bites = [];
+
+                var $this = this;
+                var c = document.createElement('canvas');
+                c.width = $this.getW();
+                c.height = $this.getH();
+                var ctx = c.getContext("2d", { alpha: false });
+                ctx.imageSmoothingEnabled = false;
+                //ctx.translate(.5, .5);
+                ctx.fillStyle = "#ffffff";
+                ctx.fillRect(0, 0, c.width, c.height);
+
+                //$this.draw(ctx, 0, 0, 1);
+                var image = c.toDataURL("image/png");
+                var img = document.createElement('img');
+                img.src = image;
+                //img.style.border = "1px solid #000";
+                //document.body.appendChild(img);
+                for (var i = 0; i < 4; i++) {
+                    for (var j = 0; j < 4; j++) {
+                        // original
+                        var bite = new Bite({
+                            "sx": j * ($this.getW() / 4),
+                            "sy": i * ($this.getH() / 4),
+                            "x": $this.getX() + j * (($this.getW()) / 4),
+                            "y": $this.getY() + i * (($this.getH()) / 4),
+                            "w": $this.getW() / 4,
+                            "h": $this.getH() / 4,
+                            "image": img
+                        });
+
+                        bite_image.push(bite);
+
+                        // clon
+                        var clone_bite = new Bite({
+                            "sx": j * ($this.getW() / 4),
+                            "sy": i * ($this.getH() / 4),
+                            "x": $this.getX() + j * (($this.getW()) / 4),
+                            "y": $this.getY() + i * (($this.getH()) / 4),
+                            "w": $this.getW() / 4,
+                            "h": $this.getH() / 4,
+                            "image": img
+                        });
+
+                        clone_bites.push(clone_bite);
+
+                    }
+                }
+
+                for (var b = 0; b < bite_image.length; b++) {
+                    play.drawobjects.push(bite_image[b]);
+                }
+
+                $this.Destroy({
+                    "cicle": 24,
+                    "bites": bite_image,
+                    "clone_bites": clone_bites
+                });
+
+
+            };
+
+            var t_destroy = null;
+            this.Destroy = function(prms) {
+                var $this = this;
+
+                t_destroy = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+
+                    for (var b = 0; b < prms.bites.length; b++) {
+
+                        // punto original menos el centro
+                        var polar = cartesian2Polar(
+                            prms.clone_bites[b].getX() - (prms.clone_bites[0].getX() + 10),
+                            prms.clone_bites[b].getY() - (prms.clone_bites[0].getY() + 10)
+                            );
+
+                        //var distancia = Math.floor(Math.random() * 40);
+                        var distancia = square_width * 2;
+
+                        // punto original mas una distancia
+                        var new_x = prms.clone_bites[b].getX() + (distancia * porcentaje) * Math.cos(polar.radians);
+                        var new_y = prms.clone_bites[b].getY() + (distancia * porcentaje) * Math.sin(polar.radians);
+
+                        //asignar al arreglo
+                        prms.bites[b].setX(new_x);
+                        prms.bites[b].setY(new_y);
+
+                        // establece el porcenetaje para desaparecer
+                        prms.bites[b].setPorcent(porcentaje);
+                    }
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        $this.Destroy(prms);
+                    }
+                    // al terminar
+                    else {
+                        prms.bites.forEach(function(obj) {
+                            var index = play.drawobjects.indexOf(obj);
+                            if (index > -1) {
+                                var l = play.drawobjects.splice(play.drawobjects.indexOf(obj), 1);
+                                delete l[0];
+                            }
+                        });
+                        delete prms.bites;
+                        delete prms.clone_bites;
+                    }
+
+
+                }, 20);
+
+            };
+
+            var animate_desinflate = new Animate();
+            this.getAnimateDesinflate = function() {
+                return animate_desinflate;
+            };
+
+            this.createHit = function() {
+                var $this = this;
+                var draw_object = new Bloode({
+                    "sx": 0,
+                    "sy": 0,
+                    "x": $this.getX(),
+                    "y": $this.getY(),
+                    "w": square_width,
+                    "h": square_height
+                });
+
+                play.drawobjects.push(draw_object);
+
+                $this.Hit({
+                    "draw_object": draw_object,
+                    "cicle": 6,
+                    "time": 0
+                });
+
+                if ($this.getIsAlpha() && array_equals_character.length > 0) {
+
+                    $this.getTimer().pause();
+
+                    var l = array_equals_character.splice(0, 1);
+                    //delete l[0];
+
+                    // obsoleto se pierden valores 
+                    //var new_width = Math.pow(Math.pow($this.getW(), 2) - Math.pow(array_equals_character[0].getW(), 2), 0.5);
+                    //var new_height = Math.pow(Math.pow($this.getW(), 2) - Math.pow(array_equals_character[0].getH(), 2), 0.5);
+
+                    var new_width = Math.pow(array_equals_character.length * Math.pow(square_width, 2) + Math.pow(square_width, 2), 0.5);
+                    var new_height = Math.pow(array_equals_character.length * Math.pow(square_width, 2) + Math.pow(square_height, 2), 0.5);
+
+                    $this.setStatus(Letter.STATUS.LOCKED);
+                    $this.Desinflate({
+                        "cicle": 24,
+                        "width": $this.getW(),
+                        "new_width": new_width,
+                        "height": $this.getH(),
+                        "new_height": new_height,
+                        "time": 0
+                    });
+
+                    //var new_x = $this.getX() - Math.floor($this.getX() / square_width) + 2 * square_width;
+                    //var new_y = $this.getY() - Math.floor($this.getY() / square_height) + 2 * square_height;
+
+                    //posicion actual
+                    var old_x = $this.getX();
+                    var old_y = $this.getY();
+
+                    //posicion valida del grid
+                    var tentative_x = parseInt(old_x / square_width)
+                    var tentative_y = parseInt(old_y / square_height)
+
+                    var direction = Math.floor(Math.random() * 3);
+                    if (direction == 0) {
+                        // para abajo
+                        //var salto_abajo = Math.max(Math.ceil(new_height / square_height) + 1, Math.floor(Math.random() * (play.map_rows - tentative_y)));
+                        var salto_abajo = Math.ceil(new_height / square_height) + 1;
+                        var new_x = tentative_x * square_width;
+                        var new_y = tentative_y * square_height + salto_abajo * square_height;
+                    }
+                    else if (direction == 1) {
+                        //derecha
+                        //var salto_derecha = Math.max(Math.ceil(new_width / square_width) + 1, Math.floor(Math.random() * (play.map_cols - tentative_x)));
+                        var salto_derecha = Math.ceil(new_width / square_width) + 1;
+                        var new_x = parseInt(old_x / square_width) * square_width + salto_derecha * square_height;
+                        var new_y = parseInt(old_y / square_height) * square_height;
+                    }
+                    else if (direction == 2) {
+                        //izquierda
+                        //var salto_izquierda = Math.max(Math.ceil(new_width / square_width) + 1, Math.floor(Math.random() * (play.map_cols - tentative_x)));
+                        var salto_izquierda = Math.ceil(new_width / square_width) + 1;
+                        var new_x = parseInt(old_x / square_width) * square_width - salto_izquierda * square_height;
+                        var new_y = parseInt(old_y / square_height) * square_height;
+                    }
+                    else if (direction == 3) {
+                        //arriba
+                        //var salto_arriba = Math.max(Math.ceil(new_height / square_height) + 1, Math.floor(Math.random() * (play.map_rows - tentative_y)));
+                        var salto_arriba = Math.ceil(new_height / square_height) + 1;
+                        var new_x = parseInt(old_x / square_width) * square_width;
+                        var new_y = parseInt(old_y / square_height) * square_height - salto_arriba * square_height;
+                    }
+
+                    //antes de dibujar
+                    l[0].setX(old_x);
+                    l[0].setY(old_y);
+                    //play.drawobjects.push(l[0]);
+                    play.drawobjects.splice(0, 0, l[0]);
+                    l[0].Expulsar({
+                        "cicle": 24,
+                        "x": old_x,
+                        "new_x": new_x,
+                        "y": old_y,
+                        "new_y": new_y,
+                        "time": 20
+                    });
+
+                    //animar secuencia de animaciones;
+                    if (!animate_desinflate.getIsBusy()) {
+                        animate_desinflate.setIsBusy(true);
+                        animate_desinflate.start();
+                    }
+                }
+
+            };
+            ///end create hit
+
+            var t_expulsar = null;
+            this.getTimerExpulsar = function() {
+                return t_expulsar;
+            };
+            this.setTimerExpulsar = function(value) {
+                t_expulsar = value;
+            };
+
+            this.Expulsar = function(prms) {
+                var $this = this;
+
+                this.setTimerExpulsar(new Timer(function() {
+
+                    $this.setStatus(Letter.STATUS.LOCKED);
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.setPorcent(porcentaje);
+
+                    //rechazar
+                    //$this.SetX(prms.x + (prms.x + prms.new_x) * porcentaje);
+                    //$this.SetY(prms.y + (prms.y + prms.new_y) * porcentaje);
+
+                    $this.setX(prms.x + (prms.new_x - prms.x) * porcentaje);
+                    $this.setY(prms.y + (prms.new_y - prms.y) * porcentaje);
+                    $this.setOpacity(porcentaje);
+                    $this.setW(square_width * porcentaje);
+                    $this.setH(square_height * porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 10;
+                        $this.Expulsar(prms)
+                    } else {
+
+                        $this.setCapturado(false);
+                        $this.setStatus(Letter.STATUS.LIFE);
+
+                        //$this.getTimer().resume();
+                        $this.marquer({
+                            "cicle": 10
+                        });
+                        $this.Move({
+                            "cicle": 10,
+                            "ox": $this.getX(),
+                            "oy": $this.getY(),
+                            "direction": Math.floor((Math.random() * 4) + 1)
+                        });
+                    }
+
+                }, prms.time));
+            }; //explulsar
+
+            this.Desinflate = function(prms) {
+                var $this = this;
+
+                var t_desinflate = new Timer(function() {
+
+                    $this.setStatus(Letter.STATUS.LOCKED);
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.setPorcent(porcentaje);
+                    //$this.SetW($this.getW() + (prms.new_width - $this.getW()) * porcentaje);
+                    //$this.SetH($this.getH() + (prms.new_height - $this.getH()) * porcentaje);
+                    $this.setW(prms.width - (prms.width - prms.new_width) * porcentaje);
+                    $this.setH(prms.height - (prms.height - prms.new_height) * porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        //$this.Desinflate(prms)
+                        animate_desinflate.getTimers()[0].resume();
+                    } else {
+                        //Ir quitando animaciones
+                        animate_desinflate.getTimers().splice(0, 1);
+                        if (animate_desinflate.getTimers().length > 0)
+                            animate_desinflate.getTimers()[0].resume();
+                        else {
+                            animate_desinflate.setIsBusy(false);
+                            $this.setStatus(Letter.STATUS.LIFE);
+                            $this.getTimer().resume();
+                        }
+                    }
+
+                }, prms.time, false);
+
+                animate_desinflate.addTimer(t_desinflate);
+            }; //desinflate
+
+            var t_hit = null;
+            this.Hit = function(prms) {
+                var $this = this;
+                prms.draw_object.setStatus(Draw.STATUS.ACTIVE);
+
+                t_hit = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 6;
+                    prms.draw_object.setSX((6 - prms.cicle) * 64);
+                    // establece el porcenetaje para desaparecer
+                    prms.draw_object.setPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    // mientras
+                    if (prms.cicle > -1) {
+                        prms.time = 100;
+                        $this.Hit(prms);
+                    }
+                    // al terminar
+                    else {
+                        prms.draw_object.setStatus(Draw.STATUS.INACTIVE);
+                        play.drawobjects.removeItem(prms.draw_object);
+                        delete prms.bites;
+                        delete prms.clone_bites;
+                    }
+
+                }, prms.time);
+            };
+
+            this.valid = function(index) {
+
+                //no puede destruir la letra si esta bloqueada    
+                if ($this.getStatus() == Letter.STATUS.LOCKED) {
+                    return false;
+                }
+
+                var index1 = play.wordcopy.join("").indexOf(play.drawobjects[index].getText());
+                if (index1 > 0) {
+                    play.player.setLife(play.player.getLife() - 1);
+                    play.player.setPorcent(play.player.getLife() / 3);
+                    //if (play.player.getLife() <= 0) {
+                    window.setTimeout(function() {
+                        Timer.Stop();
+                        lose.inicia();
+                        maquina.setStatus(4);
+                    }, 500);
+                    //}
+                }
+
+                // revisar vida
+                $this.setLife($this.getLife() - 1);
+                $this.createHit();
+                if ($this.getLife() > 0) {
+                    return false;
+                }
+
+                // remover el caracter de la sopa de letras
+                var l = play.drawobjects.splice(index, 1);
+                // no mover
+                if (l[0].getTimer())
+                    l[0].getTimer().pause();
+                // no atraer
+                if (l[0].getTimerAtraer())
+                    l[0].getTimerAtraer().pause();
+                // no explulsar
+                if (l[0].getTimerExpulsar())
+                    l[0].getTimerExpulsar().pause();
+                // no marcar
+                if (l[0].getTimerMarquer())
+                    l[0].getTimerMarquer().pause();
+                // no inflar
+                if (l[0].getAnimateInflate().getTimers())
+                    l[0].getAnimateInflate().getTimers().forEach(function(item, index, array) {
+                        if (item) item.pause();
+                    });
+                // no desinflar
+                if (l[0].getAnimateDesinflate().getTimers())
+                    l[0].getAnimateDesinflate().getTimers().forEach(function(item, index, array) {
+                        if (item) item.pause();
+                    });
+
+
+                //remover la letra del la palabra copia, que no era la siguiente x
+                var index = play.wordcopy.join("").indexOf(l[0].getText());
+                if (index > 0) {
+
+                    var select_leter = play.wordcopy.splice(index, 1);
+                    delete select_leter;
+                    l[0].setStatus(Letter.STATUS.DEATH);
+                    l[0].CreateImage();
+                    delete l[0];
+
+                    //continue;
+                    return false;
+                }
+                else {
+
+                    //remover la letra de la palabra copia, que si era la siguiente ok
+                    //wordcopy.splice(currentletter, 1);
+                    var select_leter = play.wordcopy.splice(0, 1);
+                    delete select_leter;
+                    l[0].setStatus(Letter.STATUS.DEATH);
+                    l[0].CreateImage();
+                    delete l[0];
+                    //document.getElementById("WordCopy").innerHTML = wordcopy;
+
+                    // siguiente letra
+                    //currentletter += 1;
+
+
+                    // mientras existan letras en palabra, ignorar espacios u cadenas vacias
+                    while (play.wordcopy.length > 0) {
+                        // si es espacio o cadena vacia pasar a la siguiente letra
+                        if (play.wordcopy[0] == "" || play.wordcopy[0] == " ") {
+                            //currentletter += 1;
+                            var select_leter = play.wordcopy.splice(0, 1);
+                            delete select_leter;
+                            //document.getElementById("WordCopy").innerHTML = wordcopy;
+
+                        }
+                        //salir del ciclo                            
+                        else
+                            break;
+                    }
+
+
+                    // si ya no hay mas letras de la palabra borrar el exceso
+                    if (play.wordcopy.length == 0) {
+
+                        //dar tiempo de ver....
+                        window.setTimeout(function() {
+
+                            //para todos los hilos;
+                            Timer.Stop();
+
+                            //incrementar el nivel                            
+                            user.level += 1;
+                            //si ya no hay mas niveles mostrar mensaje de winner
+                            if (levels["l{0}".format(user.level)] == undefined) {
+                                winner.inicia();
+                                maquina.setStatus(3);
+                            } else {
+                                //maquina.setStatus(2);
+                                if (play.temporizador.getTimer())
+                                    play.temporizador.getTimer().pause();
+                                play.inicia();
+                            }
+                        }, 500);
+
+                        /*
+                        window.setTimeout(function() {
+                        var select_leter = play.drawobjects.splice(0, play.drawobjects.length);
+                        if (select_leter === Letter) {
+                        select_leter.setStatus(Letter.STATUS.DEATH);
+                        //select_leter.CreateImage();
+                        delete select_leter;
+                        }
+                        }, 500);*/
+
+                    }
+
+                    //salir de la funcion para solo remover una sola letra
+                    return false;
+                }
+
+                return true;
+            };
+
+            var t_marquer = null;
+            this.getTimerMarquer = function() {
+                return t_marquer;
+            };
+            this.setTimerMarquer = function(value) {
+                t_marquer = value;
+            };
+
+            this.marquer = function(prms) {
+                var $this = this;
+
+                t_marquer = new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 24;
+                    $this.setPorcent(porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1)
+                        $this.marquer({ "cicle": prms.cicle })
+                    else if (play.drawobjects.indexOf($this) > -1)
+                        $this.marquer({ "cicle": 24 })
+
+                }, 24);
+
+            };
+
+            this.Show = function(prms) {
+                var $this = this;
+
+                $this.setTimer(new Timer(function() {
+                    var porcentaje = 1 - prms.cicle / 50;
+                    ////////////////////////////////
+
+                    //not scale
+                    //$this.setW(prms.w - (prms.w * 1.5) * (prms.cicle / 50));
+                    //$this.setH(prms.h - (prms.h * 1.5) * (prms.cicle / 50));
+
+                    //moved
+                    $this.setY(prms.y - (prms.w * 1.5) * (prms.cicle / 50));
+                    $this.setOpacity(porcentaje);
+                    if ($this.getHide())
+                        $this.setHide(false);
+
+                    ////////////////////////////////
+                    prms.cicle = prms.cicle - 1;
+                    prms.t = 20;
+                    if (prms.cicle > -1)
+                        $this.Show(prms);
+                    else {
+                        $this.marquer({
+                            "cicle": 10
+                        });
+                        $this.Move({
+                            "cicle": 10,
+                            "ox": $this.getX(),
+                            "oy": $this.getY(),
+                            "direction": Math.floor((Math.random() * 4) + 1)
+                        });
+                    }
+
+                }, prms.t));
+
+
+            };
+
+            this.array_click = [];
+            this.click = function() {
+                for (var i = 0; i < this.array_click.length; i++) {
+                    this.array_click[i]();
+                }
+            };
+
+            var is_alpha = prms.is_alpha || false;
+            this.getIsAlpha = function() {
+                return is_alpha;
+            };
+            this.setIsAlpha = function(value) {
+                is_alpha = value;
+            };
+
+            var capturado = false;
+            this.getCapturado = function() {
+                return capturado;
+            };
+            this.setCapturado = function(value) {
+                capturado = value;
+            };
+
+            var animate_inflate = new Animate();
+            this.getAnimateInflate = function() {
+                return animate_inflate;
+            };
+            //var t_inflate = null;
+            this.Inflate = function(prms) {
+                var $this = this;
+                prms.total = prms.total || prms.cicle;
+                var t_inflate = new Timer(function() {
+
+                    $this.setStatus(Letter.STATUS.LOCKED);
+
+                    var porcentaje = 1 - prms.cicle / prms.total;
+                    $this.setPorcent(porcentaje);
+                    //$this.SetW($this.getW() + (prms.new_width - $this.getW()) * porcentaje);
+                    //$this.SetH($this.getH() + (prms.new_height - $this.getH()) * porcentaje);
+                    $this.setW(prms.width + (prms.new_width - prms.width) * porcentaje);
+                    $this.setH(prms.height + (prms.new_height - prms.height) * porcentaje);
+
+                    prms.cicle -= 1;
+                    if (prms.cicle > -1) {
+                        prms.time = 20;
+                        //$this.Inflate(prms)
+                        animate_inflate.getTimers()[0].resume();
+                    } else {
+                        //Ir quitando animaciones
+                        animate_inflate.getTimers().splice(0, 1);
+                        if (animate_inflate.getTimers().length > 0)
+                            animate_inflate.getTimers()[0].resume();
+                        else {
+                            animate_inflate.setIsBusy(false);
+                            var flag = true;
+                            for (var i = $this.getArrayEqualsCharacter().length - 1; i > -1; i--) {
+                                // existen letras atrayendose?
+                                if ($this.getArrayEqualsCharacter()[i].getIsAtraer()) {
+                                    flag = false;
+                                    break;
+                                }
+                            }
+                            if (flag)
+                                $this.setStatus(Letter.STATUS.LIFE);
+                        }
+                    }
+
+                }, prms.time, false);
+
+                return t_inflate;
+            };
+
+            var t_atraer = null;
+            this.getTimerAtraer = function() {
+                return t_atraer;
+            };
+            this.setTimerAtraer = function(value) {
+                t_atraer = value;
+            };
+
+            var isAtraer = false;
+            this.getIsAtraer = function() {
+                return isAtraer;
+            };
+            this.setIsAtraer = function(value) {
+                isAtraer = value;
+            };
+
+
+            this.Atraer = function(prms) {
+                var $this = this;
+                $this.setIsAtraer(true);
+
+                $this.setTimerAtraer(new Timer(function() {
+
+                    $this.setStatus(Letter.STATUS.LOCKED);
+                    prms.total = prms.total || prms.cicle;
+
+                    var porcentaje = 1 - prms.cicle / prms.total;
+                    $this.setPorcent(porcentaje);
+
+                    //rechazar
+                    //$this.SetX(prms.x + (prms.x + prms.new_x) * porcentaje);
+                    //$this.SetY(prms.y + (prms.y + prms.new_y) * porcentaje);
+
+                    $this.setX(prms.x + (prms.new_x) * porcentaje);
+                    $this.setY(prms.y + (prms.new_y) * porcentaje);
+                    $this.setOpacity(prms.cicle / prms.total);
+                    $this.setW(square_width * (prms.cicle / prms.total));
+                    $this.setH(square_height * (prms.cicle / prms.total));
+
+                    prms.cicle -= 1;
+                    if (play.drawobjects.indexOf(prms.parent) == -1) {
+                        $this.getTimerAtraer().pause();
+                    }
+                    else if (prms.cicle > -1) {
+                        prms.time = 20;
+                        $this.Atraer(prms)
+                    } else {
+                        //remover                        
+                        play.drawobjects.removeItem($this);
+                        t_atraer.pause();
+                        $this.setIsAtraer(false);
+
+                        var flag = true;
+                        for (var i = $this.getArrayEqualsCharacter().length - 1; i > -1; i--) {
+                            // existen letras atrayendose?
+                            if ($this.getArrayEqualsCharacter()[i].getIsAtraer()) {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        if (flag)
+                            prms.parent.setStatus(Letter.STATUS.LIFE);
+                    }
+
+                }, prms.time));
+
+            };
+
+
+            var array_equals_character = [];
+            this.getArrayEqualsCharacter = function() {
+                return array_equals_character;
+            };
+            this.setArrayEqualsCharacter = function(value) {
+                array_equals_character = value;
+            };
+
+            this.EqualsCharacter = function(prms) {
+                for (var i = 0; i < play.drawobjects.length; i++) {
+                    if (array_equals_character.indexOf(play.drawobjects[i]) > -1)
+                        continue;
+                    if (play.drawobjects[i].constructor === Letter && play.drawobjects[i] != $this && !play.drawobjects[i].getCapturado()) {
+                        if ($this.intersects(
+                                $this.getX() - ($this.getW() - square_width) / 2,
+                                $this.getY() - ($this.getH() - square_height) / 2,
+                                $this.getW(),
+                                $this.getH(),
+                                play.drawobjects[i].getX(),
+                                play.drawobjects[i].getY(),
+                                play.drawobjects[i].getW(),
+                                play.drawobjects[i].getH())) {
+                            if (play.drawobjects[i].getText() == $this.getText()) {
+                                //alert("equals");
+
+                                if (play.drawobjects.indexOf($this) == -1)
+                                    return;
+
+                                $this.setStatus(Letter.STATUS.LOCKED);
+
+                                array_equals_character.push(play.drawobjects[i]);
+                                play.drawobjects[i].setCapturado(true);
+
+                                //var new_width = Math.pow(Math.pow($this.getW(), 2) + Math.pow(play.drawobjects[i].getW(), 2), 0.5);
+                                //var new_height = Math.pow(Math.pow($this.getH(), 2) + Math.pow(play.drawobjects[i].getH(), 2), 0.5);
+
+                                var new_width = Math.pow(Math.pow(square_width, 2) + Math.pow(square_width, 2) * array_equals_character.length, 0.5);
+                                var new_height = Math.pow(Math.pow(square_height, 2) + Math.pow(square_width, 2) * array_equals_character.length, 0.5);
+
+                                //$this.Message("letras2", "{0}".format(array_equals_character.length));
+
+                                //$this.SetW(new_width);
+                                //$this.SetH(new_height);
+
+
+                                var inflate = $this.Inflate({
+                                    "cicle": 24,
+                                    "width": $this.getW(),
+                                    "new_width": new_width,
+                                    "height": $this.getH(),
+                                    "new_height": new_height,
+                                    "time": 0
+                                });
+                                // agrega animaciones de inflado
+                                animate_inflate.addTimer(inflate);
+                                // animar secuencia de animaciones;
+                                if (!animate_inflate.getIsBusy()) {
+                                    animate_inflate.setIsBusy(true);
+                                    animate_inflate.start();
+                                }
+
+                                var new_x = $this.getX() - play.drawobjects[i].getX();
+                                var new_y = $this.getY() - play.drawobjects[i].getY();
+
+                                play.drawobjects[i].setStatus(Letter.STATUS.LOCKED);
+                                play.drawobjects[i].getTimer().pause();
+                                play.drawobjects[i].Atraer({
+                                    "cicle": 10,
+                                    "x": play.drawobjects[i].getX(),
+                                    "new_x": new_x,
+                                    "y": play.drawobjects[i].getY(),
+                                    "new_y": new_y,
+                                    "time": 0,
+                                    "w": square_width,
+                                    "h": square_height,
+                                    "parent": $this
+                                });
+
+                                //var l = play.drawobjects.splice(i, 1);
+                                var life = $this.getLife();
+                                $this.setLife(life + 1);
+
+                            }
+                        }
+                    }
+                }
+            };
+
+            this.Move = function(prms) {
+                var $this = this;
+                $this.setShowBorder(true);
+
+                //window.setTimeout(function() {
+                $this.setTimer(new Timer(function() {
+
+                    var porcentaje = 1 - prms.cicle / 10;
+                    var distancia_w = square_width;
+                    var distancia_h = square_height;
+
+                    if (prms.direction == DIRECTION.RIGHT) {
+                        if (prms.ox + distancia_w < ($this.getMap()[0].length - 1) * square_width) {
+                            $this.setX(prms.ox + distancia_w * porcentaje);
+                            if ($this.getIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else if (prms.direction == DIRECTION.UP) {
+                        if (prms.oy - distancia_h >= 0) {
+                            $this.setY(prms.oy - distancia_h * porcentaje);
+                            if ($this.getIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else if (prms.direction == DIRECTION.DOWN) {
+                        if (prms.oy + distancia_h < ($this.getMap().length - 1) * square_height) {
+                            $this.setY(prms.oy + distancia_h * porcentaje);
+                            if ($this.getIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else if (prms.direction == DIRECTION.LEFT) {
+                        if (prms.ox - distancia_w >= 0) {
+                            $this.setX(prms.ox - distancia_w * porcentaje);
+                            if ($this.getIsAlpha())
+                                $this.EqualsCharacter();
+                        }
+                    }
+                    else {
+                        alert("error");
+                    }
+
+                    prms.cicle = prms.cicle - 1;
+                    prms.time = Math.floor((Math.random() * 40) + 1)
+                    if (prms.cicle > -1)
+                        $this.Move(prms);
+                    else if (play.drawobjects.indexOf($this) > -1 && $this.getStatus() != Letter.STATUS.DEATH)
+                        $this.Move({
+                            "cicle": 10,
+                            "ox": $this.getX(),
+                            "oy": $this.getY(),
+                            "direction": Math.floor((Math.random() * 4) + 1)
+                        });
+
+
+                }, prms.time || 40));
+            };
+
+            /*
+            window.setTimeout(function() {
+            $this.Move({
+            "cicle": 10,
+            "ox": $this.getX(),
+            "oy": $this.getY(),
+            "direction": Math.floor((Math.random() * 4) + 1)
+            });
+            }, 1000);
+            */
+
+            this.array_click.push(function(event) {
+
+
+            });
+
+            this.Show({
+                "cicle": 50,
+                "x": $this.getX(),
+                "y": $this.getY(),
+                "w": $this.getW(),
+                "h": $this.getH(),
+                "t": 0
+            });
+
+
+
+        };
+        Letter.prototype = new Draw({});
+        Letter.prototype.constructor = Letter;
+        Letter.STATUS = {};
+        Letter.STATUS.LIFE = 1;
+        Letter.STATUS.DEATH = 2;
+        Letter.STATUS.SLEEP = 3;
+        Letter.STATUS.LOCKED = 4;
+
+        var Control = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            this.draw = function(ctx) {
+                ctx.beginPath();
+                ctx.stroke();
+            };
+
+        };
+        Control.prototype = new Draw({});
+        Control.prototype.constructor = Control;
+
+        var Button = function(prms) {
+            var $this = this;
+            Draw.call(this, prms);
+
+            var fill = prms.fill || false;
+            this.getFill = function() {
+                return fill;
+            };
+            this.setFill = function(value) {
+                fill = value;
+            };
+
+            var color = prms.color || "#000000";
+            this.getColor = function() {
+                return color;
+            };
+            this.setColor = function(value) {
+                color = value;
+            };
+
+            var border_color = prms.border_color || "#000000";
+            this.getBorderColor = function() {
+                return border_color;
+            };
+            this.setBorderColor = function(value) {
+                border_color = value;
+            };
+
+            this.array_click = [];
+            this.click = function() {
+                for (var i = 0; i < this.array_click.length; i++) {
+                    this.array_click[i]();
+                }
+            };
+
+            this.array_mouseover = [];
+            this.onmouseover = function() {
+                for (var i = 0; i < this.array_mouseover.length; i++) {
+                    this.array_mouseover[i]();
+                }
+            };
+
+            this.array_onmouseout = [];
+            this.onmouseout = function() {
+                for (var i = 0; i < this.array_onmouseout.length; i++) {
+                    this.array_onmouseout[i]();
+                }
+            };
+
+
+
+            this.isPointInside = function(x, y) {
+                return (x >= this.getX() && x <= this.getX() + this.getW() && y >= this.getY() && y <= this.getY() + this.getH());
+            };
+
+            this.draw = function(ctx) {
+
+                ctx.beginPath();
+                //border
+                ctx.lineWidth = "1";
+                //colir de linea
+                ctx.strokeStyle = $this.getBorderColor();
+                ctx.fillStyle = $this.getBorderColor();
+                //dubujar rectangulo
+                //ctx.rect($this.getX(), $this.getY(), $this.getW(), $this.getH());
+                ctx.roundRect(
+                    $this.getX(),
+                    $this.getY(),
+                    $this.getW(),
+                    $this.getH(), {
+                        upperLeft: 2,
+                        upperRight: 2,
+                        lowerLeft: 2,
+                        lowerRight: 2
+                    }, $this.getFill(), true)
+                ctx.stroke();
+
+                ctx.beginPath();
+                //background debugger letra
+                ctx.fillStyle = $this.getColor();
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                //font
+                ctx.font = "{0}px your_custom_font".format($this.getH() * 0.6);
+                //dibujar texto
+                ctx.fillText(
+                            $this.getText(),
+                            $this.getX() + Math.ceil($this.getW() / 2),
+                            $this.getY() + Math.ceil($this.getH() / 2));
+                ctx.stroke();
+            };
+
+        };
+        Control.prototype = new Draw({});
+        Control.prototype.constructor = Control;
+
+
+        var incio = {
+            image: null,
+            background: "#000000",
+            background: "#ffffff",
+            drawobjects: [],
+            inicia: function() {
+                this.drawobjects = [];
+                this.background = "#4bcffa";
+                var btn_star = new Button({
+                    "x": (canvas_width - square_width * 3) / 2,
+                    "y": (canvas_height - square_height) / 2,
+                    "w": square_width * 3,
+                    "h": square_height,
+                    "background": "rgba(0,0,0,0.87)",
+                    "color": "#ffffff",
+                    "background": "#ffffff",
+                    "border_color": "#ffffff",
+                    "text": "Start"
+                });
+                this.drawobjects.push(btn_star);
+                btn_star.array_click = [];
+                btn_star.array_click.push(function() {
+                    play.inicia();
+                    maquina.setStatus(2);
+                });
+                btn_star.array_mouseover.push(function() {
+                    btn_star.setFill(true);
+                    btn_star.setColor("rgba(0, 0, 0, 0.87)");
+                });
+                btn_star.array_onmouseout.push(function() {
+                    btn_star.setFill(false);
+                    btn_star.setColor("#ffffff");
+                });
+
+                //var c = document.createElement('canvas');
+                //c.width = canvas_width;
+                //c.height = canvas_height;
+                //this.image = document.createElement('img');
+                //this.image.src = "Images/descarga.jpg";
+                //this.image.src = "Images/inicio.png";
+            },
+            draw: function(ctx) {
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                ctx.fillStyle = this.background;
+                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+                //ctx.drawImage(this.image, 0, 0, ctx.canvas.width, ctx.canvas.height);
+                for (var i = 0; i < this.drawobjects.length; i++) {
+                    this.drawobjects[i].draw(ctx);
+                }
+            }
+        };
+
+
+
+
+        var levels = {
+            /*
+            l1: {
+            color: "#ffffff",
+            background: "#34495e",
+            word: ["H", "H", "H", "H", "H", "H"],
+            map: [[" ", " ", " ", " ", " ", " "],
+            [" ", " ", " ", " ", " ", " "],
+            [" ", " ", "time", " ", " ", " "],
+            ["H", "H", "H", "H", "H", "H"],
+            [" ", " ", " ", " ", " ", " "],
+            [" ", " ", " ", " ", " ", " "],
+            [" ", " ", " ", " ", " ", " "]]
+            },*/
+            l1: {
+                color: "#ffffff",
+                background: "#34495e",
+                word: ["H", "E", "L", "L", "O", "!"],
+                map: [[" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", "time", " ", " ", " "],
+                      ["H", "E", "L", "L", "O", "!"],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "]]
+            },
+            l2: {
+                color: "#ffffff",
+                background: "#3498db",
+                word: ["P", "E", "A", "C", "E"],
+                map: [[" ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " "],
+                      [" ", "P", "E", "A", "C", "E", " "],
+                      [" ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " "]]
+            },
+            l3: {
+                color: "#ffffff",
+                background: "#e74c3c",
+                word: ["L", "O", "V", "E", "♥"],
+                map: [[" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      ["L", "O", "V", "E", " ", "♥"],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "]]
+            },
+            l4: {
+                color: "#ffffff",
+                background: "#9b59b6",
+                word: ["H", "O", "P", "E"],
+                map: [[" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", "H", "O", "P", "E", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " "]]
+            },
+            l5: {
+                color: "#ffffff",
+                background: "#f1c40f",
+                word: ["H", "A", "P", "I", "N", "N", "E", "S"],
+                map: [[" ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " "],
+                      ["H", "A", "P", "I", "N", "N", "E", "S"],
+                      [" ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " "]]
+            },
+            l6: {
+                color: "#ffffff",
+                background: "#e67e22",
+                word: ["S", "M", "I", "L", "E"],
+                map: [[" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", "S", "M", "I", "L", "E", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "]]
+            },
+            l7: {
+                color: "#ffffff",
+                background: "#c0392b",
+                word: ["J", "O", "Y"],
+                map: [[" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", "J", "O", "Y", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "]]
+            },
+            l8: {
+                color: "#ffffff",
+                background: "#2ecc71",
+                word: ["D", "R", "E", "A", "M"],
+                map: [[" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", "D", "R", "E", "A", "M", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                      [" ", " ", " ", " ", " ", " ", " ", " ", " "]]
+            }
+
+        };
+
+
+        var user = {
+            level: 1
+        };
+
+        var play = {
+            transX: 0,
+            transY: 0,
+            color: "rgba(0, 0, 0, 0.87)",
+            background: "#ffffff",
+            map: [],
+            word: [],
+            wordcopy: [],
+            drawobjects: [],
+            status: 0,
+            map_cols: 0,
+            map_rows: 0,
+            player: null,
+            temporizador: null,
+            inicia: function() {
+
+                this.status = play.Estatus.Ini;
+                this.map = levels["l{0}".format(user.level)].map;
+                this.map_cols = this.map[0].length;
+                this.map_rows = this.map.length;
+                this.background = levels["l{0}".format(user.level)].background;
+                this.color = levels["l{0}".format(user.level)].color;
+                this.word = levels["l{0}".format(user.level)].word;
+                //guardar copia de la palabra
+                this.wordcopy = levels["l{0}".format(user.level)].word.slice(0, levels["l{0}".format(user.level)].word.length);
+                this.drawobjects = [];
+                this.arrange();
+
+                var current_life = this.player ? this.player.getLife() > 0 ? this.player.getLife() : 3 : 3;
+                this.player = new Player({
+                    "x": 10,
+                    "y": 10,
+                    "w": (canvas_width - 20),
+                    "h": 5,
+                    "life": current_life
+                });
+
+
+                this.temporizador = new Temporizador({
+                    "x": (canvas_width - (canvas_width / 6)) / 2,
+                    "y": 20,
+                    "w": (canvas_width / 6),
+                    "h": (canvas_width / 6),
+                    "cicle": this.word.length * 3 //3 segundos por letra
+                });
+
+                this.status = play.Estatus.Load;
+
+            },
+            draw: function(ctx) {
+
+                if (this.status == play.Estatus.Load) {
+                    ctx.save();
+
+                    this.transX = (ctx.canvas.width - (this.map[0].length * square_width)) / 2;
+                    this.transY = (ctx.canvas.height - (this.map.length * square_height)) / 2;
+                    ctx.translate(this.transX, this.transY);
+                    ctx.clearRect(-this.transX, -this.transY, ctx.canvas.width, ctx.canvas.height);
+                    ctx.fillStyle = this.background;
+                    ctx.fillRect(-this.transX, -this.transY, ctx.canvas.width, ctx.canvas.height)
+
+
+
+                    //border
+                    ctx.beginPath();
+                    ctx.lineWidth = "1";
+                    //colir de linea
+                    ctx.strokeStyle = "#ffffff";
+                    //cols
+                    for (var i = 0; i < this.map.length; i++) {
+                        //rows
+                        for (var j = 0; j < this.map[0].length; j++) {
+                            ctx.rect(j * square_width, i * square_height, square_width, square_height);
+                        }
+                    }
+                    ctx.stroke();
+
+
+
+                    for (var i = 0; i < this.drawobjects.length; i++) {
+                        this.drawobjects[i].draw(ctx);
+                    }
+
+
+
+
+                    //ctx.translate(.5, .5);
+                    ctx.restore();
+                    this.player.draw(ctx);
+                    this.temporizador.draw(ctx);
+
+                    var blockscreen = new BlockScreen({});
+                    blockscreen.draw(ctx);
+                }
+            },
+            mousedown: function(e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                var mouseX = parseInt(e.clientX - target.offsetLeft - play.transX);
+                var mouseY = parseInt(e.clientY - target.offsetTop - play.transY);
+
+                var cur = {
+                    "x": mouseX - (square_width * .5) / 2,
+                    "y": mouseY - (square_height * .5) / 2,
+                    "w": (square_width * 1) / 2,
+                    "h": (square_height * 1) / 2
+                };
+                var mycursor = new Cursor({
+                    "x": mouseX - (square_width * .5) / 2,
+                    "y": mouseY - (square_height * .5) / 2,
+                    "w": (square_width * 1) / 2,
+                    "h": (square_height * 1) / 2
+                });
+
+                this.drawobjects.push(mycursor);
+
+                for (var i = this.drawobjects.length - 1; i > -1; i--) {
+                    if (this.drawobjects.indexOf(this.drawobjects[i]) == -1)
+                        continue;
+                    //if (this.drawobjects[i].isPointInside(mouseX, mouseY)) {
+                    if (mycursor.intersects(//mycursor.getX(), mycursor.getY(), mycursor.getW(), mycursor.getH(),
+                            cur.x, cur.y, cur.w, cur.h,
+                            this.drawobjects[i].getX(), this.drawobjects[i].getY(), this.drawobjects[i].getW(), this.drawobjects[i].getH())
+                        ) {
+                        if (this.drawobjects[i].valid(i))
+                            continue;
+                        else
+                            break;
+                    }
+                }
+
+                //mycursor.Destructors();
+                //this.drawobjects = arrayRemove(this.drawobjects, mycursor);
+            },
+            arrange: function() {
+                //cols
+                for (var i = 0; i < this.map.length; i++) {
+                    //rows
+                    for (var j = 0; j < this.map[0].length; j++) {
+                        if (this.map[i][j] != " ") {
+
+                            if (this.map[i][j] == 'time') {
+                                this.drawobjects.push(new HourGlass({
+                                    "x": j * square_width,
+                                    "y": i * square_height,
+                                    "w": square_width,
+                                    "h": square_height
+                                }));
+                            }
+                            else {
+                                this.drawobjects.push(new Letter({
+                                    "x": j * square_width,
+                                    "y": i * square_height,
+                                    "w": square_width,
+                                    "h": square_height,
+                                    "background": this.background,
+                                    "color": this.color,
+                                    "border_color": this.color,
+                                    "text": this.map[i][j],
+                                    "map": this.map,
+                                    "opacity": 0,
+                                    "hide": true
+                                }));
+                            }
+                        }
+                    }
+                }
+
+                //PONER UN ALPHA POR CADA GRUPO DE LETRAS IGUALES
+                //play.drawobjects[0].SetIsAlpha(true);
+                var array_alpha = [];
+                for (var z = this.drawobjects.length - 1; z >= 0; z--) {
+                    var currentValue = this.drawobjects[z];
+                    if (currentValue.constructor === Letter && array_alpha.indexOf(currentValue.getText()) == -1) {
+                        array_alpha.push(currentValue.getText());
+                        currentValue.setIsAlpha(true);
+                    }
+                }
+                /*
+                this.drawobjects.forEach(function(currentValue, index, array) {
+                if (currentValue.constructor === Letter && array_alpha.indexOf(currentValue.getText()) == -1) {
+                array_alpha.push(currentValue.getText());
+                currentValue.setIsAlpha(true);
+                }
+                });
+                */
+
+            }
+        };
+        play.Estatus = {};
+        play.Estatus.Ini = 0;
+        play.Estatus.Load = 1;
+
+
+
+        var lose = {
+            background: "#000000",
+            background: "#ffffff",
+            drawobjects: [],
+            inicia: function() {
+                this.drawobjects = [];
+                this.background = "#485460";
+                var btn_star = new Button({
+                    "x": (canvas_width - square_width * 4) / 2,
+                    "y": (canvas_height - square_height) / 2,
+                    "w": square_width * 4,
+                    "h": square_height,
+                    "color": "#ffffff",
+                    "border_color": "#485460",
+                    "text": "You lose"
+                });
+                var btn_continue = new Button({
+                    "x": (canvas_width - square_width * 4) / 2,
+                    "y": (canvas_height - square_height) / 2 + square_height + 4,
+                    "w": square_width * 4,
+                    "h": square_height,
+                    "color": "#ffffff",
+                    "fill": false,
+                    "border_color": "#ffffff",
+                    "text": "Continue"
+                });
+                var btn_restart = new Button({
+                    "x": (canvas_width - square_width * 4) / 2,
+                    "y": (canvas_height - square_height) / 2 + square_height * 2 + 4 * 2,
+                    "w": square_width * 4,
+                    "h": square_height,
+                    "color": "#ffffff",
+                    "fill": false,
+                    "border_color": "#ffffff",
+                    "text": "Restart"
+                });
+                this.drawobjects.push(btn_star);
+                if (play.player.getLife() > 0)
+                    this.drawobjects.push(btn_continue);
+                this.drawobjects.push(btn_restart);
+
+                btn_continue.array_click.push(function() {
+                    play.temporizador.getTimer().pause();
+                    for (var i = 0; i < play.drawobjects.length; i++) {
+                        if (play.drawobjects[i].constructor === Letter) {
+                            play.drawobjects[i].getTimer().pause();
+                        }
+                    }
+                    play.inicia();
+                    maquina.setStatus(2);
+                });
+
+                btn_restart.array_click.push(function() {
+                    user.level = 1;
+                    play.temporizador.getTimer().pause();
+                    for (var i = 0; i < play.drawobjects.length; i++) {
+                        if (play.drawobjects[i].constructor === Letter) {
+                            play.drawobjects[i].getTimer().pause();
+                        }
+                    }
+                    play.inicia();
+                    maquina.setStatus(2);
+                });
+            },
+            mousedown: function(e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                var mouseX = parseInt(e.clientX - target.offsetLeft - play.transX);
+                var mouseY = parseInt(e.clientY - target.offsetTop - play.transY);
+                for (var i = this.drawobjects.length - 1; i > -1; i--) {
+                    if (this.drawobjects[i].isPointInside(mouseX, mouseY)) {
+                        if (this.drawobjects[i].valid(i))
+                            continue;
+                        else
+                            break;
+                    }
+                }
+            },
+            draw: function(ctx) {
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                ctx.fillStyle = this.background;
+                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+                for (var i = 0; i < this.drawobjects.length; i++) {
+                    this.drawobjects[i].draw(ctx);
+                }
+            }
+        };
+
+
+        var winner = {
+            background: "#000000",
+            background: "#ffffff",
+            drawobjects: [],
+            inicia: function() {
+                this.drawobjects = [];
+                var btn_star = new Button({
+                    "x": (canvas_width - square_width * 4) / 2,
+                    "y": (canvas_height - square_height) / 2,
+                    "w": square_width * 4,
+                    "h": square_height,
+                    "text": "you winner"
+                });
+                this.drawobjects.push(btn_star);
+                btn_star.array_click.push(function() {
+                    play.inicia();
+                    maquina.setStatus(2);
+                });
+            },
+            draw: function(ctx) {
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                ctx.fillStyle = this.background;
+                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+                for (var i = 0; i < this.drawobjects.length; i++) {
+                    this.drawobjects[i].draw(ctx);
+                }
+            }
+        };
+
+        function arrayRemove(arr, value) {
+
+            return arr.filter(function(ele) {
+                return ele != value;
+            });
+
+        }
+
+        var canvas_width = 0;
+        var canvas_height = 0;
+        var square_width = 0;
+        var square_height = 0;
+
+        window.addEventListener("resize", function() {
+            //ciclo Principal
+            // Get the device pixel ratio, falling back to 1.
+            var dpr = window.devicePixelRatio || 1;
+
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d", { alpha: false });
+            ctx.imageSmoothingEnabled = false;
+            //ctx.translate(.5, .5);
+            c.setAttribute("width", document.documentElement.offsetWidth);
+            c.setAttribute("height", document.documentElement.offsetHeight);
+
+
+
+            canvas_width = document.documentElement.offsetWidth;
+            canvas_height = document.documentElement.offsetHeight;
+            square_width = document.documentElement.offsetWidth / 10;
+            square_height = square_width;
+
+            //ctx.scale(dpr, dpr);
+
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+
+            //ciclo Principal
+            // Get the device pixel ratio, falling back to 1.
+            var dpr = window.devicePixelRatio || 1;
+
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d", { alpha: false });
+
+            ctx.imageSmoothingEnabled = false;
+            ctx.translate(.5, .5);
+            c.setAttribute("width", document.documentElement.offsetWidth);
+            c.setAttribute("height", document.documentElement.offsetHeight);
+
+            canvas_width = document.documentElement.offsetWidth;
+            canvas_height = document.documentElement.offsetHeight;
+            square_width = document.documentElement.offsetWidth / 12;
+            square_height = square_width;
+
+            //ctx.scale(dpr, dpr);
+
+            var timer = window.setInterval(function() {
+
+                if (maquina.getStatus() == 1) {
+                    incio.draw(ctx);
+                }
+                else if (maquina.getStatus() == 2) {
+                    play.draw(ctx);
+                }
+                else if (maquina.getStatus() == 3) {
+                    winner.draw(ctx);
+                }
+                else if (maquina.getStatus() == 4) {
+                    lose.draw(ctx);
+                }
+
+            }, 20);
+
+            incio.inicia();
+            maquina.setStatus(1);
+
+            var iniciar = document.getElementById("iniciar");
+            iniciar.onclick = function() {
+                user.level = 1;
+                incio.inicia();
+                maquina.setStatus(1);
+            };
+
+            var jugando = document.getElementById("jugando");
+            jugando.onclick = function() {
+                play.inicia();
+                maquina.setStatus(2);
+            };
+
+            var terminar = document.getElementById("terminar");
+            terminar.onclick = function() {
+                lose.inicia();
+                maquina.setStatus(4);
+            };
+
+            c.onmousedown = function(e) { handleMouseDown(e); };
+            c.onmousemove = function(e) {
+                // calculate the mouse click position
+                var c = document.getElementById("myCanvas");
+
+                if (maquina.getStatus() == 1) {
+                    mouseX = parseInt(e.clientX - c.offsetLeft);
+                    mouseY = parseInt(e.clientY - c.offsetTop);
+                    //console.log(mouseX + "|" + mouseY);
+                    for (var i = incio.drawobjects.length - 1; i > -1; i--) {
+                        if (incio.drawobjects[i].isPointInside(mouseX, mouseY)) {
+                            incio.drawobjects[i].onmouseover();
+                        }
+                        else {
+                            incio.drawobjects[i].onmouseout();
+                        }
+                    }
+                }
+                else if (maquina.getStatus() == 2) {
+                    mouseX = parseInt(e.clientX - c.offsetLeft - play.transX);
+                    mouseY = parseInt(e.clientY - c.offsetTop - play.transY);
+                    for (var i = play.drawobjects.length - 1; i > -1; i--) {
+                    }
+                }
+                else if (maquina.getStatus() == 3) {
+                    for (var i = lose.drawobjects.length - 1; i > -1; i--) {
+                    }
+                }
+            };
+        });
+
+        function handleMouseDown(e) {
+            e = e || window.event;
+
+            // calculate the mouse click position
+            var c = document.getElementById("myCanvas");
+            mouseX = parseInt(e.clientX - c.offsetLeft);
+            mouseY = parseInt(e.clientY - c.offsetTop);
+
+            if (maquina.getStatus() == 1) {
+                for (var i = incio.drawobjects.length - 1; i > -1; i--) {
+                    if (incio.drawobjects[i].isPointInside(mouseX, mouseY)) {
+                        incio.drawobjects[i].click();
+                    }
+                }
+            }
+            else if (maquina.getStatus() == 2) {
+                play.mousedown(e);
+            }
+            else if (maquina.getStatus() == 4) {
+                for (var i = lose.drawobjects.length - 1; i > -1; i--) {
+                    if (lose.drawobjects[i].isPointInside(mouseX, mouseY)) {
+                        lose.drawobjects[i].click();
+                    }
+                }
+            }
+        };
+    
+    </script>
+
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 0px solid #000;"></canvas>
+    <input id="iniciar" value="iniciar" type="button" style="display: none;" />
+    <input id="jugando" value="jugando" type="button" style="display: none;" />
+    <input id="terminar" value="terminar" type="button" style="display: none;" />
+</body>
+</html>

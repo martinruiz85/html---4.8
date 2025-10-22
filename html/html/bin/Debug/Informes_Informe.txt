@@ -1,0 +1,62 @@
+--INICIA
+--@Item:InformeId
+IF COL_LENGTH('Informes_Informe','InformeId') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [InformeId] [int] NOT NULL
+ PRINT 'LA COLUMNA INSERTADA: InformeId'
+END
+--@Item:ConfigId
+IF COL_LENGTH('Informes_Informe','ConfigId') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [ConfigId] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: ConfigId'
+END
+--@Item:EstatusInformeId
+IF COL_LENGTH('Informes_Informe','EstatusInformeId') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [EstatusInformeId] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: EstatusInformeId'
+END
+--@Item:Mensaje
+IF COL_LENGTH('Informes_Informe','Mensaje') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [Mensaje] [varchar](8000) NULL
+ PRINT 'LA COLUMNA INSERTADA: Mensaje'
+END
+--@Item:Usuario
+IF COL_LENGTH('Informes_Informe','Usuario') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [Usuario] [varchar](510) NULL
+ PRINT 'LA COLUMNA INSERTADA: Usuario'
+END
+--@Item:Fecha
+IF COL_LENGTH('Informes_Informe','Fecha') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [Fecha] [datetime] NULL
+ PRINT 'LA COLUMNA INSERTADA: Fecha'
+END
+--@Item:GrupoId
+IF COL_LENGTH('Informes_Informe','GrupoId') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [GrupoId] [int] NULL
+ PRINT 'LA COLUMNA INSERTADA: GrupoId'
+END
+--@Item:DestinatariosEnviados
+IF COL_LENGTH('Informes_Informe','DestinatariosEnviados') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [DestinatariosEnviados] [varchar](500) NULL
+ PRINT 'LA COLUMNA INSERTADA: DestinatariosEnviados'
+END
+--@Item:FechaUltAct
+IF COL_LENGTH('Informes_Informe','FechaUltAct') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [FechaUltAct] [datetime] NULL
+ PRINT 'LA COLUMNA INSERTADA: FechaUltAct'
+END
+--@Item:Archivo
+IF COL_LENGTH('Informes_Informe','Archivo') IS NULL
+BEGIN
+ ALTER TABLE [Informes_Informe] ADD [Archivo] [varchar](260) NULL
+ PRINT 'LA COLUMNA INSERTADA: Archivo'
+END
+--EXITO
