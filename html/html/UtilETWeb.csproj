@@ -649,6 +649,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RichTextBoxExtensions.cs" />
+    <Compile Include="SuggestComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TCTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

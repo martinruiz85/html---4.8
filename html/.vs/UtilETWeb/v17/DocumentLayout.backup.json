@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|c:\\users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmdependscustom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmdependscustom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|c:\\users\\usu\\source\\repos\\html - 4.8\\html\\html\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmdependscustom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmdependscustom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\suggestcombobox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\suggestcombobox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\suggestcombobox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\suggestcombobox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmdependscustom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmdependscustom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\comboboxicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\comboboxicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateprocedures.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmgenerateprocedures.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\comboboxicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\comboboxicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmgenerateprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateprocedures.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -33,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmdependscustom.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\frmdependscustom.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\comboboxicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|solutionrelative:html\\comboboxicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8FB174D-9273-4AE7-9756-20E277F0B2F9}|html\\UtilETWeb.csproj|C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmgenerateinserts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -186,11 +198,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "frmMergeFiles.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmMergeFiles.cs",
               "RelativeDocumentMoniker": "html\\frmMergeFiles.cs",
@@ -206,82 +218,135 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "ComboBoxIcon.cs",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ComboBoxIcon.cs",
+              "RelativeDocumentMoniker": "html\\ComboBoxIcon.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ComboBoxIcon.cs",
+              "RelativeToolTip": "html\\ComboBoxIcon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T21:46:23.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmGenerateProcedures.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.Designer.cs",
+              "RelativeDocumentMoniker": "html\\frmGenerateProcedures.Designer.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.Designer.cs",
+              "RelativeToolTip": "html\\frmGenerateProcedures.Designer.cs",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAkwCcBAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T21:46:17.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmDependsCustom.cs",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.cs",
+              "RelativeDocumentMoniker": "html\\frmDependsCustom.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.cs",
+              "RelativeToolTip": "html\\frmDependsCustom.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T22:20:01.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SuggestComboBox.cs",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\SuggestComboBox.cs",
+              "RelativeDocumentMoniker": "html\\SuggestComboBox.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\SuggestComboBox.cs",
+              "RelativeToolTip": "html\\SuggestComboBox.cs",
+              "ViewState": "AgIAANsAAAAAAAAAAAAiwO8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:43:53.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "frmDependsCustom.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.cs",
               "RelativeDocumentMoniker": "html\\frmDependsCustom.cs",
               "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.cs [Dise\u00F1o]",
               "RelativeToolTip": "html\\frmDependsCustom.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T23:45:48.241Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-04-11T23:45:48.241Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmDependsCustom.cs",
-              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.cs",
-              "RelativeDocumentMoniker": "html\\frmDependsCustom.cs",
-              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.cs",
-              "RelativeToolTip": "html\\frmDependsCustom.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwCgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T22:20:01.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\App.config",
               "RelativeDocumentMoniker": "html\\App.config",
               "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\App.config",
               "RelativeToolTip": "html\\App.config",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAEQAAACUAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-03-15T00:41:45.058Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmGenerateProcedures.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs",
-              "RelativeDocumentMoniker": "html\\frmGenerateProcedures.cs",
-              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs [Dise\u00F1o]",
-              "RelativeToolTip": "html\\frmGenerateProcedures.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T17:12:05.662Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmGenerateProcedures.cs",
-              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs",
-              "RelativeDocumentMoniker": "html\\frmGenerateProcedures.cs",
-              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs",
-              "RelativeToolTip": "html\\frmGenerateProcedures.cs",
-              "ViewState": "AgIAACkBAAAAAAAAAAAlwEkBAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T00:36:10.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "frmGenerateProcedures.resx",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.resx",
               "RelativeDocumentMoniker": "html\\frmGenerateProcedures.resx",
               "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.resx",
               "RelativeToolTip": "html\\frmGenerateProcedures.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-10-21T22:07:46.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T22:07:46.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
+              "Title": "SuggestComboBox.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\SuggestComboBox.cs",
+              "RelativeDocumentMoniker": "html\\SuggestComboBox.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\SuggestComboBox.cs [Design]",
+              "RelativeToolTip": "html\\SuggestComboBox.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:54:28.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmGenerateProcedures.cs",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs",
+              "RelativeDocumentMoniker": "html\\frmGenerateProcedures.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs",
+              "RelativeToolTip": "html\\frmGenerateProcedures.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwEYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T00:36:10.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmGenerateProcedures.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs",
+              "RelativeDocumentMoniker": "html\\frmGenerateProcedures.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.cs [Dise\u00F1o]",
+              "RelativeToolTip": "html\\frmGenerateProcedures.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T17:12:05.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ComboBoxIcon.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ComboBoxIcon.cs",
+              "RelativeDocumentMoniker": "html\\ComboBoxIcon.cs",
+              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ComboBoxIcon.cs [Dise\u00F1o]",
+              "RelativeToolTip": "html\\ComboBoxIcon.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:45:04.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "frmGenerateInserts.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateInserts.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateInserts.cs",
@@ -292,20 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmGenerateProcedures.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.Designer.cs",
-              "RelativeDocumentMoniker": "html\\frmGenerateProcedures.Designer.cs",
-              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateProcedures.Designer.cs",
-              "RelativeToolTip": "html\\frmGenerateProcedures.Designer.cs",
-              "ViewState": "AgIAAOMAAAAAAAAAAAAtwAIBAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T21:46:17.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "frmGenerateInsertsCustom.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateInsertsCustom.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateInsertsCustom.cs",
@@ -316,19 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ComboBoxIcon.cs",
-              "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ComboBoxIcon.cs",
-              "RelativeDocumentMoniker": "html\\ComboBoxIcon.cs",
-              "ToolTip": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ComboBoxIcon.cs",
-              "RelativeToolTip": "html\\ComboBoxIcon.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAA9wD4AAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T21:46:23.285Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "frmDependsCustom.Designer.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDependsCustom.Designer.cs",
               "RelativeDocumentMoniker": "html\\frmDependsCustom.Designer.cs",
@@ -336,12 +376,11 @@
               "RelativeToolTip": "html\\frmDependsCustom.Designer.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAYwCsAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T05:10:37.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T05:10:37.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "frmGenerateInserts.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateInserts.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateInserts.cs",
@@ -353,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "frmGenerateAlterColumn.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateAlterColumn.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateAlterColumn.cs",
@@ -365,7 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "000-[sp_AddColumn].txt",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\000-[sp_AddColumn].txt",
               "RelativeDocumentMoniker": "html\\000-[sp_AddColumn].txt",
@@ -377,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "frmGenerateInsertsCustom.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateInsertsCustom.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateInsertsCustom.cs",
@@ -389,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "frmCompareTwoListOfString.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmCompareTwoListOfString.cs",
               "RelativeDocumentMoniker": "html\\frmCompareTwoListOfString.cs",
@@ -401,7 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "002-[Split].txt",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\002-[Split].txt",
               "RelativeDocumentMoniker": "html\\002-[Split].txt",
@@ -413,7 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "frmDuplicate.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDuplicate.cs",
               "RelativeDocumentMoniker": "html\\frmDuplicate.cs",
@@ -425,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "frmDuplicate.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDuplicate.cs",
               "RelativeDocumentMoniker": "html\\frmDuplicate.cs",
@@ -436,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "frmCompareTwoListOfString.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmCompareTwoListOfString.cs",
               "RelativeDocumentMoniker": "html\\frmCompareTwoListOfString.cs",
@@ -447,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "frmCompareTwoListOfString.Designer.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmCompareTwoListOfString.Designer.cs",
               "RelativeDocumentMoniker": "html\\frmCompareTwoListOfString.Designer.cs",
@@ -459,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "frmDuplicate.Designer.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDuplicate.Designer.cs",
               "RelativeDocumentMoniker": "html\\frmDuplicate.Designer.cs",
@@ -471,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "frmGenerateScriptsETWeb.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateScriptsETWeb.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateScriptsETWeb.cs",
@@ -482,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "frmMain.Designer.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmMain.Designer.cs",
               "RelativeDocumentMoniker": "html\\frmMain.Designer.cs",
@@ -494,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "frmGenerateScriptsETWeb.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateScriptsETWeb.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateScriptsETWeb.cs",
@@ -506,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "frmGenerateSearchFiles.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateSearchFiles.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateSearchFiles.cs",
@@ -518,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "frmGenerateSearchFiles.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateSearchFiles.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateSearchFiles.cs",
@@ -529,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "frmMergeFiles.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmMergeFiles.cs",
               "RelativeDocumentMoniker": "html\\frmMergeFiles.cs",
@@ -541,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "frmMergeFiles.resx",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmMergeFiles.resx",
               "RelativeDocumentMoniker": "html\\frmMergeFiles.resx",
@@ -552,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "ExplorerHelper.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\ExplorerHelper.cs",
               "RelativeDocumentMoniker": "html\\ExplorerHelper.cs",
@@ -564,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "frmMergeFiles.Designer.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmMergeFiles.Designer.cs",
               "RelativeDocumentMoniker": "html\\frmMergeFiles.Designer.cs",
@@ -576,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "frmExecuteBach.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmExecuteBach.cs",
               "RelativeDocumentMoniker": "html\\frmExecuteBach.cs",
@@ -588,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "frmMain.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmMain.cs",
               "RelativeDocumentMoniker": "html\\frmMain.cs",
@@ -600,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "frmRenameNumberPrefix.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmRenameNumberPrefix.cs",
               "RelativeDocumentMoniker": "html\\frmRenameNumberPrefix.cs",
@@ -612,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "frmBase64toFile.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmBase64toFile.cs",
               "RelativeDocumentMoniker": "html\\frmBase64toFile.cs",
@@ -624,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "TimeLine.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\TimeLine.cs",
               "RelativeDocumentMoniker": "html\\TimeLine.cs",
@@ -636,7 +675,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "003-[sp_CompareText].txt",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\003-[sp_CompareText].txt",
               "RelativeDocumentMoniker": "html\\003-[sp_CompareText].txt",
@@ -648,7 +687,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Querys.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\Data\\Querys.cs",
               "RelativeDocumentMoniker": "html\\Data\\Querys.cs",
@@ -660,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "frmGetInfoLabels.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGetInfoLabels.cs",
               "RelativeDocumentMoniker": "html\\frmGetInfoLabels.cs",
@@ -672,7 +711,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "frmGetText.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGetText.cs",
               "RelativeDocumentMoniker": "html\\frmGetText.cs",
@@ -684,7 +723,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "frmGetReportDataSorce.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGetReportDataSorce.cs",
               "RelativeDocumentMoniker": "html\\frmGetReportDataSorce.cs",
@@ -696,7 +735,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "frmGenerateMenu.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmGenerateMenu.cs",
               "RelativeDocumentMoniker": "html\\frmGenerateMenu.cs",
@@ -708,7 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "frmDepends.cs",
               "DocumentMoniker": "C:\\Users\\usu\\source\\repos\\html - 4.8\\html\\html\\frmDepends.cs",
               "RelativeDocumentMoniker": "html\\frmDepends.cs",

@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace UtilETWeb
 {
-    public class ComboBoxIcon : ComboBox
+    public class ComboBoxIcon : SuggestComboBox //ComboBox
     {
         private Bitmap img = Properties.Resources.arrow;
         public Bitmap Img

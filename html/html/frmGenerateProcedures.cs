@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 using System.Collections.Specialized;
 using System.Reflection;
 using UtilETWeb.Data;
+using static System.Net.Mime.MediaTypeNames;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -66,15 +67,25 @@ namespace UtilETWeb
 
             //this.Load += new EventHandler(frmGenerateProcedures_Load);
 
-            this.cmbDatabase.DataSource = GetConnexions();
+            // Cargar lista de conexiones
+            var conexiones = GetConnexions();
+            this.cmbDatabase.DataSource = conexiones;
             this.cmbDatabase.ValueMember = "Code";
             this.cmbDatabase.DisplayMember = "Name";
             //this.cmbDatabase.SelectedValue = System.Configuration.ConfigurationManager.AppSettings["ConnectionStringDMO"];
-            this.cmbDatabase.SelectedValue = "-1";
+            //this.cmbDatabase.SelectedValue = "-1";
 
-            this.cmbDatabase.MaxDropDownItems = 40;
-            this.cmbDatabase.IntegralHeight = false;
+            //this.cmbDatabase.MaxDropDownItems = 40;
+            //this.cmbDatabase.IntegralHeight = false;
 
+            // Configurar autocompletado
+            //AutoCompleteStringCollection autoCompleteData = new AutoCompleteStringCollection();
+            //autoCompleteData.AddRange(conexiones.Select(c => c.Name).ToArray());
+
+            cmbDatabase.DropDownStyle = ComboBoxStyle.DropDown;            
+            //cmbDatabase.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cmbDatabase.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //cmbDatabase.AutoCompleteCustomSource = autoCompleteData;
 
 
             List<Encoding> l = new List<Encoding>()
@@ -97,9 +108,8 @@ namespace UtilETWeb
             bgwTable.DoWork += new DoWorkEventHandler(bgwTable_DoWork);
             bgwTable.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwTable_RunWorkerCompleted);
             bgwTable.ProgressChanged += new ProgressChangedEventHandler(bgwProcedure_ProgressChanged);
-
-
         }
+
 
         void bgwTable_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -1062,7 +1072,7 @@ namespace UtilETWeb
             TableTypes(sender, e);
         }
 
-        private void AlterColumns(object sender, EventArgs e)
+        private void AlterColumnsOld(object sender, EventArgs e)
         {
             Empty(Path.Combine(Environment.CurrentDirectory, @"Scripts"));
 
@@ -1109,28 +1119,42 @@ namespace UtilETWeb
                             string alter = string.Empty;
                             alter += $@"IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE Name = N'{col.Name}' AND Object_ID = Object_ID(N'[{userTable.Schema}].[{userTable.Name}]'))";
                             alter += $@"
-BEGIN";
-                            if (!col.InPrimaryKey && !col.Nullable)
-                            {
+BEGIN
+    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD [{col.Name}] {typeWithPrecision} {((col.InPrimaryKey || col.IsForeignKey || (col.DefaultConstraint == null))  ? nullability : "NULL")}
+END
+GO";
 
+                            tw.WriteLine(alter);
+
+                            alter = string.Empty;
+                            if (col.InPrimaryKey) 
+                                continue;
+
+                            if (col.IsForeignKey) 
+                                continue;
+
+                            if ((col.DefaultConstraint == null))
+                                continue;
+
+
+                            if (!col.Nullable)
+                            {
+                                alter += $@"IF EXISTS (SELECT 1 FROM sys.columns WHERE Name = N'{col.Name}' AND Object_ID = Object_ID(N'[{userTable.Schema}].[{userTable.Name}]'))";
+                                alter += $@"
+BEGIN";
                                 if (col.DefaultConstraint != null)
                                 {
-                                    alter += $@"
-    -- Agregar como NULL temporalmente para evitar error si hay filas existentes
-    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD [{col.Name}] {typeWithPrecision};";
                                     string defText = col.DefaultConstraint.Text;
                                     alter += $@"
     -- Rellenar los valores nulos con def
-    UPDATE [{userTable.Schema}].[{userTable.Name}] SET [{col.Name}] = {defText} WHERE [{col.Name}] IS NULL;
-    -- Cambiar a NOT NULL";
+    UPDATE [{userTable.Schema}].[{userTable.Name}] SET [{col.Name}] = {defText} WHERE [{col.Name}] IS NULL;";
                                 }
+
+                                alter += $@"
+    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ALTER COLUMN [{col.Name}] {typeWithPrecision} {nullability};
+END
+GO";                                
                             }
-
-                            alter += $@"
-    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD [{col.Name}] {typeWithPrecision} {nullability};";
-
-                            alter += $@"
-END";
 
                             tw.WriteLine(alter);
                         }
@@ -1181,7 +1205,115 @@ END";
             }
         }
 
+        private void AlterColumns(object sender, EventArgs e)
+        {
+            Empty(Path.Combine(Environment.CurrentDirectory, @"Scripts"));
 
+            //System.IO.Directory.Delete(Path.Combine(Environment.CurrentDirectory, @"Scripts"), false);
+            //System.IO.Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, @"Scripts"));
+
+            //string value = string.Join("|", this.listsp.Select(x => string.Format("{0}-{1}", x.Name, x.RealName)).ToArray());
+            //MessageBox.Show(value);
+
+            using (SqlConnection sqlConn = new SqlConnection(this.ConnectionString))
+            {
+                sqlConn.Open();
+                ServerConnection srvConn = new ServerConnection(sqlConn);
+                Server srv = new Server(srvConn);
+                Database db = srv.Databases[srvConn.DatabaseName];
+                foreach (Table userTable in db.Tables.OfType<Table>().Where(sp => this.listsp.Any(s => s.RealName.ToUpper().Equals(sp.Name.ToUpper()))))
+                {
+
+                    string myFileName = this.listsp.FirstOrDefault(d => d.RealName.ToUpper().Equals(userTable.Name.ToUpper())).Name;
+                    using (TextWriter tw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, string.Format(@"Scripts\{0}", myFileName)), false, (Encoding)this.comboBox1.SelectedItem))
+                    {
+
+                        tw.WriteLine($"---- Script de columnas ({userTable.Name}) ----");
+                        // PRIMARY KEYS
+                        foreach (Index idx in userTable.Indexes)
+                        {
+                            if (idx.IndexKeyType == IndexKeyType.DriPrimaryKey)
+                                tw.WriteLine($"-- PRIMARY KEY: {idx.Name}");
+                        }
+
+                        // FOREIGN KEYS
+                        foreach (ForeignKey fk in userTable.ForeignKeys)
+                        {
+                            tw.WriteLine($"-- FOREIGN KEY: {fk.Name} REFERENCES {fk.ReferencedTable}");
+                        }
+
+                        tw.WriteLine("-- ======= COLUMNAS =======");
+                        foreach (Column col in userTable.Columns)
+                        {
+                            string dataType = col.DataType.Name.ToLower();
+                            string typeWithPrecision = GetTypeWithPrecision(col);
+                            string nullability = col.Nullable ? "NULL" : "NOT NULL";
+
+                            string alter = string.Empty;
+                            alter += $@"IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE Name = N'{col.Name}' AND Object_ID = Object_ID(N'[{userTable.Schema}].[{userTable.Name}]'))";
+                            alter += $@"
+BEGIN
+    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD [{col.Name}] {typeWithPrecision} {nullability}";
+                                                       
+                            if (col.DefaultConstraint != null)
+                            {
+                                string defName = col.DefaultConstraint.Name;
+                                string defText = col.DefaultConstraint.Text;
+                                alter += $@" CONSTRAINT[{defName}] DEFAULT({defText});";
+                            }
+
+                            alter += $@"    
+END";
+
+                            tw.WriteLine(alter);
+
+                        }
+
+                        tw.WriteLine("-- ======= DEFAULT CONSTRAINTS =======");
+                        foreach (Column col in userTable.Columns)
+                        {
+                            if (col.DefaultConstraint != null)
+                            {
+                                string defName = col.DefaultConstraint.Name;
+                                string defText = col.DefaultConstraint.Text;
+                                string alter = $@"IF NOT EXISTS (SELECT 1 FROM sys.default_constraints WHERE Name = N'{defName}' AND Parent_Object_ID = Object_ID(N'[{userTable.Schema}].[{userTable.Name}]'))" +
+$@"BEGIN
+    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD CONSTRAINT [{defName}] DEFAULT ({defText}) FOR [{col.Name}];
+END";
+                                tw.WriteLine(alter);
+                            }
+                        }
+
+                        tw.WriteLine("-- ======= CHECK CONSTRAINTS =======");
+                        foreach (Check chk in userTable.Checks)
+                        {
+                            string alter = $@"IF NOT EXISTS (SELECT 1 FROM sys.check_constraints WHERE Name = N'{chk.Name}' AND Parent_Object_ID = Object_ID(N'[{userTable.Schema}].[{userTable.Name}]'))" +
+$@"BEGIN
+    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD CONSTRAINT [{chk.Name}] CHECK {chk.Text};
+END";
+                            tw.WriteLine(alter);
+                        }
+
+                        tw.WriteLine("-- ======= FOREIGN KEYS =======");
+                        foreach (ForeignKey fk in userTable.ForeignKeys)
+                        {
+                            string cols = string.Join(",", fk.Columns.Cast<ForeignKeyColumn>().Select(c => $"[{c.Name}]"));
+                            string refCols = string.Join(",", fk.Columns.Cast<ForeignKeyColumn>().Select(c => $"[{c.ReferencedColumn}]"));
+                            string alter = $@"IF NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE Name = N'{fk.Name}' AND Parent_Object_ID = Object_ID(N'[{userTable.Schema}].[{userTable.Name}]'))" +
+$@"BEGIN
+    ALTER TABLE [{userTable.Schema}].[{userTable.Name}] ADD CONSTRAINT [{fk.Name}] FOREIGN KEY ({cols}) REFERENCES [{fk.ReferencedTableSchema}].[{fk.ReferencedTable}] ({refCols});
+END";
+                            tw.WriteLine(alter);
+
+                        }
+                        /////end
+                    }
+                }
+
+
+                Process.Start("explorer.exe", Path.Combine(Environment.CurrentDirectory, @"Scripts"));
+            }
+        }
 
         private void button7_Click(object sender, EventArgs e)
         {

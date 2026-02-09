@@ -15,6 +15,8 @@ using System.Configuration;
 using System.Data.Common;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using Microsoft.SqlServer.Management.HadrData;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 //http://www.worldbestlearningcenter.com/index_files/csharp-draw-lines.htm
 namespace UtilETWeb
@@ -28,6 +30,17 @@ namespace UtilETWeb
             this.Load += new EventHandler(frmDepends_Load);
         }
 
+        public static void Empty(string directory)
+        {
+            foreach (string fileToDelete in System.IO.Directory.GetFiles(directory))
+            {
+                System.IO.File.Delete(fileToDelete);
+            }
+            foreach (string subDirectoryToDeleteToDelete in System.IO.Directory.GetDirectories(directory))
+            {
+                System.IO.Directory.Delete(subDirectoryToDeleteToDelete, true);
+            }
+        }
 
         private List<UtilETWeb.MyConfigSection.MyConfigInstanceElement> GetConnexions()
         {
@@ -44,17 +57,6 @@ namespace UtilETWeb
             return l;
         }
 
-        public static void Empty(string directory)
-        {
-            foreach (string fileToDelete in System.IO.Directory.GetFiles(directory))
-            {
-                System.IO.File.Delete(fileToDelete);
-            }
-            foreach (string subDirectoryToDeleteToDelete in System.IO.Directory.GetDirectories(directory))
-            {
-                System.IO.Directory.Delete(subDirectoryToDeleteToDelete, true);
-            }
-        }
 
         void frmDepends_Load(object sender, EventArgs e)
         {
@@ -65,6 +67,7 @@ namespace UtilETWeb
             this.cmbDatabase.DisplayMember = "Name";
             this.cmbDatabase.SelectedValue = "-1";
             this.cmbDatabase.SelectedValue = this.ConnectionStringPRO;
+            this.cmbDatabase.DropDownStyle = ComboBoxStyle.DropDown;
 
 
             this.cmbCompareDatabase.DataSource = GetConnexions();
@@ -72,6 +75,7 @@ namespace UtilETWeb
             this.cmbCompareDatabase.DisplayMember = "Name";
             this.cmbCompareDatabase.SelectedValue = "-1";
             this.cmbCompareDatabase.SelectedValue = this.ConnectionStringDEV;
+            this.cmbCompareDatabase.DropDownStyle = ComboBoxStyle.DropDown;
 
 
             List<EnumModel> enums = ((IEnumerable<EnumObjectType>)Enum
