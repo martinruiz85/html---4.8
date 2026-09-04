@@ -108,6 +108,11 @@ namespace UtilETWeb
             bgwTable.DoWork += new DoWorkEventHandler(bgwTable_DoWork);
             bgwTable.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwTable_RunWorkerCompleted);
             bgwTable.ProgressChanged += new ProgressChangedEventHandler(bgwProcedure_ProgressChanged);
+
+            bgwInserts.WorkerReportsProgress = true;
+            bgwInserts.DoWork += new DoWorkEventHandler(bgwInserts_DoWork);
+            bgwInserts.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwInserts_RunWorkerCompleted);
+            bgwInserts.ProgressChanged += new ProgressChangedEventHandler(bgwProcedure_ProgressChanged);
         }
 
 
@@ -440,6 +445,7 @@ namespace UtilETWeb
         {
             public string Name { get; set; }
             public string RealName { get; set; }
+            public string Where {get;set;}
         }
 
         private List<SqlFile> listsp
@@ -460,17 +466,23 @@ namespace UtilETWeb
                         .Select(s => new SqlFile()
                         {
                             Name = s,
-                            RealName = Regex.Match(s, pattern).Value.Trim("[]".ToCharArray())
+                            RealName = Regex.Match(s, pattern).Value.Trim("[]".ToCharArray())                            
                         }).ToList();
                 }
                 else
                 {
                     query = input
                         .Split("\n".ToCharArray())
-                        .Select((s, index) => new SqlFile()
+                        .Select((s, index) =>
                         {
-                            Name = string.Format("{1}-[{0}].sql", s, index.ToString("0000")),
-                            RealName = s
+                            string cleanName = Regex.Match(s, @"^[^|]+").Value.Trim();
+                            string whereValue = Regex.Match(s, @"\|(.+)$").Groups[1].Value.Trim();
+                            return new SqlFile()
+                            {
+                                Name = string.Format("{1}-[{0}].sql", cleanName, index.ToString("0000")),
+                                RealName = cleanName,
+                                Where = whereValue
+                            };
                         }).ToList();
                 }
 
@@ -494,6 +506,7 @@ namespace UtilETWeb
         }
 
         private BackgroundWorker bgwProcedure = new BackgroundWorker();
+        private BackgroundWorker bgwInserts = new BackgroundWorker();
 
         private void Procedure_Click_Original(object sender, EventArgs e)
         {
@@ -1346,28 +1359,183 @@ END";
 
         private void button8_Click(object sender, EventArgs e)
         {
-            using (SqlConnection sqlConn = new SqlConnection(this.ConnectionString))
+            Button btn = sender as Button;
+            if (!bgwInserts.IsBusy)
+            {
+                Empty(Path.Combine(Environment.CurrentDirectory, @"Scripts"));
+                btn.Enabled = false;
+                progressBar1.Value = 0;
+
+                object[] args = { listsp, this.cmbDatabase.SelectedValue };
+                bgwInserts.RunWorkerAsync(args);
+            }
+        }
+
+        void bgwInserts_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var argument = e.Argument as object[];
+            List<SqlFile> _listsp = argument[0] as List<SqlFile>;
+            string _connectionString = argument[1] as string;
+
+            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
             {
                 sqlConn.Open();
                 ServerConnection srvConn = new ServerConnection(sqlConn);
                 Server srv = new Server(srvConn);
                 Database db = srv.Databases[srvConn.DatabaseName];
-                foreach (Table userTable in db.Tables.OfType<Table>().Where(sp => this.listsp.Any(s => s.RealName.ToUpper().Equals(sp.Name.ToUpper()))))
+
+                List<Table> tables = db.Tables.OfType<Table>()
+                    .Where(t => _listsp.Any(s => s.RealName.ToUpper().Equals(t.Name.ToUpper())))
+                    .ToList();
+
+                for (int i = 0; i < tables.Count; i++)
                 {
-                    string myFileName = this.listsp.FirstOrDefault(d => d.RealName.ToUpper().Equals(userTable.Name.ToUpper())).Name;
-                    using (TextWriter tw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, string.Format(@"Scripts\{0}", myFileName)), false, (Encoding)this.comboBox1.SelectedItem))
+                    Table userTable = tables[i];
+                    var sqlObj = _listsp.FirstOrDefault(d => d.RealName.ToUpper().Equals(userTable.Name.ToUpper()));
+                    string myFileName = sqlObj.Name;
+                    string myTableNameWithWhere = string.Format("{0}|{1}", sqlObj.RealName, sqlObj.Where);
+                    using (TextWriter tw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, string.Format(@"Scripts\{0}", myFileName)), false, (Encoding)EncodingSelect))
                     {
-                        tw.Write(GenerateInsertsWithIdentity(this.ConnectionString, "dbo", userTable.Name));
+                        tw.Write(GenerateInsertsWithIdentity(_connectionString, "dbo", myTableNameWithWhere));
                     }
+
+                    bgwInserts.ReportProgress((int)(((i + 1f) / tables.Count) * 100.00));
                 }
             }
+        }
 
+        void bgwInserts_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.button8.Enabled = true;
             Process.Start("explorer.exe", Path.Combine(Environment.CurrentDirectory, @"Scripts"));
         }
 
-        static string GenerateInsertsWithIdentity(string connectionString, string schema, string tableName)
+		static string GenerateInsertsWithIdentity(string connectionString, string schema, string tableName)
+		{
+			string whereFilter = null;
+			string[] pipe = tableName.Split('|');
+			if (1<pipe.Length)
+			{
+				tableName = pipe[0].Trim();
+				whereFilter = pipe[1].Trim();                
+			}
+
+			StringBuilder sb = new StringBuilder();
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			{
+				conn.Open();
+				Server server = new Server(new ServerConnection(conn));
+				Table table = server.Databases[conn.Database].Tables[tableName, schema];
+
+				bool tieneIdentity = table.Columns.Cast<Column>().Any(c => c.Identity);
+
+				// Detectar columnas PK
+				var pkColumns = table.Columns.Cast<Column>()
+					.Where(c => c.InPrimaryKey)
+					.Select(c => c.Name)
+					.ToList();
+
+				// Si no hay PK, buscar el primer índice único con menos columnas
+				if (pkColumns.Count == 0)
+				{
+					var uniqueIndex = table.Indexes.Cast<Index>()
+						.Where(i => i.IsUnique)
+						.OrderBy(i => i.IndexedColumns.Count)
+						.FirstOrDefault();
+
+					if (uniqueIndex != null)
+					{
+						pkColumns = uniqueIndex.IndexedColumns.Cast<IndexedColumn>()
+							.Select(c => c.Name)
+							.ToList();
+					}
+				}
+
+				bool tienePK = pkColumns.Count > 0;
+
+				string query = $"SELECT * FROM [{schema}].[{tableName}]";
+				if (!string.IsNullOrEmpty(whereFilter))
+					query += $" WHERE {whereFilter}";
+				SqlCommand cmd = new SqlCommand(query, conn);
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				da.Fill(dt);
+
+				if (tieneIdentity)
+				{
+					sb.AppendLine($"SET IDENTITY_INSERT [{schema}].[{tableName}] ON;");
+					sb.AppendLine();
+				}
+
+				int count = 0;
+				foreach (DataRow row in dt.Rows)
+				{
+					StringBuilder columns = new StringBuilder();
+					StringBuilder values = new StringBuilder();
+
+					var cols = table.Columns.Cast<Column>()
+						.Where(c => !c.Computed)
+						.ToList();
+
+					for (int i = 0; i < cols.Count; i++)
+					{
+						var col = cols[i];
+						string colName = col.Name;
+						object value = row[colName];
+
+						columns.Append($"[{colName}]");
+						if (i < cols.Count - 1) columns.Append(", ");
+
+						values.Append(GetSqlValue(value, col.DataType));
+						if (i < cols.Count - 1) values.Append(", ");
+					}
+
+					if (tienePK)
+					{
+						var pkConditions = pkColumns
+							.Select(pk =>
+							{
+								var pkCol = cols.First(c => c.Name == pk);
+								object pkValue = row[pk];
+								return $"[{pk}] = {GetSqlValue(pkValue, pkCol.DataType)}";
+							})
+							.ToList();
+
+						string whereClause = string.Join(" AND ", pkConditions);
+
+						sb.AppendLine($"IF NOT EXISTS (SELECT 1 FROM [{schema}].[{tableName}] WHERE {whereClause})");
+						sb.AppendLine($"    INSERT INTO [{schema}].[{tableName}] ({columns}) VALUES ({values});");
+					}
+					else
+					{
+						sb.AppendLine($"INSERT INTO [{schema}].[{tableName}] ({columns}) VALUES ({values});");
+					}
+
+					count++;
+					if (count % 50 == 0)
+						sb.AppendLine("GO");
+				}
+
+				if (tieneIdentity)
+				{
+					sb.AppendLine();
+					sb.AppendLine($"SET IDENTITY_INSERT [{schema}].[{tableName}] OFF;");
+				}
+			}
+			return sb.ToString();
+		}
+
+		static string GenerateInsertsWithIdentityWithoutIfExists(string connectionString, string schema, string tableName)
         {
-            StringBuilder sb = new StringBuilder();
+            string whereFilter = null;
+			string[] pipe = tableName.Split('|');
+			if (1 < pipe.Length)
+			{
+				tableName = pipe[0].Trim();
+				whereFilter = pipe[1].Trim();
+			}
+
+			StringBuilder sb = new StringBuilder();
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -1380,7 +1548,10 @@ END";
                 bool tieneIdentity = table.Columns.Cast<Column>().Any(c => c.Identity);
 
                 // Obtener datos
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM [{schema}].[{tableName}]", conn);
+                string query = $"SELECT * FROM [{schema}].[{tableName}]";
+                if (!string.IsNullOrEmpty(whereFilter))
+                    query += $" WHERE {whereFilter}";
+                SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -1462,17 +1633,22 @@ END";
 
 public static class MyExtensions
 {
-    public static IEnumerable<string> CustomSort(this IEnumerable<string> list)
+    public static IEnumerable<string> CustomSort(this IEnumerable<string> list, bool descending = false)
     {
         int maxLen = list.Select(s => s.Length).Max();
 
-        return list.Select(s => new
+        var query = list.Select(s => new
         {
             OrgStr = s,
             SortStr = Regex.Replace(s, @"(\d+)|(\D+)", m => m.Value.PadLeft(maxLen, char.IsDigit(m.Value[0]) ? ' ' : '\xffff'))
-        })
-        .OrderBy(x => x.SortStr)
-        .Select(x => x.OrgStr);
-    }
+        });
+
+		query = descending
+		? query.OrderByDescending(x => x.SortStr)
+		: query.OrderBy(x => x.SortStr);
+
+		return query.Select(x => x.OrgStr);
+
+	}
 
 }

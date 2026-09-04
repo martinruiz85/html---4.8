@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+//using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UtilETWeb
 {
@@ -117,14 +119,50 @@ namespace UtilETWeb
             suggestionListBox.DataSource = suggBindingList;
             suggestionListBox.Click += SuggestionListBoxOnClick;
 
-            ParentChanged += OnParentChanged;
+			// Activar el modo de dibujo personalizado
+			suggestionListBox.DrawMode = DrawMode.OwnerDrawFixed;
+			//suggestionListBox.ItemHeight = 18;
+			suggestionListBox.DrawItem += SuggestionListBox_DrawItem;
+
+			ParentChanged += OnParentChanged;
         }
 
-        /// <summary>
-        /// the magic happens here ;-)
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnTextChanged(EventArgs e)
+        private void SuggestionListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+			if (e.Index < 0) return;
+
+			string texto = suggestionListBox.Items[e.Index].ToString();
+
+			// Dibujar fondo (maneja selección)
+			e.DrawBackground();
+
+			// Elegir fuente según si empieza con "Pro"
+			Font fuente = texto.StartsWith("Pro", StringComparison.OrdinalIgnoreCase)
+				? new Font(e.Font, FontStyle.Bold)
+				: e.Font;
+
+			// Color del texto (blanco si está seleccionado, negro si no)
+			Color colorTexto = (e.State & DrawItemState.Selected) != 0
+				? Color.White
+				: Color.Black;
+
+			e.Graphics.DrawString(texto, fuente, new SolidBrush(colorTexto), e.Bounds);
+
+			// Dibujar el foco si corresponde
+			e.DrawFocusRectangle();
+
+			// Liberar fuente si fue creada nueva
+			if (fuente != e.Font)
+				fuente.Dispose();
+
+		}
+
+
+		/// <summary>
+		/// the magic happens here ;-)
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
             if (!Focused) return;
@@ -175,10 +213,10 @@ namespace UtilETWeb
             suggestionListBox.Top = Top + Height;
             suggestionListBox.Left = Left;
             suggestionListBox.Width = Width;
-            suggestionListBox.Font = Font;
-            
+			suggestionListBox.Font = Font;
+			//suggestionListBox.Font = new System.Drawing.Font(Font, System.Drawing.FontStyle.Bold);
 
-        }
+		}
 
         protected override void OnLocationChanged(EventArgs e)
         {

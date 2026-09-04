@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using Microsoft.Data.SqlClient;
-using Microsoft.SqlServer.Management.Smo;
-using Microsoft.SqlServer.Management.Common;
-using System.Configuration;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
 
 namespace UtilETWeb
 {
@@ -41,24 +42,45 @@ namespace UtilETWeb
 
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            //MessageBox.Show("termino");
-            this.progressBar1.Value = 100;
-
-        }
+			//MessageBox.Show("termino");
+			string result = e.Result as string;		
+			if (result == "OK")
+			{
+				this.progressBar1.Value = 100;
+				this.btnGenerate.Image = Properties.Resources.work;
+				errorProvider1.SetError(btnGenerate, "");
+			}
+			else
+			{
+				this.btnGenerate.Image = Properties.Resources.exclamation;
+				errorProvider1.SetError(btnGenerate, result);
+			}
+		}
 
         void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            List<UtilETWeb.frmGenerateProcedures.SqlFile> l = e.Argument as List<UtilETWeb.frmGenerateProcedures.SqlFile>;
-            foreach (var item in l)
+            string filename = "";
+            try            
             {
-                string script = File.ReadAllText(item.Name, Encoding.UTF8);
-                SqlConnection conn = new SqlConnection(ConnectionString);
-                Server server = new Server(new ServerConnection(conn));
-                server.ConnectionContext.ExecuteNonQuery(script);
+				List<UtilETWeb.frmGenerateProcedures.SqlFile> l = e.Argument as List<UtilETWeb.frmGenerateProcedures.SqlFile>;
+				foreach (var item in l)
+				{
+                    filename = item.Name;
+					string script = File.ReadAllText(item.Name, Encoding.UTF8);
+					SqlConnection conn = new SqlConnection(ConnectionString);
+					Server server = new Server(new ServerConnection(conn));
+					server.ConnectionContext.ExecuteNonQuery(script);
 
-                float percent = ((float)(l.IndexOf(item) + 1) / (float)l.Count) * (100.0F);
-                this.backgroundWorker1.ReportProgress((int)percent);
+					float percent = ((float)(l.IndexOf(item) + 1) / (float)l.Count) * (100.0F);
+					this.backgroundWorker1.ReportProgress((int)percent);
+				}
+				e.Result = "OK";
+			}
+            catch (Exception ex)
+            {
+                e.Result = string.Format("{0}|{1}", filename, ex.Message);
             }
+            
         }
 
         private string DirectoryPath
@@ -168,7 +190,7 @@ namespace UtilETWeb
                 string input = string.Join("\n", Directory.GetFiles(DirectoryPath, SearchPattern, SearchOption.TopDirectoryOnly));
                 query = input
                     .Split("\n".ToCharArray())
-                    .CustomSort()
+                    .CustomSort(this.chkDesc.Checked)
                     .ToList()
                     .Select(s => new UtilETWeb.frmGenerateProcedures.SqlFile()
                     {
@@ -184,7 +206,9 @@ namespace UtilETWeb
             {
                 this.backgroundWorker1.RunWorkerAsync(this.listsp);
                 this.progressBar1.Value = 0;
-            }
+                this.lblPorcent.Text = "";
+				this.btnGenerate.Image = Properties.Resources.generator;
+			}
         }
 
         private void cmbDatabase_Validating(object sender, CancelEventArgs e)
@@ -203,6 +227,11 @@ namespace UtilETWeb
                 e.Cancel = false;
                 this.errorProvider1.SetError(txtPath, "");
             }
+        }
+
+        private void chkDesc_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

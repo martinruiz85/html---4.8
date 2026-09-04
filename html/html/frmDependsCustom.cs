@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using UtilETWeb.Data;
+using html;
 using Microsoft.Data.SqlClient;
-using System.IO;
 using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;
-using System.Configuration;
-using System.Data.Common;
-using System.Collections.Specialized;
-using System.Diagnostics;
 using Microsoft.SqlServer.Management.HadrData;
+using Microsoft.SqlServer.Management.Smo;
+using UtilETWeb.Data;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 //http://www.worldbestlearningcenter.com/index_files/csharp-draw-lines.htm
@@ -619,10 +620,10 @@ namespace UtilETWeb
             sqlScriptFile = FileName;
         }
 
-        string winMergePath = @"C:\Program Files\WinMerge\WinMergeU.exe";
+		//string winMergePath = @"C:\Program Files\WinMerge\WinMergeU.exe";
+		string winMergePath = @"C:\Program Files\TortoiseSVN\bin\TortoiseMerge.exe"; 
 
-
-        private void GenerateScriptSP(string ObjectName)
+		private void GenerateScriptSP(string ObjectName)
         {
             string dirScripts = Path.Combine(Environment.CurrentDirectory, @"Scripts");
             Empty(dirScripts);

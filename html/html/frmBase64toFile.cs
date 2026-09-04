@@ -18,8 +18,8 @@ namespace Base64ToFile
 		}
 
 		private void Form1_Load(object sender, EventArgs e) {
-			this.txtDecryptFileResult.Text = "[type_your_decrypt_file].zip";
-			this.txtEncryptFileResult.Text = "[type_your_encrypt_file].txt";
+			this.txtDecryptFileResult.Text = "[name_decrypt_file].ext (ext: .zip, .png, ..., etc)";
+			this.txtEncryptFileResult.Text = "[name_encrypt_file].txt ";
 
 			this.btnDecryptFile.Icon = "\uf016";
 			this.btnEncrpytFile.Icon = "\uf0f6";

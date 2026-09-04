@@ -339,5 +339,30 @@ namespace html
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void migrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			
+		}
+
+		private void importCsvToolStripMenuItem_Click(object sender, EventArgs e)
+		{			
+		}
+
+        private void migrationToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+			frmMigration frm = new frmMigration();
+			frm.WindowState = FormWindowState.Maximized;
+			frm.MdiParent = this;
+			frm.Show();
+		}
+
+        private void importCSVToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+			frmImportCsv frm = new frmImportCsv();
+			frm.WindowState = FormWindowState.Maximized;
+			frm.MdiParent = this;
+			frm.Show();
+		}
     }
 }

@@ -1,6 +1,0 @@
-  + Cat_GetTimesZones
-    |  + column|Cat_GetTimesZones|user table|Id|:[x][x]
-    |  + column|Cat_GetTimesZones|user table|Name|:[x][x]
-       + user table|dbo.Cat_TimeZone|:[x][x]
-         |  + column|dbo.Cat_TimeZone|Id|int|4||:[x][x]
-            + column|dbo.Cat_TimeZone|Name|varchar|50||:[x][x]
